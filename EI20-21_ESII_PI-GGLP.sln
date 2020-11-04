@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EI20-21_ESII_PI-GGLP", "EI20-21_ESII_PI-GGLP\EI20-21_ESII_PI-GGLP.csproj", "{603BEDCB-712B-45C9-86D8-2D0690C5CD98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EI20-21_ESII_PI-GGLP", "EI20-21_ESII_PI-GGLP\EI20-21_ESII_PI-GGLP.csproj", "{603BEDCB-712B-45C9-86D8-2D0690C5CD98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
