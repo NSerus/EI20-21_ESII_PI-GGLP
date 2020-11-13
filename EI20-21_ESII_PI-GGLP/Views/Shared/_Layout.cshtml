@@ -18,62 +18,66 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/css/styles.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/custom.css" rel="stylesheet" />
 </head>
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-dark" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">GGLP</a>
+            <a class="navbar-brand" href="#">
+                <img src="~/assets/img/logo.png" width="30" height="40" alt="">
+            </a>
+            <a class="navbar-brand js-scroll-trigger" href="Index">GGLP</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Serviços</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Categorias</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contactos</a></li>
+                    <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Categorias</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contactos</a></li>-->
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="Sobre">Sobre</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Masthead-->
-    <header class="img_header">
+    @*<header class="img_header">
         <div class="container h-100">
             @RenderBody()
         </div>
-    </header>
-
+    </header>*@
+    @RenderBody()
     <!-- Services-->
-            <section class="page-section" id="services">
-                <div class="container">
-                    <h2 class="text-center mt-0">Vantagens</h2>
-                    <hr class="divider my-4" />
-                    <div class="rowv2">
+    <!--<section class="page-section" id="services">
+        <div class="container">
+            <h2 class="text-center mt-0">Vantagens</h2>
+            <hr class="divider my-4" />
+            <div class="rowv2">
 
-                        <div class="col-lg-3 col-md-6 text-center">
-                            <div class="mt-5">
-                                <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-                                <h3 class="h4 mb-2">Sempre Atualizada</h3>
-                                <p class="text-muted mb-0">O número de Indivíduos está sempre atualizado</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 text-center">
-                            <div class="mt-5">
-                                <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-                                <h3 class="h4 mb-2">Vários Locais</h3>
-                                <p class="text-muted mb-0">Pode-se ir a diversos locais, até criar novos!!</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 text-center">
-                            <div class="mt-5">
-                                <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-                                <h3 class="h4 mb-2">Open Source</h3>
-                                <p class="text-muted mb-0">O código pode ser visto por todos</p>
-                            </div>
-                        </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Sempre Atualizada</h3>
+                        <p class="text-muted mb-0">O número de Indivíduos está sempre atualizado</p>
                     </div>
                 </div>
-            </section>
-            <!-- Portfolio
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Vários Locais</h3>
+                        <p class="text-muted mb-0">Pode-se ir a diversos locais, até criar novos!!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="fas fa-4x fa-heart text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Open Source</h3>
+                        <p class="text-muted mb-0">O código pode ser visto por todos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    <!-- Portfolio
     <div id="portfolio">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
@@ -151,13 +155,13 @@
             </div>
         </div>
     </section>-->
-            <!-- Footer-->
-            <footer class="bg-light py-5">
-                <div class="container"><div class="small text-center text-muted">Copyright © 2020 - GGLP</div></div>
-            </footer>
-            <script src="~/lib/jquery/dist/jquery.min.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-            @RenderSection("Scripts", required: false)
+    <!-- Footer-->
+    <footer class="bg-dark py-5">
+        <div class="container"><div class="small text-center text-muted text-light">Copyright © 2020 - GGLP</div></div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
