@@ -33,7 +33,7 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             return View();
         }
 
-        public IActionResult Ajuda()
+        public IActionResult FAQ()
         {
             return View();
         }
