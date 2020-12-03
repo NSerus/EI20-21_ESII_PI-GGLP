@@ -67,6 +67,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
         [Required(ErrorMessage = "Introduza o contacto telefónico do novo Ponto de Interesse.")]
         [Display(Name = "Contacto")]
         [RegularExpression(@"((9[1236]|2\d)\d{7})", ErrorMessage = "Contacto Inválido.")]
+
         //[Phone]
         public int PContacto { get; set; }
 
@@ -79,8 +80,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public string PEmail { get; set; }
 
         // #PERSONS
-        [Required(ErrorMessage = "Introduza o número de Indivíduos do novo Ponto de Interesse (default = 0).")]
-        [Display(Name = "# Pessoas")]
+        [Required(ErrorMessage = "Introduza o número de Indivíduos do novo Ponto de Interesse.")]
+        [Display(Name = "# Pessoas (default = 0)")]
         public int PPersonsNum { get; set; }
 
         // #TOTALPERSONS
