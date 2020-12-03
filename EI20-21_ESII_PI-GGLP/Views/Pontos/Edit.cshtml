@@ -1,0 +1,95 @@
+﻿@model EI20_21_ESII_PI_GGLP.Models.Pontos
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Pontos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PontoId" />
+            <div class="form-group">
+                <label asp-for="PPicture" class="control-label"></label>
+                <input asp-for="PPicture" class="form-control" />
+                <span asp-validation-for="PPicture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PNome" class="control-label"></label>
+                <input asp-for="PNome" class="form-control" />
+                <span asp-validation-for="PNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PCategoria" class="control-label"></label>
+                <input asp-for="PCategoria" class="form-control" />
+                <span asp-validation-for="PCategoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PDescricao" class="control-label"></label>
+                <input asp-for="PDescricao" class="form-control" />
+                <span asp-validation-for="PDescricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PEndereco" class="control-label"></label>
+                <input asp-for="PEndereco" class="form-control" />
+                <span asp-validation-for="PEndereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PCoordenadas" class="control-label"></label>
+                <input asp-for="PCoordenadas" class="form-control" />
+                <span asp-validation-for="PCoordenadas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PHorarioSemana" class="control-label"></label>
+                <input asp-for="PHorarioSemana" class="form-control" />
+                <span asp-validation-for="PHorarioSemana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PHorarioFimSemana" class="control-label"></label>
+                <input asp-for="PHorarioFimSemana" class="form-control" />
+                <span asp-validation-for="PHorarioFimSemana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PHorarioFeriado" class="control-label"></label>
+                <input asp-for="PHorarioFeriado" class="form-control" />
+                <span asp-validation-for="PHorarioFeriado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PContacto" class="control-label"></label>
+                <input asp-for="PContacto" class="form-control" />
+                <span asp-validation-for="PContacto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PEmail" class="control-label"></label>
+                <input asp-for="PEmail" class="form-control" />
+                <span asp-validation-for="PEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PPersonsNum" class="control-label"></label>
+                <input asp-for="PPersonsNum" class="form-control" />
+                <span asp-validation-for="PPersonsNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PTotalPersonsNum" class="control-label"></label>
+                <input asp-for="PTotalPersonsNum" class="form-control" />
+                <span asp-validation-for="PTotalPersonsNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

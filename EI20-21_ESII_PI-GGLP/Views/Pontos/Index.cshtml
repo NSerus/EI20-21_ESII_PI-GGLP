@@ -1,0 +1,108 @@
+﻿@model IEnumerable<EI20_21_ESII_PI_GGLP.Models.Pontos>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PPicture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PCategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PDescricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PEndereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PCoordenadas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHorarioSemana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHorarioFimSemana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHorarioFeriado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PContacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PPersonsNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PTotalPersonsNum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PPicture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PDescricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PEndereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PCoordenadas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHorarioSemana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHorarioFimSemana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHorarioFeriado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PContacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PPersonsNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PTotalPersonsNum)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PontoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PontoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PontoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

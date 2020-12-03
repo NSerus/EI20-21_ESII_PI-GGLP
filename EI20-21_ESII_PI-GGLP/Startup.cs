@@ -34,6 +34,9 @@ namespace EI20_21_ESII_PI_GGLP
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddDbContext<PontosDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PontosDbContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
