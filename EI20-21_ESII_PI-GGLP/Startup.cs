@@ -30,8 +30,14 @@ namespace EI20_21_ESII_PI_GGLP
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<GGLPDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("GGLPConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
