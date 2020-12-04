@@ -14,7 +14,7 @@ namespace EI20_21_ESII_PI_GGLP.Data
         {
         }
 
-        //public DbSet<Pontos> Pontos { get; set; }
+        public DbSet<Pontos> Pontos { get; set; }
 
         public DbSet<EI20_21_ESII_PI_GGLP.Models.Contacts> Contactos { get; set; }
     }
