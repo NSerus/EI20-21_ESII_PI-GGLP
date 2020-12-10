@@ -41,7 +41,8 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     PContacto = table.Column<int>(nullable: false),
                     PEmail = table.Column<string>(maxLength: 100, nullable: false),
                     PPersonsNum = table.Column<int>(nullable: false),
-                    PTotalPersonsNum = table.Column<int>(nullable: false)
+                    PTotalPersonsNum = table.Column<int>(nullable: false),
+                    PCovid = table.Column<string>(maxLength: 400, nullable: false)
                 },
                 constraints: table =>
                 {
