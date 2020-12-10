@@ -88,5 +88,11 @@ namespace EI20_21_ESII_PI_GGLP.Models
         [Required(ErrorMessage = "Introduza o número máximo de Indivíduos permitidos no novo Ponto de Interesse.")]
         [Display(Name = "# Total Pessoas")]
         public int PTotalPersonsNum { get; set; }
+
+        // COVID
+        [Required(ErrorMessage = "Introduza as normas COVID-19 aplicadas no novo Ponto de Interesse.")]
+        [Display(Name = "COVID-19")]
+        [StringLength(400, MinimumLength = 10, ErrorMessage = "Mínimo 10 e máximo de 400 caracters.")]
+        public string PCovid { get; set; }
     }
 }

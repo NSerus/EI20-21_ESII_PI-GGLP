@@ -52,6 +52,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.PTotalPersonsNum)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PCovid)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -96,6 +99,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PTotalPersonsNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PCovid)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PontoId">Edit</a> |

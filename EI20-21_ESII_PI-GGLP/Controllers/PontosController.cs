@@ -54,7 +54,7 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PontoId,PPicture,PNome,PCategoria,PDescricao,PEndereco,PCoordenadas,PHorarioSemana,PHorarioFimSemana,PHorarioFeriado,PContacto,PEmail,PPersonsNum,PTotalPersonsNum")] Pontos pontos)
+        public async Task<IActionResult> Create([Bind("PontoId,PPicture,PNome,PCategoria,PDescricao,PEndereco,PCoordenadas,PHorarioSemana,PHorarioFimSemana,PHorarioFeriado,PContacto,PEmail,PPersonsNum,PTotalPersonsNum,PCovid")] Pontos pontos)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PontoId,PPicture,PNome,PCategoria,PDescricao,PEndereco,PCoordenadas,PHorarioSemana,PHorarioFimSemana,PHorarioFeriado,PContacto,PEmail,PPersonsNum,PTotalPersonsNum")] Pontos pontos)
+        public async Task<IActionResult> Edit(int id, [Bind("PontoId,PPicture,PNome,PCategoria,PDescricao,PEndereco,PCoordenadas,PHorarioSemana,PHorarioFimSemana,PHorarioFeriado,PContacto,PEmail,PPersonsNum,PTotalPersonsNum,PCovid")] Pontos pontos)
         {
             if (id != pontos.PontoId)
             {
