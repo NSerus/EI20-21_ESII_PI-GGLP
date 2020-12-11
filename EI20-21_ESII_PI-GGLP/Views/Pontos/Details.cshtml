@@ -5,99 +5,113 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<br />
 
-<div>
-    <h4>Pontos</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PPicture)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PPicture)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PNome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PNome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PCategoria)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PCategoria)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PDescricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PDescricao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PEndereco)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PEndereco)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PCoordenadas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PCoordenadas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PHorarioSemana)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PHorarioSemana)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PHorarioFimSemana)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PHorarioFimSemana)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PHorarioFeriado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PHorarioFeriado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PContacto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PContacto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PEmail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PEmail)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PPersonsNum)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PPersonsNum)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PTotalPersonsNum)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PTotalPersonsNum)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PCovid)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PCovid)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.PontoId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<section class="page-section" id="services">
+    <div class="container">
+        <h2 class="text-center mt-0">Detalhes do Ponto de Interesse</h2>
+        <hr class="divider my-4" />
+        @*<p class="text-muted mb-0 text-center">
+            Com o surgimento do COVID-19 a um nível mundial, uma das principais preocupações
+            como cidadão e turista é a visita geográfica de vários Pontos de Interesse (ex: shoppings, restaurantes),
+            quer seja por turismo ou por necessidade, podendo ser inoportuno se deslocar a um local desejado e ser deparado
+            com uma aglomerações de indivíduos.
+        </p>*@
+
+        <div>
+            <h4>Pontos</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PPicture)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PPicture)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PNome)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PNome)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PCategoria)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PCategoria)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PDescricao)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PDescricao)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PEndereco)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PEndereco)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PCoordenadas)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PCoordenadas)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PHorarioSemana)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PHorarioSemana)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PHorarioFimSemana)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PHorarioFimSemana)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PHorarioFeriado)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PHorarioFeriado)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PContacto)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PContacto)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PEmail)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PEmail)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PPersonsNum)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PPersonsNum)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PTotalPersonsNum)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PTotalPersonsNum)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PCovid)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PCovid)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.PontoId">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+    </div>
+</section>

@@ -5,96 +5,107 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<br />
 
-<h4>Pontos</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PontoId" />
-            <div class="form-group">
-                <label asp-for="PPicture" class="control-label"></label>
-                <input asp-for="PPicture" class="form-control" />
-                <span asp-validation-for="PPicture" class="text-danger"></span>
+<section class="page-section" id="services">
+    <div class="container">
+        <h2 class="text-center mt-0">Edição de Um Ponto de Interesse</h2>
+        <hr class="divider my-4" />
+        @*<p class="text-muted mb-0 text-center">
+            Com o surgimento do COVID-19 a um nível mundial, uma das principais preocupações
+            como cidadão e turista é a visita geográfica de vários Pontos de Interesse (ex: shoppings, restaurantes),
+            quer seja por turismo ou por necessidade, podendo ser inoportuno se deslocar a um local desejado e ser deparado
+            com uma aglomerações de indivíduos.
+        </p>*@
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="PontoId" />
+                    <div class="form-group">
+                        <label asp-for="PPicture" class="control-label"></label>
+                        <input asp-for="PPicture" class="form-control" />
+                        <span asp-validation-for="PPicture" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PNome" class="control-label"></label>
+                        <input asp-for="PNome" class="form-control" />
+                        <span asp-validation-for="PNome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PCategoria" class="control-label"></label>
+                        <input asp-for="PCategoria" class="form-control" />
+                        <span asp-validation-for="PCategoria" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PDescricao" class="control-label"></label>
+                        <input asp-for="PDescricao" class="form-control" />
+                        <span asp-validation-for="PDescricao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PEndereco" class="control-label"></label>
+                        <input asp-for="PEndereco" class="form-control" />
+                        <span asp-validation-for="PEndereco" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PCoordenadas" class="control-label"></label>
+                        <input asp-for="PCoordenadas" class="form-control" />
+                        <span asp-validation-for="PCoordenadas" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PHorarioSemana" class="control-label"></label>
+                        <input asp-for="PHorarioSemana" class="form-control" />
+                        <span asp-validation-for="PHorarioSemana" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PHorarioFimSemana" class="control-label"></label>
+                        <input asp-for="PHorarioFimSemana" class="form-control" />
+                        <span asp-validation-for="PHorarioFimSemana" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PHorarioFeriado" class="control-label"></label>
+                        <input asp-for="PHorarioFeriado" class="form-control" />
+                        <span asp-validation-for="PHorarioFeriado" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PContacto" class="control-label"></label>
+                        <input asp-for="PContacto" class="form-control" />
+                        <span asp-validation-for="PContacto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PEmail" class="control-label"></label>
+                        <input asp-for="PEmail" class="form-control" />
+                        <span asp-validation-for="PEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PPersonsNum" class="control-label"></label>
+                        <input asp-for="PPersonsNum" class="form-control" />
+                        <span asp-validation-for="PPersonsNum" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PTotalPersonsNum" class="control-label"></label>
+                        <input asp-for="PTotalPersonsNum" class="form-control" />
+                        <span asp-validation-for="PTotalPersonsNum" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PCovid" class="control-label"></label>
+                        <input asp-for="PCovid" class="form-control" />
+                        <span asp-validation-for="PCovid" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="PNome" class="control-label"></label>
-                <input asp-for="PNome" class="form-control" />
-                <span asp-validation-for="PNome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PCategoria" class="control-label"></label>
-                <input asp-for="PCategoria" class="form-control" />
-                <span asp-validation-for="PCategoria" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PDescricao" class="control-label"></label>
-                <input asp-for="PDescricao" class="form-control" />
-                <span asp-validation-for="PDescricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PEndereco" class="control-label"></label>
-                <input asp-for="PEndereco" class="form-control" />
-                <span asp-validation-for="PEndereco" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PCoordenadas" class="control-label"></label>
-                <input asp-for="PCoordenadas" class="form-control" />
-                <span asp-validation-for="PCoordenadas" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PHorarioSemana" class="control-label"></label>
-                <input asp-for="PHorarioSemana" class="form-control" />
-                <span asp-validation-for="PHorarioSemana" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PHorarioFimSemana" class="control-label"></label>
-                <input asp-for="PHorarioFimSemana" class="form-control" />
-                <span asp-validation-for="PHorarioFimSemana" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PHorarioFeriado" class="control-label"></label>
-                <input asp-for="PHorarioFeriado" class="form-control" />
-                <span asp-validation-for="PHorarioFeriado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PContacto" class="control-label"></label>
-                <input asp-for="PContacto" class="form-control" />
-                <span asp-validation-for="PContacto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PEmail" class="control-label"></label>
-                <input asp-for="PEmail" class="form-control" />
-                <span asp-validation-for="PEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PPersonsNum" class="control-label"></label>
-                <input asp-for="PPersonsNum" class="form-control" />
-                <span asp-validation-for="PPersonsNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PTotalPersonsNum" class="control-label"></label>
-                <input asp-for="PTotalPersonsNum" class="form-control" />
-                <span asp-validation-for="PTotalPersonsNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PCovid" class="control-label"></label>
-                <input asp-for="PCovid" class="form-control" />
-                <span asp-validation-for="PCovid" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
     </div>
-</div>
+</section>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
