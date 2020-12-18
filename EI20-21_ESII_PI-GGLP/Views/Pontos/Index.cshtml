@@ -23,51 +23,52 @@
         <br />
 
 
-        @foreach (var item in Model)
-        {
-            <div id="portfolio">
-                <div class="container-fluid p-0">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 col-sm-6">
+        <div id="portfolio">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters">
 
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-lg-4 col-sm-6">
                             <a id="myBtn" class="portfolio-box">
-                                @*<img class="img-fluid" src="~/assets/img/portfolio/thumbnails/seguarda.jpg" alt="" />*@
                                 <img class="img-fluid" src="~/assets/img/portfolio/thumbnails/seguarda.jpg" alt="" />
                                 <div class="portfolio-box-caption">
                                     <div class="project-name">@Html.DisplayFor(modelItem => item.PNome)</div>
                                     <div class="project-category text-white-50">@Html.DisplayFor(modelItem => item.PCategoria)</div>
                                 </div>
                             </a>
+                        </div>
 
-                            <!-- The Modal -->
-                            <div id="myModal" class="modal">
 
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h2>@Html.DisplayFor(modelItem => item.PNome)</h2><br />
-                                        <span class="close">&times;</span>
-                                    </div>
 
-                                    <div class="modal-body">
-                                        <p>@Html.DisplayFor(modelItem => item.PCategoria)</p>
-                                        <p>@Html.DisplayFor(modelItem => item.PDescricao)</p>
-                                        <p><b>@Html.DisplayNameFor(model => model.PEndereco)</b> @Html.DisplayFor(modelItem => item.PEndereco)</p>
-                                    </div>
 
-                                    <div class="modal-footer">
-                                        <h3>Modal Footer</h3>
-                                    </div>
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2>@Html.DisplayFor(modelItem => item.PNome)</h2><br />
+                                    <span class="close">&times;</span>
                                 </div>
 
-                            </div>
+                                <div class="modal-body">
+                                    <p>@Html.DisplayFor(modelItem => item.PCategoria)</p>
+                                    <p>@Html.DisplayFor(modelItem => item.PDescricao)</p>
+                                    <p><b>@Html.DisplayNameFor(model => model.PEndereco)</b> @Html.DisplayFor(modelItem => item.PEndereco)</p>
+                                </div>
 
+                                <div class="modal-footer">
+                                    <h3>Modal Footer</h3>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+                     }
                 </div>
             </div>
-        }
-
+        </div>
     </div>
 </section>
 
