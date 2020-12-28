@@ -33,6 +33,11 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             return View();
         }
 
+        public IActionResult FAQ()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
