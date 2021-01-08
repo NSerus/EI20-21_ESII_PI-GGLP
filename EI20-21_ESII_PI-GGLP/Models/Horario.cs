@@ -7,6 +7,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 {
     public class Horario
     {
+        [Key]
         public int Horario_ID { get; set; }
         //FK
         public int PontosDeInteresse_ID { get; set; }
