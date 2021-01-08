@@ -7,5 +7,9 @@ namespace EI20_21_ESII_PI_GGLP.Models
 {
     public class Categoria
     {
+
+        public int Categoria_ID { get; set; }
+        public string CTipo { get; set; }
+        public string CComments { get; set; }
     }
 }
