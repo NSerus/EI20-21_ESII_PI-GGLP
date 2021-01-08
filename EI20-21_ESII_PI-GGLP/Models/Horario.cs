@@ -16,6 +16,6 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public int HInicio { get; set; }
         public int HFim { get; set; }
         public string HCovid { get; set; }
-        public string UComments{ get; set; }
+        public string HComments{ get; set; }
     }
 }
