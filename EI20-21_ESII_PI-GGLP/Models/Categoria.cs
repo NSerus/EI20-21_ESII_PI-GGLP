@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace EI20_21_ESII_PI_GGLP.Models
 {
-    public class Dia
+    public class Categoria
     {
         [Key]
-        public int Dia_ID { get; set; }
-        public string DNome { get; set; }
-        public string DComments { get; set; }
+        public int Categoria_ID { get; set; }
+        public string CTipo { get; set; }
+        public string CComments { get; set; }
     }
 }
