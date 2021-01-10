@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EI20_21_ESII_PI_GGLP.Models
 {
-    public class CidadaoTurista
+    public class CidadaoTurista : Pessoa
     {
         [Required(ErrorMessage = "Introduza a Data do Nascimento")]
         [RegularExpression (@"^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$", ErrorMessage = "Data inválida")]

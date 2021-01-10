@@ -12,10 +12,16 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public int Agendamento_ID { get; set; }
 
 
-        //FK
+        // Agendamento Class '* to 1' Pessoa Class
         public int Pessoa_ID { get; set; }
-        //FK
+        public Pessoa Pessoa { get; set; }
+
+
+        // Agendamento Class '* to 1' PontoDeInteresse Class
         public int PontoDeIntersse_ID { get; set; }
+        public PontoDeInteresse PontoDeInteresse { get; set; }
+
+
 
         public string AData { get; set; }
 

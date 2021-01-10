@@ -13,11 +13,18 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public int PontoDeInteresse_ID { get; set; }
 
 
-        // Categoria_ID (FK)
-        public int Categoria_ID { get; set; }
+        // PontoDeInteresse Class '1 to *' Horario Class
+        public ICollection<Horario> Horario { get; set; }
 
-        // Gestor_ID (FK)
+
+        // PontoDeInteresse Class '* to 1' Categoria Class
+        public int Categoria_ID { get; set; }
+        public Categoria Categoria { get; set; }
+
+
+        // PontoDeInteresse Class '* to 1' Pessoa Class
         public int Gestor_ID { get; set; }
+        public Pessoa Pessoa { get; set; }
 
 
         // PImagem
@@ -79,9 +86,12 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public string PCovid { get; set; }
 
 
-        // PEstado_ID (FK)
+
+        // PontoDeInteresse Class '* to 1' Estado Class
         [Display(Name = "Estado")]
         public int Estado_ID { get; set; }
+        public Estado Estado { get; set; }
+
 
 
         // PDataEstado
@@ -94,5 +104,10 @@ namespace EI20_21_ESII_PI_GGLP.Models
         [Display(Name = "Commentários")]
         [StringLength(400, MinimumLength = 10, ErrorMessage = "Mínimo 10 e máximo de 400 caracters.")]
         public string PComments { get; set; }
+
+
+
+        // PontoDeInteresse Class '1 to *' Agendamento Class
+        public ICollection<Agendamento> Agendamento { get; set; }
     }
 }

@@ -12,12 +12,14 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public int Horario_ID { get; set; }
 
 
-        //FK
+        // Horario Class '* to 1' PontoDeInteresse Class
         public int PontosDeInteresse_ID { get; set; }
+        public PontoDeInteresse PontoDeInteresse { get; set; }
 
 
-        //FK
+        // Horario Class '* to 1' Dia Class
         public int Dia_ID { get; set; }
+        public Dia Dia { get; set; }
 
 
         public int HInicio { get; set; }

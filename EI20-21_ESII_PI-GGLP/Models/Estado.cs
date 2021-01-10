@@ -14,5 +14,10 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         public string ENome { get; set; }
         public string EComments { get; set; }
+
+
+
+        // Estado Class '1 to *' PontoDeInteresse Class
+        public ICollection<PontoDeInteresse> PontoDeInteresse { get; set; }
     }
 }

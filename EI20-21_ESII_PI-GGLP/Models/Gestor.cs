@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EI20_21_ESII_PI_GGLP.Models
 {
-    public class Gestor
+    public class Gestor : Pessoa
     {
         [Required (ErrorMessage = "Adicionar Departamento")]
         [StringLength(50)]

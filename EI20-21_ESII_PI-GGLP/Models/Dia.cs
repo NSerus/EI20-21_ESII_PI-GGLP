@@ -13,5 +13,10 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         public string DNome { get; set; }
         public string DComments { get; set; }
+
+
+
+        // Dia Class '1 to *' Horario Class
+        public ICollection<Horario> Horario { get; set; }
     }
 }

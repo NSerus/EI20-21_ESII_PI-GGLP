@@ -32,5 +32,13 @@ namespace EI20_21_ESII_PI_GGLP.Models
         [StringLength(500, MinimumLength = 10, ErrorMessage = "No mínimo 10 carateres")]
         public string PComments { get; set; }
 
+
+
+
+        // Pessoa Class '1 to *' Agendamento Class
+        public ICollection<Agendamento> Agendamento { get; set; }
+
+        // Pessoa Class '1 to *' PontoDeInteresse Class
+        public ICollection<PontoDeInteresse> PontoDeInteresse { get; set; }
     }
 }
