@@ -12,14 +12,18 @@ namespace EI20_21_ESII_PI_GGLP.Models
         [Key]
         public int PontoDeInteresse_ID { get; set; }
 
+
         // Categoria_ID (FK)
+        public int Categoria_ID { get; set; }
 
         // Gestor_ID (FK)
+        public int Gestor_ID { get; set; }
+
 
         // PImagem
         [Required(ErrorMessage = "Introduza o nome da foto do novo Ponto de Interesse.")]
-        [Display(Name = "Foto (nome)")]
-        public string PImagem { get; set; }
+        [Display(Name = "Imagem")]
+        public byte[] PImagem { get; set; }
 
         // PNome
         [Required(ErrorMessage = "Introduza o nome do novo Ponto de Interesse.")]
@@ -35,12 +39,12 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         // PEndereco
         [Required(ErrorMessage = "Introduza o endereço do novo Ponto de Interesse.")]
-        [Display(Name = "Descrição (Rua, Cod-Postal, Localidade)")]
+        [Display(Name = "Endereço (Rua, Cod-Postal, Localidade)")]
         [StringLength(200)]
         public string PEndereco { get; set; }
 
         // PCoordenadas
-        [Required(ErrorMessage = "Introduza as coordenadas GPS do novo Ponto de Interesse.")]
+        [Required(ErrorMessage = "Introduza as coordenadas do novo Ponto de Interesse.")]
         [Display(Name = "Coordenadas")]
         public string PCoordenadas { get; set; }
 
@@ -60,12 +64,12 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         // PNumPessoas
         [Required(ErrorMessage = "Introduza o número de Indivíduos do novo Ponto de Interesse.")]
-        [Display(Name = "Número de Pessoas")]
+        [Display(Name = "Número existentes de Pessoas")]
         public int PNumPessoas { get; set; }
 
         // PMaxPessoas
         [Required(ErrorMessage = "Introduza o número máximo de Indivíduos permitidos no novo Ponto de Interesse.")]
-        [Display(Name = "Máximo de Pessoas")]
+        [Display(Name = "Máximo de Pessoas Permitidas")]
         public int PMaxPessoas { get; set; }
 
         // PCovid
@@ -74,17 +78,21 @@ namespace EI20_21_ESII_PI_GGLP.Models
         [StringLength(400, ErrorMessage = "Mínimo 10 e máximo de 400 caracters.")]
         public string PCovid { get; set; }
 
+
         // PEstado_ID (FK)
         [Display(Name = "Estado")]
         public int Estado_ID { get; set; }
 
+
         // PDataEstado
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
-        [Display(Name = "Dia")]
+        [Display(Name = "Data Estado")]
         [DataType(DataType.Date)]
         public DateTime PDataEstado { get; set; }
 
         // PComments
         [Display(Name = "Commentários")]
+        [StringLength(400, MinimumLength = 10, ErrorMessage = "Mínimo 10 e máximo de 400 caracters.")]
+        public string PComments { get; set; }
     }
 }

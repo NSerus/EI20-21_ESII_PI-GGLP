@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace EI20_21_ESII_PI_GGLP.Models
 {
-    public class Dia
+    public class Estado
     {
         [Key]
-        public int Dia_ID { get; set; }
+        public int Estado_ID { get; set; }
 
-        public string DNome { get; set; }
-        public string DComments { get; set; }
+
+        public string ENome { get; set; }
+        public string EComments { get; set; }
     }
 }
