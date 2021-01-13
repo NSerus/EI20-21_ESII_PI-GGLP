@@ -109,6 +109,20 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RegrasCOVID",
+                columns: table => new
+                {
+                    RegrasCOVID_ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RDescricao = table.Column<string>(maxLength: 400, nullable: false),
+                    RDataVigor = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RegrasCOVID", x => x.RegrasCOVID_ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PontoDeInteresse",
                 columns: table => new
                 {
@@ -265,6 +279,9 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pontos");
+
+            migrationBuilder.DropTable(
+                name: "RegrasCOVID");
 
             migrationBuilder.DropTable(
                 name: "Dia");

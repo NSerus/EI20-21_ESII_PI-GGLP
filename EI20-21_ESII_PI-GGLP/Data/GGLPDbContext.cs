@@ -22,6 +22,8 @@ namespace EI20_21_ESII_PI_GGLP.Data
         public DbSet<EI20_21_ESII_PI_GGLP.Models.Agendamento> Agendamento { get; set; }
         public DbSet<EI20_21_ESII_PI_GGLP.Models.Pessoa> Pessoa { get; set; }
 
+        public DbSet<EI20_21_ESII_PI_GGLP.Models.RegrasCOVID> RegrasCOVID { get; set; }
+
 
 
         public DbSet<Pontos> Pontos { get; set; }

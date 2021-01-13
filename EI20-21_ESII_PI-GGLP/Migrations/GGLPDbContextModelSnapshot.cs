@@ -361,6 +361,26 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.ToTable("Pontos");
                 });
 
+            modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.RegrasCOVID", b =>
+                {
+                    b.Property<int>("RegrasCOVID_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("RDataVigor")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RDescricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
+
+                    b.HasKey("RegrasCOVID_ID");
+
+                    b.ToTable("RegrasCOVID");
+                });
+
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Agendamento", b =>
                 {
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Pessoa", "Pessoa")

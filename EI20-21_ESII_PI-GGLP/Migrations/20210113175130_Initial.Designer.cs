@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EI20_21_ESII_PI_GGLP.Migrations
 {
     [DbContext(typeof(GGLPDbContext))]
-    [Migration("20210113174342_Initial")]
+    [Migration("20210113175130_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -361,6 +361,26 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.HasKey("PontoId");
 
                     b.ToTable("Pontos");
+                });
+
+            modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.RegrasCOVID", b =>
+                {
+                    b.Property<int>("RegrasCOVID_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("RDataVigor")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RDescricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(400)")
+                        .HasMaxLength(400);
+
+                    b.HasKey("RegrasCOVID_ID");
+
+                    b.ToTable("RegrasCOVID");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Agendamento", b =>
