@@ -158,12 +158,6 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<int?>("Dia_ID1")
                         .HasColumnType("int");
 
-                    b.Property<string>("HComments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HCovid")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("HFim")
                         .HasColumnType("int");
 
@@ -246,11 +240,6 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<string>("PCoordenadas")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PCovid")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(400)")
-                        .HasMaxLength(400);
 
                     b.Property<DateTime>("PDataEstado")
                         .HasColumnType("datetime2");

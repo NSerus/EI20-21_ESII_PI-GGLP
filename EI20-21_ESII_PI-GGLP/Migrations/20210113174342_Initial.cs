@@ -22,6 +22,23 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Contactos",
+                columns: table => new
+                {
+                    ContactId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 80, nullable: false),
+                    Phone = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Type = table.Column<string>(nullable: false),
+                    Desc = table.Column<string>(maxLength: 80, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contactos", x => x.ContactId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Dia",
                 columns: table => new
                 {
@@ -66,6 +83,32 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Pontos",
+                columns: table => new
+                {
+                    PontoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PPicture = table.Column<string>(nullable: false),
+                    PNome = table.Column<string>(maxLength: 30, nullable: false),
+                    PCategoria = table.Column<string>(nullable: false),
+                    PDescricao = table.Column<string>(maxLength: 400, nullable: false),
+                    PEndereco = table.Column<string>(maxLength: 200, nullable: false),
+                    PCoordenadas = table.Column<string>(nullable: false),
+                    PHorarioSemana = table.Column<string>(maxLength: 100, nullable: false),
+                    PHorarioFimSemana = table.Column<string>(maxLength: 100, nullable: false),
+                    PHorarioFeriado = table.Column<string>(maxLength: 100, nullable: false),
+                    PContacto = table.Column<int>(nullable: false),
+                    PEmail = table.Column<string>(maxLength: 100, nullable: false),
+                    PPersonsNum = table.Column<int>(nullable: false),
+                    PTotalPersonsNum = table.Column<int>(nullable: false),
+                    PCovid = table.Column<string>(maxLength: 400, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pontos", x => x.PontoId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PontoDeInteresse",
                 columns: table => new
                 {
@@ -84,7 +127,6 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     PEmail = table.Column<string>(maxLength: 100, nullable: false),
                     PNumPessoas = table.Column<int>(nullable: false),
                     PMaxPessoas = table.Column<int>(nullable: false),
-                    PCovid = table.Column<string>(maxLength: 400, nullable: false),
                     Estado_ID = table.Column<int>(nullable: false),
                     Estado_ID1 = table.Column<int>(nullable: true),
                     PDataEstado = table.Column<DateTime>(nullable: false),
@@ -155,9 +197,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     Dia_ID = table.Column<int>(nullable: false),
                     Dia_ID1 = table.Column<int>(nullable: true),
                     HInicio = table.Column<int>(nullable: false),
-                    HFim = table.Column<int>(nullable: false),
-                    HCovid = table.Column<string>(nullable: true),
-                    HComments = table.Column<string>(nullable: true)
+                    HFim = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -218,7 +258,13 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 name: "Agendamento");
 
             migrationBuilder.DropTable(
+                name: "Contactos");
+
+            migrationBuilder.DropTable(
                 name: "Horario");
+
+            migrationBuilder.DropTable(
+                name: "Pontos");
 
             migrationBuilder.DropTable(
                 name: "Dia");
