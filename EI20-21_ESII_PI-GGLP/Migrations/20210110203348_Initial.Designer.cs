@@ -4,14 +4,16 @@ using EI20_21_ESII_PI_GGLP.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EI20_21_ESII_PI_GGLP.Migrations
 {
     [DbContext(typeof(GGLPDbContext))]
-    partial class GGLPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210110203348_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
