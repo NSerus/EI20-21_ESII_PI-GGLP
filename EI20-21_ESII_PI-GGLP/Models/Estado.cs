@@ -9,7 +9,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
     public class Estado
     {
         [Key]
-        public int Estado_ID { get; set; }
+        public int EstadoID { get; set; }
 
 
         public string ENome { get; set; }
@@ -18,6 +18,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // Estado Class '1 to *' PontoDeInteresse Class
-        public ICollection<PontoDeInteresse> PontoDeInteresse { get; set; }
+        public ICollection<PontoDeInteresse> PontoDeInteresses { get; set; }
+
     }
 }

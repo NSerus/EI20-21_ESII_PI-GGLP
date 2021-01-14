@@ -9,11 +9,11 @@ namespace EI20_21_ESII_PI_GGLP.Models
     public class Horario
     {
         [Key]
-        public int Horario_ID { get; set; }
+        public int HorarioID { get; set; }
 
 
         // Horario Class '* to 1' PontoDeInteresse Class
-        //public int PontosDeInteresse_ID { get; set; }
+        public int PontosDeInteresseID { get; set; }
         public PontoDeInteresse PontoDeInteresse { get; set; }
 
 

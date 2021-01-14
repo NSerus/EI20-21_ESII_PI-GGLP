@@ -9,7 +9,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
     public class Dia
     {
         [Key]
-        public int Dia_ID { get; set; }
+        public int DiaID { get; set; }
 
         public string DNome { get; set; }
         public string DComments { get; set; }
@@ -17,6 +17,6 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // Dia Class '1 to *' Horario Class
-        public ICollection<Horario> Horario { get; set; }
+        public ICollection<Horario> Horarios { get; set; }
     }
 }

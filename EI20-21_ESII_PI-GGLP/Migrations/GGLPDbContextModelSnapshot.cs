@@ -21,7 +21,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Agendamento", b =>
                 {
-                    b.Property<int>("Agendamento_ID")
+                    b.Property<int>("AgendamentoID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -36,24 +36,27 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<int>("ANumPessoas")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Pessoa_ID")
+                    b.Property<int>("PessoaID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PontoDeInteresse_ID")
+                    b.Property<int?>("PontoDeInteresseID")
                         .HasColumnType("int");
 
-                    b.HasKey("Agendamento_ID");
+                    b.Property<int>("PontoDeIntersseID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Pessoa_ID");
+                    b.HasKey("AgendamentoID");
 
-                    b.HasIndex("PontoDeInteresse_ID");
+                    b.HasIndex("PessoaID");
+
+                    b.HasIndex("PontoDeInteresseID");
 
                     b.ToTable("Agendamento");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Categoria", b =>
                 {
-                    b.Property<int>("Categoria_ID")
+                    b.Property<int>("CategoriaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -64,7 +67,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<string>("CTipo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Categoria_ID");
+                    b.HasKey("CategoriaID");
 
                     b.ToTable("Categoria");
                 });
@@ -105,7 +108,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Dia", b =>
                 {
-                    b.Property<int>("Dia_ID")
+                    b.Property<int>("DiaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -116,14 +119,14 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<string>("DNome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Dia_ID");
+                    b.HasKey("DiaID");
 
                     b.ToTable("Dia");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Estado", b =>
                 {
-                    b.Property<int>("Estado_ID")
+                    b.Property<int>("EstadoID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -134,22 +137,22 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<string>("ENome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Estado_ID");
+                    b.HasKey("EstadoID");
 
                     b.ToTable("Estado");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Horario", b =>
                 {
-                    b.Property<int>("Horario_ID")
+                    b.Property<int>("HorarioID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Dia_ID")
+                    b.Property<int?>("DiaID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Dia_ID1")
+                    b.Property<int>("Dia_ID")
                         .HasColumnType("int");
 
                     b.Property<int>("HFim")
@@ -158,21 +161,24 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<int>("HInicio")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PontoDeInteresse_ID")
+                    b.Property<int?>("PontoDeInteresseID")
                         .HasColumnType("int");
 
-                    b.HasKey("Horario_ID");
+                    b.Property<int>("PontosDeInteresseID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Dia_ID1");
+                    b.HasKey("HorarioID");
 
-                    b.HasIndex("PontoDeInteresse_ID");
+                    b.HasIndex("DiaID");
+
+                    b.HasIndex("PontoDeInteresseID");
 
                     b.ToTable("Horario");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Pessoa", b =>
                 {
-                    b.Property<int>("Pessoa_ID")
+                    b.Property<int>("PessoaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -194,22 +200,22 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.HasKey("Pessoa_ID");
+                    b.HasKey("PessoaID");
 
                     b.ToTable("Pessoa");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", b =>
                 {
-                    b.Property<int>("PontoDeInteresse_ID")
+                    b.Property<int>("PontoDeInteresseID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Categoria_ID")
+                    b.Property<int>("CategoriaID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Estado_ID")
+                    b.Property<int>("EstadoID")
                         .HasColumnType("int");
 
                     b.Property<string>("PComments")
@@ -242,7 +248,6 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasMaxLength(200);
 
                     b.Property<byte[]>("PImagem")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<int>("PMaxPessoas")
@@ -256,16 +261,11 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<int>("PNumPessoas")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Pessoa_ID")
-                        .HasColumnType("int");
+                    b.HasKey("PontoDeInteresseID");
 
-                    b.HasKey("PontoDeInteresse_ID");
+                    b.HasIndex("CategoriaID");
 
-                    b.HasIndex("Categoria_ID");
-
-                    b.HasIndex("Estado_ID");
-
-                    b.HasIndex("Pessoa_ID");
+                    b.HasIndex("EstadoID");
 
                     b.ToTable("PontoDeInteresse");
                 });
@@ -366,38 +366,40 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Agendamento", b =>
                 {
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Pessoa", "Pessoa")
-                        .WithMany("Agendamento")
-                        .HasForeignKey("Pessoa_ID");
+                        .WithMany("Agendamentos")
+                        .HasForeignKey("PessoaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", "PontoDeInteresse")
-                        .WithMany("Agendamento")
-                        .HasForeignKey("PontoDeInteresse_ID");
+                        .WithMany("Agendamentos")
+                        .HasForeignKey("PontoDeInteresseID");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Horario", b =>
                 {
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Dia", "Dia")
-                        .WithMany("Horario")
-                        .HasForeignKey("Dia_ID1");
+                        .WithMany("Horarios")
+                        .HasForeignKey("DiaID");
 
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", "PontoDeInteresse")
-                        .WithMany("Horario")
-                        .HasForeignKey("PontoDeInteresse_ID");
+                        .WithMany("Horarios")
+                        .HasForeignKey("PontoDeInteresseID");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", b =>
                 {
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Categoria", "Categoria")
-                        .WithMany("PontoDeInteresse")
-                        .HasForeignKey("Categoria_ID");
+                        .WithMany("PontoDeInteresses")
+                        .HasForeignKey("CategoriaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Estado", "Estado")
-                        .WithMany("PontoDeInteresse")
-                        .HasForeignKey("Estado_ID");
-
-                    b.HasOne("EI20_21_ESII_PI_GGLP.Models.Pessoa", null)
-                        .WithMany("PontoDeInteresse")
-                        .HasForeignKey("Pessoa_ID");
+                        .WithMany("PontoDeInteresses")
+                        .HasForeignKey("EstadoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

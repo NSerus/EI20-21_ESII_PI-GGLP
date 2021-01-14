@@ -11,14 +11,14 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 name: "Categoria",
                 columns: table => new
                 {
-                    Categoria_ID = table.Column<int>(nullable: false)
+                    CategoriaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CTipo = table.Column<string>(nullable: true),
                     CComments = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categoria", x => x.Categoria_ID);
+                    table.PrimaryKey("PK_Categoria", x => x.CategoriaID);
                 });
 
             migrationBuilder.CreateTable(
@@ -42,35 +42,35 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 name: "Dia",
                 columns: table => new
                 {
-                    Dia_ID = table.Column<int>(nullable: false)
+                    DiaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DNome = table.Column<string>(nullable: true),
                     DComments = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dia", x => x.Dia_ID);
+                    table.PrimaryKey("PK_Dia", x => x.DiaID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Estado",
                 columns: table => new
                 {
-                    Estado_ID = table.Column<int>(nullable: false)
+                    EstadoID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ENome = table.Column<string>(nullable: true),
                     EComments = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Estado", x => x.Estado_ID);
+                    table.PrimaryKey("PK_Estado", x => x.EstadoID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Pessoa",
                 columns: table => new
                 {
-                    Pessoa_ID = table.Column<int>(nullable: false)
+                    PessoaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PNome = table.Column<string>(maxLength: 50, nullable: false),
                     PContato = table.Column<int>(nullable: false),
@@ -79,7 +79,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pessoa", x => x.Pessoa_ID);
+                    table.PrimaryKey("PK_Pessoa", x => x.PessoaID);
                 });
 
             migrationBuilder.CreateTable(
@@ -126,10 +126,10 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 name: "PontoDeInteresse",
                 columns: table => new
                 {
-                    PontoDeInteresse_ID = table.Column<int>(nullable: false)
+                    PontoDeInteresseID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Categoria_ID = table.Column<int>(nullable: true),
-                    PImagem = table.Column<byte[]>(nullable: false),
+                    CategoriaID = table.Column<int>(nullable: false),
+                    PImagem = table.Column<byte[]>(nullable: true),
                     PNome = table.Column<string>(maxLength: 30, nullable: false),
                     PDescricao = table.Column<string>(maxLength: 400, nullable: false),
                     PEndereco = table.Column<string>(maxLength: 200, nullable: false),
@@ -138,60 +138,54 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     PEmail = table.Column<string>(maxLength: 100, nullable: false),
                     PNumPessoas = table.Column<int>(nullable: false),
                     PMaxPessoas = table.Column<int>(nullable: false),
-                    Estado_ID = table.Column<int>(nullable: true),
+                    EstadoID = table.Column<int>(nullable: false),
                     PDataEstado = table.Column<DateTime>(nullable: false),
-                    PComments = table.Column<string>(maxLength: 400, nullable: true),
-                    Pessoa_ID = table.Column<int>(nullable: true)
+                    PComments = table.Column<string>(maxLength: 400, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PontoDeInteresse", x => x.PontoDeInteresse_ID);
+                    table.PrimaryKey("PK_PontoDeInteresse", x => x.PontoDeInteresseID);
                     table.ForeignKey(
-                        name: "FK_PontoDeInteresse_Categoria_Categoria_ID",
-                        column: x => x.Categoria_ID,
+                        name: "FK_PontoDeInteresse_Categoria_CategoriaID",
+                        column: x => x.CategoriaID,
                         principalTable: "Categoria",
-                        principalColumn: "Categoria_ID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "CategoriaID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PontoDeInteresse_Estado_Estado_ID",
-                        column: x => x.Estado_ID,
+                        name: "FK_PontoDeInteresse_Estado_EstadoID",
+                        column: x => x.EstadoID,
                         principalTable: "Estado",
-                        principalColumn: "Estado_ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_PontoDeInteresse_Pessoa_Pessoa_ID",
-                        column: x => x.Pessoa_ID,
-                        principalTable: "Pessoa",
-                        principalColumn: "Pessoa_ID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "EstadoID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Agendamento",
                 columns: table => new
                 {
-                    Agendamento_ID = table.Column<int>(nullable: false)
+                    AgendamentoID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Pessoa_ID = table.Column<int>(nullable: true),
-                    PontoDeInteresse_ID = table.Column<int>(nullable: true),
+                    PessoaID = table.Column<int>(nullable: false),
+                    PontoDeIntersseID = table.Column<int>(nullable: false),
+                    PontoDeInteresseID = table.Column<int>(nullable: true),
                     AData = table.Column<string>(nullable: true),
                     AHora = table.Column<string>(nullable: false),
                     ANumPessoas = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Agendamento", x => x.Agendamento_ID);
+                    table.PrimaryKey("PK_Agendamento", x => x.AgendamentoID);
                     table.ForeignKey(
-                        name: "FK_Agendamento_Pessoa_Pessoa_ID",
-                        column: x => x.Pessoa_ID,
+                        name: "FK_Agendamento_Pessoa_PessoaID",
+                        column: x => x.PessoaID,
                         principalTable: "Pessoa",
-                        principalColumn: "Pessoa_ID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "PessoaID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Agendamento_PontoDeInteresse_PontoDeInteresse_ID",
-                        column: x => x.PontoDeInteresse_ID,
+                        name: "FK_Agendamento_PontoDeInteresse_PontoDeInteresseID",
+                        column: x => x.PontoDeInteresseID,
                         principalTable: "PontoDeInteresse",
-                        principalColumn: "PontoDeInteresse_ID",
+                        principalColumn: "PontoDeInteresseID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -199,65 +193,61 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 name: "Horario",
                 columns: table => new
                 {
-                    Horario_ID = table.Column<int>(nullable: false)
+                    HorarioID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PontoDeInteresse_ID = table.Column<int>(nullable: true),
+                    PontosDeInteresseID = table.Column<int>(nullable: false),
+                    PontoDeInteresseID = table.Column<int>(nullable: true),
                     Dia_ID = table.Column<int>(nullable: false),
-                    Dia_ID1 = table.Column<int>(nullable: true),
+                    DiaID = table.Column<int>(nullable: true),
                     HInicio = table.Column<int>(nullable: false),
                     HFim = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Horario", x => x.Horario_ID);
+                    table.PrimaryKey("PK_Horario", x => x.HorarioID);
                     table.ForeignKey(
-                        name: "FK_Horario_Dia_Dia_ID1",
-                        column: x => x.Dia_ID1,
+                        name: "FK_Horario_Dia_DiaID",
+                        column: x => x.DiaID,
                         principalTable: "Dia",
-                        principalColumn: "Dia_ID",
+                        principalColumn: "DiaID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Horario_PontoDeInteresse_PontoDeInteresse_ID",
-                        column: x => x.PontoDeInteresse_ID,
+                        name: "FK_Horario_PontoDeInteresse_PontoDeInteresseID",
+                        column: x => x.PontoDeInteresseID,
                         principalTable: "PontoDeInteresse",
-                        principalColumn: "PontoDeInteresse_ID",
+                        principalColumn: "PontoDeInteresseID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agendamento_Pessoa_ID",
+                name: "IX_Agendamento_PessoaID",
                 table: "Agendamento",
-                column: "Pessoa_ID");
+                column: "PessoaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agendamento_PontoDeInteresse_ID",
+                name: "IX_Agendamento_PontoDeInteresseID",
                 table: "Agendamento",
-                column: "PontoDeInteresse_ID");
+                column: "PontoDeInteresseID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Horario_Dia_ID1",
+                name: "IX_Horario_DiaID",
                 table: "Horario",
-                column: "Dia_ID1");
+                column: "DiaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Horario_PontoDeInteresse_ID",
+                name: "IX_Horario_PontoDeInteresseID",
                 table: "Horario",
-                column: "PontoDeInteresse_ID");
+                column: "PontoDeInteresseID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PontoDeInteresse_Categoria_ID",
+                name: "IX_PontoDeInteresse_CategoriaID",
                 table: "PontoDeInteresse",
-                column: "Categoria_ID");
+                column: "CategoriaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PontoDeInteresse_Estado_ID",
+                name: "IX_PontoDeInteresse_EstadoID",
                 table: "PontoDeInteresse",
-                column: "Estado_ID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PontoDeInteresse_Pessoa_ID",
-                table: "PontoDeInteresse",
-                column: "Pessoa_ID");
+                column: "EstadoID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -278,6 +268,9 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 name: "RegrasCOVID");
 
             migrationBuilder.DropTable(
+                name: "Pessoa");
+
+            migrationBuilder.DropTable(
                 name: "Dia");
 
             migrationBuilder.DropTable(
@@ -288,9 +281,6 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
 
             migrationBuilder.DropTable(
                 name: "Estado");
-
-            migrationBuilder.DropTable(
-                name: "Pessoa");
         }
     }
 }

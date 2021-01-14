@@ -10,7 +10,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
     {
 
         [Key]
-        public int Pessoa_ID { get; set; }
+        public int PessoaID { get; set; }
 
 
         [Required(ErrorMessage = "Introduza seu o Nome")]
@@ -36,9 +36,9 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // Pessoa Class '1 to *' Agendamento Class
-        public ICollection<Agendamento> Agendamento { get; set; }
+        public ICollection<Agendamento> Agendamentos { get; set; }
 
         // Pessoa Class '1 to *' PontoDeInteresse Class
-        public ICollection<PontoDeInteresse> PontoDeInteresse { get; set; }
+        //public ICollection<PontoDeInteresse> PontoDeInteresses { get; set; }
     }
 }

@@ -12,6 +12,7 @@ using EI20_21_ESII_PI_GGLP.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using EI20_21_ESII_PI_GGLP.Models;
 
 namespace EI20_21_ESII_PI_GGLP
 {
@@ -71,6 +72,15 @@ namespace EI20_21_ESII_PI_GGLP
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            if (env.IsDevelopment())
+            {
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    var dbContext = serviceScope.ServiceProvider.GetService<GGLPDbContext>();
+                    SeedData.Populate(dbContext);
+                }
+            }
         }
     }
 }

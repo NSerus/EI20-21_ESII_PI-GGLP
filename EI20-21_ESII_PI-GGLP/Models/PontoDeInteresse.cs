@@ -8,27 +8,27 @@ namespace EI20_21_ESII_PI_GGLP.Models
 {
     public class PontoDeInteresse
     {
-        // PontoDeInteresse_ID (PK)
+        // PontoDeInteresseID (PK)
         [Key]
-        public int PontoDeInteresse_ID { get; set; }
+        public int PontoDeInteresseID { get; set; }
 
 
         // PontoDeInteresse Class '1 to *' Horario Class
-        public ICollection<Horario> Horario { get; set; }
+        public ICollection<Horario> Horarios { get; set; }
 
 
         // PontoDeInteresse Class '* to 1' Categoria Class
-        //public int Categoria_ID { get; set; }
+        public int CategoriaID { get; set; }
         public Categoria Categoria { get; set; }
 
 
         // PontoDeInteresse Class '* to 1' Pessoa Class
-        //public int Gestor_ID { get; set; }
+        //public int GestorID { get; set; }
         //public Pessoa Pessoa { get; set; }
 
 
         // PImagem
-        [Required(ErrorMessage = "Introduza o nome da foto do novo Ponto de Interesse.")]
+        //[Required(ErrorMessage = "Introduza uma foto do novo Ponto de Interesse.")]
         [Display(Name = "Imagem")]
         public byte[] PImagem { get; set; }
 
@@ -88,8 +88,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // PontoDeInteresse Class '* to 1' Estado Class
-        [Display(Name = "Estado")]
-        //public int Estado_ID { get; set; }
+        public int EstadoID { get; set; }
         public Estado Estado { get; set; }
 
 
@@ -108,6 +107,6 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // PontoDeInteresse Class '1 to *' Agendamento Class
-        public ICollection<Agendamento> Agendamento { get; set; }
+        public ICollection<Agendamento> Agendamentos { get; set; }
     }
 }
