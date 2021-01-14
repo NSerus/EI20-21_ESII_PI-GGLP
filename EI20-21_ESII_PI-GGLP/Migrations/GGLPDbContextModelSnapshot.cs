@@ -186,6 +186,10 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PComments")
                         .IsRequired()
                         .HasColumnType("nvarchar(500)")
@@ -206,6 +210,8 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.HasKey("Pessoa_ID");
 
                     b.ToTable("Pessoa");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Pessoa");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", b =>
@@ -379,6 +385,44 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.HasKey("RegrasCOVID_ID");
 
                     b.ToTable("RegrasCOVID");
+                });
+
+            modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.CidadaoTurista", b =>
+                {
+                    b.HasBaseType("EI20_21_ESII_PI_GGLP.Models.Pessoa");
+
+                    b.Property<int>("CTDataNas")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CTEndereco")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CTLocalidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CTNIF")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CTPais")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
+
+                    b.HasDiscriminator().HasValue("CidadaoTurista");
+                });
+
+            modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Gestor", b =>
+                {
+                    b.HasBaseType("EI20_21_ESII_PI_GGLP.Models.Pessoa");
+
+                    b.Property<string>("GDepartment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasDiscriminator().HasValue("Gestor");
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Agendamento", b =>

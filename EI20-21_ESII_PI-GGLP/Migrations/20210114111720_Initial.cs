@@ -75,7 +75,14 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     PNome = table.Column<string>(maxLength: 50, nullable: false),
                     PContato = table.Column<int>(nullable: false),
                     PEmail = table.Column<string>(nullable: false),
-                    PComments = table.Column<string>(maxLength: 500, nullable: false)
+                    PComments = table.Column<string>(maxLength: 500, nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    CTDataNas = table.Column<int>(nullable: true),
+                    CTNIF = table.Column<int>(nullable: true),
+                    CTLocalidade = table.Column<string>(nullable: true),
+                    CTPais = table.Column<string>(maxLength: 30, nullable: true),
+                    CTEndereco = table.Column<string>(nullable: true),
+                    GDepartment = table.Column<string>(maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
