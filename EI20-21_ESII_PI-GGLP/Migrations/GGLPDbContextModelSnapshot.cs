@@ -36,21 +36,15 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<int>("ANumPessoas")
                         .HasColumnType("int");
 
-                    b.Property<int>("Pessoa_ID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Pessoa_ID1")
+                    b.Property<int?>("Pessoa_ID")
                         .HasColumnType("int");
 
                     b.Property<int?>("PontoDeInteresse_ID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PontoDeIntersse_ID")
-                        .HasColumnType("int");
-
                     b.HasKey("Agendamento_ID");
 
-                    b.HasIndex("Pessoa_ID1");
+                    b.HasIndex("Pessoa_ID");
 
                     b.HasIndex("PontoDeInteresse_ID");
 
@@ -167,9 +161,6 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<int?>("PontoDeInteresse_ID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PontosDeInteresse_ID")
-                        .HasColumnType("int");
-
                     b.HasKey("Horario_ID");
 
                     b.HasIndex("Dia_ID1");
@@ -215,19 +206,10 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Categoria_ID")
+                    b.Property<int?>("Categoria_ID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Categoria_ID1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Estado_ID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Estado_ID1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Gestor_ID")
+                    b.Property<int?>("Estado_ID")
                         .HasColumnType("int");
 
                     b.Property<string>("PComments")
@@ -279,9 +261,9 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
 
                     b.HasKey("PontoDeInteresse_ID");
 
-                    b.HasIndex("Categoria_ID1");
+                    b.HasIndex("Categoria_ID");
 
-                    b.HasIndex("Estado_ID1");
+                    b.HasIndex("Estado_ID");
 
                     b.HasIndex("Pessoa_ID");
 
@@ -385,7 +367,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 {
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Pessoa", "Pessoa")
                         .WithMany("Agendamento")
-                        .HasForeignKey("Pessoa_ID1");
+                        .HasForeignKey("Pessoa_ID");
 
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", "PontoDeInteresse")
                         .WithMany("Agendamento")
@@ -407,13 +389,13 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 {
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Categoria", "Categoria")
                         .WithMany("PontoDeInteresse")
-                        .HasForeignKey("Categoria_ID1");
+                        .HasForeignKey("Categoria_ID");
 
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Estado", "Estado")
                         .WithMany("PontoDeInteresse")
-                        .HasForeignKey("Estado_ID1");
+                        .HasForeignKey("Estado_ID");
 
-                    b.HasOne("EI20_21_ESII_PI_GGLP.Models.Pessoa", "Pessoa")
+                    b.HasOne("EI20_21_ESII_PI_GGLP.Models.Pessoa", null)
                         .WithMany("PontoDeInteresse")
                         .HasForeignKey("Pessoa_ID");
                 });

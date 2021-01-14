@@ -13,7 +13,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // Horario Class '* to 1' PontoDeInteresse Class
-        public int PontosDeInteresse_ID { get; set; }
+        //public int PontosDeInteresse_ID { get; set; }
         public PontoDeInteresse PontoDeInteresse { get; set; }
 
 

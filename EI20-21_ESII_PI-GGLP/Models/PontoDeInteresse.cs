@@ -18,13 +18,13 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // PontoDeInteresse Class '* to 1' Categoria Class
-        public int Categoria_ID { get; set; }
+        //public int Categoria_ID { get; set; }
         public Categoria Categoria { get; set; }
 
 
         // PontoDeInteresse Class '* to 1' Pessoa Class
-        public int Gestor_ID { get; set; }
-        public Pessoa Pessoa { get; set; }
+        //public int Gestor_ID { get; set; }
+        //public Pessoa Pessoa { get; set; }
 
 
         // PImagem
@@ -89,7 +89,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         // PontoDeInteresse Class '* to 1' Estado Class
         [Display(Name = "Estado")]
-        public int Estado_ID { get; set; }
+        //public int Estado_ID { get; set; }
         public Estado Estado { get; set; }
 
 
