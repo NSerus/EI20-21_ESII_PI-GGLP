@@ -149,10 +149,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DiaID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Dia_ID")
+                    b.Property<int>("DiaID")
                         .HasColumnType("int");
 
                     b.Property<int>("HFim")
@@ -380,7 +377,9 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 {
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.Dia", "Dia")
                         .WithMany("Horarios")
-                        .HasForeignKey("DiaID");
+                        .HasForeignKey("DiaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", "PontoDeInteresse")
                         .WithMany("Horarios")

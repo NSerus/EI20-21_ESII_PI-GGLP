@@ -18,7 +18,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // Horario Class '* to 1' Dia Class
-        public int Dia_ID { get; set; }
+        public int DiaID { get; set; }
         public Dia Dia { get; set; }
 
 

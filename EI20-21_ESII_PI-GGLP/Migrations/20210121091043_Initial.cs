@@ -197,8 +197,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PontosDeInteresseID = table.Column<int>(nullable: false),
                     PontoDeInteresseID = table.Column<int>(nullable: true),
-                    Dia_ID = table.Column<int>(nullable: false),
-                    DiaID = table.Column<int>(nullable: true),
+                    DiaID = table.Column<int>(nullable: false),
                     HInicio = table.Column<int>(nullable: false),
                     HFim = table.Column<int>(nullable: false)
                 },
@@ -210,7 +209,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         column: x => x.DiaID,
                         principalTable: "Dia",
                         principalColumn: "DiaID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Horario_PontoDeInteresse_PontoDeInteresseID",
                         column: x => x.PontoDeInteresseID,
