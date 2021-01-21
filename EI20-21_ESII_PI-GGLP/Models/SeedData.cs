@@ -16,10 +16,10 @@ namespace EI20_21_ESII_PI_GGLP.Models
             PopulateCategoria(dbContext);
             PopulateDia(dbContext);
             PopulatePontoDeInteresse(dbContext);
-            PopulateAgendamentos(dbContext);
+            ///PopulateAgendamentos(dbContext);
         }
 
-        private static void PopulateAgendamentos(GGLPDbContext dbContext)
+        /*private static void PopulateAgendamentos(GGLPDbContext dbContext)
         {
             if (dbContext.Agendamento.Any())
             {
@@ -31,7 +31,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                 {
                     //AgendamentoID
                     //PessoaID
-                    PontoDeInteresseID = 0,
+                    PontoDeInteresseID = 4,
                     AData = "20012021",
                     AHora = "21",
                     ANumPessoas = 2
@@ -60,7 +60,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
             ) ;
 
             dbContext.SaveChanges();
-        }
+        }*/
 
         private static void PopulateEstado(GGLPDbContext dbContext)
         {

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EI20_21_ESII_PI_GGLP.Models.Agendamento>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pessoa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PontoDeInteresse.PNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ANumPessoas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pessoa.PComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PontoDeInteresse.PCoordenadas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ANumPessoas)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AgendamentoID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AgendamentoID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AgendamentoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
