@@ -18,13 +18,37 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
         {
             _context = context;
         }
+        //Pagination
+        public async Task<IActionResult> Index(string name = null, int page = 1, string date = null)
+        {
+            var gGLPDbContext = _context.Agendamento.Include(p => p.PontoDeInteresse);
 
+            var pagination = new PagingInfo
+            {
+                CurrentPage = page,
+                PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
+                TotalItems = _context.Agendamento.Where(a => date == null || a.PontoDeInteresse.PNome.Contains(name) || a.AData.Contains(date)).Count()
+            };
+
+
+            return View(
+                new AgendamentoListViewModel
+                {
+                    Agendamentos = _context.Agendamento.Where(a => date == null || a.PontoDeInteresse.PNome.Contains(name) || a.AData.Contains(date))
+                        .OrderBy(a => a.AData)
+                        .Skip((page - 1) * pagination.PageSize)
+                        .Take(pagination.PageSize),
+                    Pagination = pagination,
+                    SearchName = name
+                }
+            );
+        }
         // GET: Agendamentos
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             var gGLPDbContext = _context.Agendamento.Include(a => a.Pessoa).Include(a => a.PontoDeInteresse);
             return View(await gGLPDbContext.ToListAsync());
-        }
+        }*/
 
         // GET: Agendamentos/Details/5
         public async Task<IActionResult> Details(int? id)

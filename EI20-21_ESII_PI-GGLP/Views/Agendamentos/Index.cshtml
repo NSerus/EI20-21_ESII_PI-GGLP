@@ -1,4 +1,5 @@
-﻿@model IEnumerable<EI20_21_ESII_PI_GGLP.Models.Agendamento>
+﻿@*model IEnumerable<EI20_21_ESII_PI_GGLP.Models.Agendamento>*@
+@model AgendamentoListViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -7,55 +8,181 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Pessoa)
-            </th>
-            <th>
-                
-                @Html.DisplayNameFor(model => model.PontoDeInteresse.PNome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AData)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AHora)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ANumPessoas)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pessoa.PComments)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AData)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AHora)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ANumPessoas)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AgendamentoID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AgendamentoID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AgendamentoID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("portfolio");
+        var y = document.getElementById("portfolio2");
+
+        y.style.display = "none";
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+    }
+</script>
+
+
+
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-primary" id="mainNav" style="top:80px">
+    <div class="container">
+
+        <form asp-action="Index" method="get" class="row no-gutters">
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                <b><a style="color:white" class="nav-link js-scroll-trigger">Nome: </a></b>
+                <input name="name" type="search" class="form-control" value="@Model.SearchName" * />
+                <input name="page" type="hidden" value="1" />
+                <input type="submit" value="Procurar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Limpar</a>
+            </ul>
+        </form>
+
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
+
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="myFunction()">Alterar vista</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="agendamento" asp-action="Create">Create New</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h2 class="text-center mt-0">Agendamentos (@Model.Agendamentos.Count().ToString())</h2>
+<hr />
+
+
+
+
+
+<!-- Portfolio -->
+<div id="portfolio">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+            @foreach (var item in @Model.Agendamentos)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" asp-action="Details" asp-route-id="@item.AgendamentoID">
+
+                        <div class="portfolio-box-caption">
+                            <div class="project-date text-white-50">@Html.DisplayFor(modelItem => item.AData)</div>
+                            <div class="project-name">@Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)</div>
+                        </div>
+
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="portfolio2" style="display:none">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Data)*@
+                    Data:
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.PontoDeInteresse.PNome)*@
+                    Nome:
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.AHora)*@
+                    Hora:
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.ANumPessoas)*@
+                    Número de Pessoas:
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model.Agendamentos)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AData)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AHora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ANumPessoas)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AgendamentoID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.AgendamentoID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<br />
+<br />
+
+
+
+
+
+
+
+
+<nav class="mt-3">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="1" asp-route-name="@Model.SearchName">First</a></li>
+
+        @{
+            int initalPage = Model.Pagination.CurrentPage - PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
+            if (initalPage < 1) initalPage = 1;
+
+            int finalPage = Model.Pagination.CurrentPage + PagingInfo.NUMBER_PAGES_SHOW_BEFORE_AFTER;
+            if (finalPage > Model.Pagination.TotalPages) finalPage = Model.Pagination.TotalPages;
+        }
+
+        @for (int p = initalPage; p <= finalPage; p++)
+        {
+            if (p == Model.Pagination.CurrentPage)
+            {
+                <li class="page-item active"><a class="page-link" href="#">@p</a></li>
+            }
+            else
+            {
+                <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@p" asp-route-name="@Model.SearchName">@p</a></li>
+            }
+        }
+
+        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-page="@Model.Pagination.TotalPages" asp-route-name="@Model.SearchName">Last</a></li>
+    </ul>
+</nav>
+
