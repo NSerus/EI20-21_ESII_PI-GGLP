@@ -166,8 +166,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     AgendamentoID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PessoaID = table.Column<int>(nullable: false),
-                    PontoDeIntersseID = table.Column<int>(nullable: false),
-                    PontoDeInteresseID = table.Column<int>(nullable: true),
+                    PontoDeInteresseID = table.Column<int>(nullable: false),
                     AData = table.Column<string>(nullable: true),
                     AHora = table.Column<string>(nullable: false),
                     ANumPessoas = table.Column<int>(nullable: false)
@@ -186,7 +185,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         column: x => x.PontoDeInteresseID,
                         principalTable: "PontoDeInteresse",
                         principalColumn: "PontoDeInteresseID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

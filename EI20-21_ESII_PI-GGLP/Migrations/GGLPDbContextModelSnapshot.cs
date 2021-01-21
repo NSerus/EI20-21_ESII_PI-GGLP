@@ -39,10 +39,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<int>("PessoaID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PontoDeInteresseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PontoDeIntersseID")
+                    b.Property<int>("PontoDeInteresseID")
                         .HasColumnType("int");
 
                     b.HasKey("AgendamentoID");
@@ -370,7 +367,9 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
 
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", "PontoDeInteresse")
                         .WithMany("Agendamentos")
-                        .HasForeignKey("PontoDeInteresseID");
+                        .HasForeignKey("PontoDeInteresseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.Horario", b =>
