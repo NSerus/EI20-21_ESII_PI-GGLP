@@ -16,51 +16,46 @@ namespace EI20_21_ESII_PI_GGLP.Models
             PopulateCategoria(dbContext);
             PopulateDia(dbContext);
             PopulatePontoDeInteresse(dbContext);
-            ///PopulateAgendamentos(dbContext);
+            PopulatePessoas(dbContext);
+            PopulateAgendamentos(dbContext);
         }
 
-        /*private static void PopulateAgendamentos(GGLPDbContext dbContext)
+        private static void PopulatePessoas(GGLPDbContext dbContext)
         {
-            if (dbContext.Agendamento.Any())
+            if (dbContext.Pessoa.Any())
             {
                 return;
             }
 
-            dbContext.Agendamento.AddRange(
-                new Agendamento
+            dbContext.Pessoa.AddRange(
+                new Pessoa
                 {
-                    //AgendamentoID
                     //PessoaID
-                    PontoDeInteresseID = 4,
-                    AData = "20012021",
-                    AHora = "21",
-                    ANumPessoas = 2
-
-                    
+                    PNome = "José Martins",
+                    PContato = 928312764,
+                    PEmail = "jmartisn@gmail.com",
+                    PComments = "Dono de Restaurante",
                 },
-                new Agendamento
+                new Pessoa
                 {
-                    //AgendamentoID
                     //PessoaID
-                    PontoDeInteresseID = 3,
-                    AData = "28022021",
-                    AHora = "13",
-                    ANumPessoas = 1
+                    PNome = "Maria Bataguas",
+                    PContato = 931231184,
+                    PEmail = "mbata@gmail.com",
+                    PComments = "Cliente de Restaurante",
                 },
-                new Agendamento
-
+                new Pessoa
                 {
-                    //AgendamentoID
                     //PessoaID
-                    PontoDeInteresseID = 2,
-                    AData = "23012022",
-                    AHora = "15",
-                    ANumPessoas = 4
+                    PNome = "José Serôdio",
+                    PContato = 912364712,
+                    PEmail = "jserus@gmail.com",
+                    PComments = "Diretor de Museu",
                 }
-            ) ;
+            );
 
             dbContext.SaveChanges();
-        }*/
+        }
 
         private static void PopulateEstado(GGLPDbContext dbContext)
         {
@@ -395,6 +390,48 @@ namespace EI20_21_ESII_PI_GGLP.Models
             dbContext.SaveChanges();
         }
 
+        private static void PopulateAgendamentos(GGLPDbContext dbContext)
+        {
+            if (dbContext.Agendamento.Any())
+            {
+                return;
+            }
+
+            dbContext.Agendamento.AddRange(
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 4,
+                    AData = "20012021",
+                    AHora = "21",
+                    ANumPessoas = 2
+
+
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 2,
+                    PontoDeInteresseID = 3,
+                    AData = "28022021",
+                    AHora = "13",
+                    ANumPessoas = 1
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
+                }
+            );
+
+            dbContext.SaveChanges();
+        }
 
 
 
