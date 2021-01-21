@@ -427,7 +427,89 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     AData = "23012022",
                     AHora = "15",
                     ANumPessoas = 4
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+
+                {
+                    //AgendamentoID
+                    PessoaID = 3,
+                    PontoDeInteresseID = 2,
+                    AData = "23012022",
+                    AHora = "15",
+                    ANumPessoas = 4
                 }
+
+
             );
 
             dbContext.SaveChanges();
