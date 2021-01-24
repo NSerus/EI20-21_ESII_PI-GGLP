@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EI20_21_ESII_PI_GGLP.Migrations
 {
     [DbContext(typeof(GGLPDbContext))]
-    [Migration("20210121103853_Initial")]
+    [Migration("20210124015401_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,8 +28,8 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AData")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("AData")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("AHora")
                         .IsRequired()

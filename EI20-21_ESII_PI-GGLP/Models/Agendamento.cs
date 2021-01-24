@@ -22,8 +22,10 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public PontoDeInteresse PontoDeInteresse { get; set; }
 
 
-
-        public string AData { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}")]
+        [Display(Name = "Estado (Data de entrada em vigor):")]
+        [DataType(DataType.Date)]
+        public DateTime AData { get; set; }
 
         [Required(ErrorMessage = "Selecione a Hora")]
         public string AHora { get; set; }

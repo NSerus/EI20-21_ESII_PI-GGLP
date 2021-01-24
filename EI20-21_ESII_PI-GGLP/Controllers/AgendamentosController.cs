@@ -27,14 +27,14 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             {
                 CurrentPage = page,
                 PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
-                TotalItems = _context.Agendamento.Where(a => date == null || a.PontoDeInteresse.PNome.Contains(name) || a.AData.Contains(date)).Count()
+                TotalItems = _context.Agendamento.Where(a => date == null || a.PontoDeInteresse.PNome.Contains(name)).Count()
             };
 
 
             return View(
                 new AgendamentoListViewModel
                 {
-                    Agendamentos = _context.Agendamento.Where(a => date == null || a.PontoDeInteresse.PNome.Contains(name) || a.AData.Contains(date))
+                    Agendamentos = _context.Agendamento.Where(a => date == null || a.PontoDeInteresse.PNome.Contains(name) )
                         .OrderBy(a => a.AData)
                         .Skip((page - 1) * pagination.PageSize)
                         .Take(pagination.PageSize),

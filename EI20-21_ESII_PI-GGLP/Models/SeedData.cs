@@ -403,7 +403,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 1,
                     PontoDeInteresseID = 4,
-                    AData = "20012021",
+                    AData = new DateTime(2021, 02, 12),
                     AHora = "21",
                     ANumPessoas = 2
 
@@ -414,7 +414,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 2,
                     PontoDeInteresseID = 3,
-                    AData = "28022021",
+                    AData = new DateTime(2020, 12, 12),
                     AHora = "13",
                     ANumPessoas = 1
                 },
@@ -424,7 +424,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2021, 02, 21),
                     AHora = "15",
                     ANumPessoas = 4
                 },
@@ -434,7 +434,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2021, 12, 01),
                     AHora = "15",
                     ANumPessoas = 4
                 },
@@ -444,7 +444,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2020, 12, 20),
                     AHora = "15",
                     ANumPessoas = 4
                 },
@@ -454,7 +454,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2021, 12, 23),
                     AHora = "15",
                     ANumPessoas = 4
                 },
@@ -464,7 +464,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2021, 02, 21),
                     AHora = "15",
                     ANumPessoas = 4
                 },
@@ -474,7 +474,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2021, 02, 21),
                     AHora = "15",
                     ANumPessoas = 4
                 },
@@ -484,7 +484,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2021, 02, 21),
                     AHora = "15",
                     ANumPessoas = 4
                 },
@@ -494,7 +494,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2021, 02, 21),
                     AHora = "15",
                     ANumPessoas = 4
                 },
@@ -504,7 +504,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     //AgendamentoID
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
-                    AData = "23012022",
+                    AData = new DateTime(2021,02,21),
                     AHora = "15",
                     ANumPessoas = 4
                 }

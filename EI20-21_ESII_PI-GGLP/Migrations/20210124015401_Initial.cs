@@ -167,7 +167,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PessoaID = table.Column<int>(nullable: false),
                     PontoDeInteresseID = table.Column<int>(nullable: false),
-                    AData = table.Column<string>(nullable: true),
+                    AData = table.Column<DateTime>(nullable: false),
                     AHora = table.Column<string>(nullable: false),
                     ANumPessoas = table.Column<int>(nullable: false)
                 },

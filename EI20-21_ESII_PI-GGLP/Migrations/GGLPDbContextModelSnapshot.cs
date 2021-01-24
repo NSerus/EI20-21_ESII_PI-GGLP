@@ -26,8 +26,8 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AData")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("AData")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("AHora")
                         .IsRequired()
