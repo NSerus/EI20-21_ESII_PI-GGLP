@@ -11,8 +11,8 @@
 
 <script>
     function myFunction() {
-        var x = document.getElementById("portfolio");
-        var y = document.getElementById("portfolio2");
+        var y = document.getElementById("portfolio");
+        var x = document.getElementById("portfolio2");
 
         y.style.display = "none";
 
@@ -79,12 +79,12 @@
             @foreach (var item in @Model.Agendamentos)
             {
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" asp-action="Details" asp-route-id="@item.AgendamentoID">
+                    <a class="portfolio-box" height="50px" asp-action="Details" asp-route-id="@item.AgendamentoID">
 
-                        <div class="portfolio-box-caption">
-                            <div class="project-date text-white-50">@Html.DisplayFor(modelItem => item.AData)</div>
-                            <div class="project-name">@Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)</div>
-                        </div>
+
+                        @Html.DisplayFor(modelItem => item.AData)
+                        @Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)
+                        
 
                     </a>
                 </div>
@@ -139,7 +139,7 @@
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.AgendamentoID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.">Details</a> |
+                        <a asp-action="Details" asp-route-id="@item.AgendamentoID">Details</a> |
                         <a asp-action="Delete" asp-route-id="@item.AgendamentoID">Delete</a>
                     </td>
                 </tr>
