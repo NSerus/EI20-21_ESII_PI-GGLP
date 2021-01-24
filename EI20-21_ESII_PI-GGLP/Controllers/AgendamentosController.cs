@@ -27,14 +27,14 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             {
                 CurrentPage = page,
                 PageSize = PagingInfo.DEFAULT_PAGE_SIZE,
-                TotalItems = _context.Agendamento.Where(a => date == null || a.PontoDeInteresse.PNome.Contains(name)).Count()
+                TotalItems = _context.Agendamento.Where(a => name == null || a.PontoDeInteresse.PNome.Contains(name)).Count()
             };
 
-
+            await gGLPDbContext.ToListAsync();
             return View(
                 new AgendamentoListViewModel
                 {
-                    Agendamentos = _context.Agendamento.Where(a => date == null || a.PontoDeInteresse.PNome.Contains(name) )
+                    Agendamentos = _context.Agendamento.Where(a => name == null || a.PontoDeInteresse.PNome.Contains(name) )
                         .OrderBy(a => a.AData)
                         .Skip((page - 1) * pagination.PageSize)
                         .Take(pagination.PageSize),
@@ -73,8 +73,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
         // GET: Agendamentos/Create
         public IActionResult Create()
         {
-            ViewData["PessoaID"] = new SelectList(_context.Pessoa, "PessoaID", "PComments");
-            ViewData["PontoDeInteresseID"] = new SelectList(_context.PontoDeInteresse, "PontoDeInteresseID", "PCoordenadas");
+            ViewData["PessoaID"] = new SelectList(_context.Pessoa, "PessoaID", "PNome");
+            ViewData["PontoDeInteresseID"] = new SelectList(_context.PontoDeInteresse, "PontoDeInteresseID", "PNome");
             return View();
         }
 
@@ -91,8 +91,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PessoaID"] = new SelectList(_context.Pessoa, "PessoaID", "PComments", agendamento.PessoaID);
-            ViewData["PontoDeInteresseID"] = new SelectList(_context.PontoDeInteresse, "PontoDeInteresseID", "PCoordenadas", agendamento.PontoDeInteresseID);
+            ViewData["PessoaID"] = new SelectList(_context.Pessoa, "PessoaID", "PNome", agendamento.PessoaID);
+            ViewData["PontoDeInteresseID"] = new SelectList(_context.PontoDeInteresse, "PontoDeInteresseID", "PNome", agendamento.PontoDeInteresseID);
             return View(agendamento);
         }
 
@@ -109,8 +109,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             {
                 return NotFound();
             }
-            ViewData["PessoaID"] = new SelectList(_context.Pessoa, "PessoaID", "PComments", agendamento.PessoaID);
-            ViewData["PontoDeInteresseID"] = new SelectList(_context.PontoDeInteresse, "PontoDeInteresseID", "PCoordenadas", agendamento.PontoDeInteresseID);
+            ViewData["PessoaID"] = new SelectList(_context.Pessoa, "PessoaID", "PNome", agendamento.PessoaID);
+            ViewData["PontoDeInteresseID"] = new SelectList(_context.PontoDeInteresse, "PontoDeInteresseID", "PNome", agendamento.PontoDeInteresseID);
             return View(agendamento);
         }
 
@@ -146,8 +146,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PessoaID"] = new SelectList(_context.Pessoa, "PessoaID", "PComments", agendamento.PessoaID);
-            ViewData["PontoDeInteresseID"] = new SelectList(_context.PontoDeInteresse, "PontoDeInteresseID", "PCoordenadas", agendamento.PontoDeInteresseID);
+            ViewData["PessoaID"] = new SelectList(_context.Pessoa, "PessoaID", "PNome", agendamento.PessoaID);
+            ViewData["PontoDeInteresseID"] = new SelectList(_context.PontoDeInteresse, "PontoDeInteresseID", "PNome", agendamento.PontoDeInteresseID);
             return View(agendamento);
         }
 

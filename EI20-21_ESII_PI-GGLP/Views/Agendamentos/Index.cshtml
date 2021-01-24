@@ -73,18 +73,23 @@
 
 
 <!-- Portfolio -->
-<div id="portfolio2">
+<div id="portfolio">
     <div class="container-fluid p-0">
         <div class="row no-gutters">
             @foreach (var item in @Model.Agendamentos)
             {
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" height="50px" asp-action="Details" asp-route-id="@item.AgendamentoID">
+                    <a class="portfolio-box" asp-action="Details" asp-route-id="@item.AgendamentoID">
+
+                        @{ var base64 = Convert.ToBase64String(item.PontoDeInteresse.PImagem);
+                            var imgsrc = string.Format("data:image/gif;base64,{0}", base64);}
+                        <img class="img-fluid" src="@imgsrc" />
 
 
-                        @Html.DisplayFor(modelItem => item.AData)
-                        @Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)
-                        
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">@Html.DisplayFor(modelItem => item.AData)</div>
+                            <div class="project-name">@Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)</div>
+                        </div>
 
                     </a>
                 </div>
@@ -96,7 +101,7 @@
 
 
 
-<div id="portfolio" style="display:none">
+<div id="portfolio2" style="display:none">
     <table class="table">
         <thead>
             <tr>
@@ -128,6 +133,7 @@
 
                     </td>
                     <td>
+                        
                         @Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)
                     </td>
                     
