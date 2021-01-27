@@ -29,7 +29,11 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<DateTime>("AData")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("AHora")
+                    b.Property<string>("AHoraFim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AHoraInicio")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

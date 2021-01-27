@@ -15,11 +15,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="PessoaID" class="control-label"></label>
-                <select asp-for="PessoaID" class ="form-control" asp-items="ViewBag.PessoaID"></select>
+                <select asp-for="PessoaID" class="form-control" asp-items="ViewBag.PessoaID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PontoDeInteresseID" class="control-label"></label>
-                <select asp-for="PontoDeInteresseID" class ="form-control" asp-items="ViewBag.PontoDeInteresseID"></select>
+                <select asp-for="PontoDeInteresseID" class="form-control" asp-items="ViewBag.PontoDeInteresseID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="AData" class="control-label"></label>
@@ -27,9 +27,14 @@
                 <span asp-validation-for="AData" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AHora" class="control-label"></label>
-                <input asp-for="AHora" class="form-control" />
-                <span asp-validation-for="AHora" class="text-danger"></span>
+                <label asp-for="AHoraInicio" class="control-label"></label>
+                <input asp-for="AHoraInicio" class="form-control" />
+                <span asp-validation-for="AHoraInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AHoraFim" class="control-label"></label>
+                <input asp-for="AHoraFim" class="form-control" />
+                <span asp-validation-for="AHoraFim" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ANumPessoas" class="control-label"></label>

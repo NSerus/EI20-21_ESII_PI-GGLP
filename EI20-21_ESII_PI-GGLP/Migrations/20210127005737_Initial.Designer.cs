@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EI20_21_ESII_PI_GGLP.Migrations
 {
     [DbContext(typeof(GGLPDbContext))]
-    [Migration("20210124015401_Initial")]
+    [Migration("20210127005737_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,11 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<DateTime>("AData")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("AHora")
+                    b.Property<string>("AHoraFim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AHoraInicio")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

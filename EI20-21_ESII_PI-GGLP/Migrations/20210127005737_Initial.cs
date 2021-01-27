@@ -168,7 +168,8 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     PessoaID = table.Column<int>(nullable: false),
                     PontoDeInteresseID = table.Column<int>(nullable: false),
                     AData = table.Column<DateTime>(nullable: false),
-                    AHora = table.Column<string>(nullable: false),
+                    AHoraInicio = table.Column<string>(nullable: false),
+                    AHoraFim = table.Column<string>(nullable: false),
                     ANumPessoas = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

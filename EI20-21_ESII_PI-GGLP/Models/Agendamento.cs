@@ -27,8 +27,10 @@ namespace EI20_21_ESII_PI_GGLP.Models
         [DataType(DataType.Date)]
         public DateTime AData { get; set; }
 
-        [Required(ErrorMessage = "Selecione a Hora")]
-        public string AHora { get; set; }
+        [Required(ErrorMessage = "Selecione a Hora de Inicio")]
+        public string AHoraInicio { get; set; }
+        [Required(ErrorMessage = "Selecione a Hora de Fim")]
+        public string AHoraFim { get; set; }
 
         [Required(ErrorMessage = "Escreva o número de pessoas que o vai acompanhar")]
         [Range(1, 4, ErrorMessage = "O número do grupo tem que ser de 1 a 4 pessoas")]

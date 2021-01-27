@@ -404,7 +404,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 1,
                     PontoDeInteresseID = 4,
                     AData = new DateTime(2021, 02, 12),
-                    AHora = "21",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 2
 
 
@@ -415,7 +416,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 2,
                     PontoDeInteresseID = 3,
                     AData = new DateTime(2020, 12, 12),
-                    AHora = "13",
+                    AHoraInicio = "13",
+                    AHoraFim = "17",
                     ANumPessoas = 1
                 },
                 new Agendamento
@@ -425,7 +427,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2021, 02, 21),
-                    AHora = "15",
+                    AHoraInicio = "15",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 },
                 new Agendamento
@@ -435,7 +438,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2021, 12, 01),
-                    AHora = "15",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 },
                 new Agendamento
@@ -445,7 +449,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2020, 12, 20),
-                    AHora = "15",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 },
                 new Agendamento
@@ -455,7 +460,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2021, 12, 23),
-                    AHora = "15",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 },
                 new Agendamento
@@ -465,7 +471,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2021, 02, 21),
-                    AHora = "15",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 },
                 new Agendamento
@@ -475,7 +482,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2021, 02, 21),
-                    AHora = "15",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 },
                 new Agendamento
@@ -485,7 +493,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2021, 02, 21),
-                    AHora = "15",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 },
                 new Agendamento
@@ -495,7 +504,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2021, 02, 21),
-                    AHora = "15",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 },
                 new Agendamento
@@ -505,7 +515,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PessoaID = 3,
                     PontoDeInteresseID = 2,
                     AData = new DateTime(2021,02,21),
-                    AHora = "15",
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
                     ANumPessoas = 4
                 }
 
