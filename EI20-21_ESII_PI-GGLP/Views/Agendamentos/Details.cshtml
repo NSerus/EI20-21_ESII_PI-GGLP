@@ -7,49 +7,335 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>Agendamento</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Pessoa)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Pessoa.PComments)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PontoDeInteresse)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PontoDeInteresse.PNome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.AData)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AData)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.AHoraInicio)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AHoraInicio)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.AHoraFim)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AHoraFim)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ANumPessoas)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ANumPessoas)
-        </dd>
-    </dl>
+<style>
+    /* ----- Global ----- */
+    * {
+        box-sizing: border-box;
+    }
+
+
+
+    /*img {
+        max-width: 100%;
+        filter: drop-shadow(1px 1px 3px #f4623a);
+    }*/
+    /* ----- Product Section ----- */
+    .dproduct {
+        display: grid;
+        grid-template-columns: 0.9fr 1fr;
+        margin: auto;
+        padding: 2.5em 0;
+        background-color: white;
+        border-radius: 5px;
+        /*max-width: 800px;*/
+        width: 90%;
+        height: 1000px;
+    }
+    /* ----- Photo Section ----- */
+    .dproduct__photo {
+        position: relative;
+        max-height: 800px;
+        padding-left: 100px;
+    }
+
+    .dphoto-container {
+        position: absolute;
+        left: -2.5em;
+        display: grid;
+        grid-template-rows: 1fr;
+        width: 400px;
+        height: 650px;
+        border-radius: 6px;
+        box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
+    }
+
+    .dphoto-main {
+        border-radius: 6px 6px 0 0;
+        /*background-color: #9be010;*/
+        background-color: #f4623a;
+        /* background: radial-gradient(#e5f89e, #f4623a);*/
+    }
+
+    .dcontrols {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.8em;
+        color: #fff;
+    }
+
+    di {
+        cursor: pointer;
+    }
+
+    /*dimg {
+        position: absolute;
+        left: -3.5em;
+        top: 2em;
+        max-width: 110%;
+        filter: saturate(150%) contrast(120%) hue-rotate(10deg) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+    }*/
+
+    .dphoto-album {
+        padding: 0.7em 1em;
+        border-radius: 0 0 6px 6px;
+        background-color: #fff;
+    }
+
+    .dphoto-album-ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .dphoto-album-li {
+        float: left;
+        width: 55px;
+        height: 55px;
+        padding: 7px;
+        border: 1px solid $color-secondary;
+        border-radius: 3px;
+    }
+    /* ----- Informations Section ----- */
+    .dproduct__info {
+        padding: 0.8em 0;
+    }
+
+
+    .ddescription {
+        clear: left;
+        margin: 2em 0;
+        margin-bottom: 1em;
+    }
+
+    /*ul {
+        font-size: 0.8em;
+        list-style: disc;
+        margin-left: 1em;
+    }
+
+    li {
+        text-indent: -0.6em;
+        margin-bottom: 0.5em;
+    }*/
+    span {
+        /*font-size: 0.7em;*/
+        color: #a6a6a6;
+        max-width: 400px;
+    }
+
+    .visibledevice {
+        display: none;
+    }
+
+    .visibledesktop {
+        display: block;
+    }
+
+    @@media (max-width : 700px) {
+        .visibledevice {
+            display: block;
+        }
+
+        .visibledesktop {
+            display: none;
+        }
+    }
+
+    body {
+        display: grid;
+        grid-template-rows: 1fr;
+        font-family: "Raleway", sans-serif;
+        background-color: lightgray;
+    }
+
+    body2 {
+        display: grid;
+        grid-template-rows: 1fr;
+        font-family: "Raleway", sans-serif;
+        background-color: lightgray;
+    }
+
+    @@media (max-width : 700px) {
+        body {
+            display: grid;
+            grid-template-rows: 1fr;
+            font-family: "Raleway", sans-serif;
+            background-color: white;
+        }
+
+        body2 {
+            display: grid;
+            grid-template-rows: 1fr;
+            font-family: "Raleway", sans-serif;
+            background-color: lightgray;
+        }
+    }
+</style>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<div class="visibledesktop" style="padding-left:100px">
+    <section class="dproduct" style="width:70%">
+
+        <div class="dproduct__photo">
+            <div class="dphoto-container">
+                <div class="dphoto-main" style="width: 400px">
+
+                    <img style="max-width: 100%; filter: drop-shadow(5px 5px 10px #f4623a); position: absolute;
+                    left: -3.5em; top: 2em; max-width: 110%; filter: saturate(150%) contrast(120%)
+                    hue-rotate(10deg) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));"
+                         src="data:image/*;base64,@(Convert.ToBase64String(Model.PontoDeInteresse.PImagem))">
+
+                </div>
+                <div class="dphoto-album">
+
+
+
+                    @*<span>Estado: @Html.DisplayFor(model => model.Estado.ENome)</span>*@
+                    @*<ul class="dphoto-album-ul">
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                        </ul>*@
+
+                    @*<span>Pessoas: @Html.DisplayFor(model => model.PNumPessoas) Max: @Html.DisplayFor(model => model.PMaxPessoas)</span>
+                        <span>@Html.DisplayFor(model => model.PCoordenadas)</span>*@
+
+                    <iframe src="@Html.DisplayFor(model => model.PontoDeInteresse.PCoordenadas)" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="dproduct__info">
+            <div class="title">
+                <h1>Agendamento</h1>
+                </br>
+
+                <h2> • @Html.DisplayFor(model => model.AData)   &nbsp &nbsp &nbsp    @Html.DisplayFor(model => model.AHoraInicio):00-@Html.DisplayFor(model => model.AHoraFim):00</h2>
+                </br>
+                <h2> • @Html.DisplayFor(model => model.PontoDeInteresse.PNome)</h2>
+                </br>
+                <h3>• @Html.DisplayFor(model => model.ANumPessoas) pessoas</h3>
+                </br>
+                </br>
+
+                <span>@Html.DisplayFor(model => model.PontoDeInteresse.PDescricao)</span>
+            </div>
+            <div class="price">
+            </div>
+
+
+            <div class="ddescription">
+                <h3>BENEFITS</h3>
+                <ul>
+                    <li>Apples are nutricious</li>
+                    <li>Apples may be good for weight loss</li>
+                    <li>Apples may be good for bone health</li>
+                    <li>They're linked to a lowest risk of diabetes</li>
+                </ul>
+            </div>
+            <button class="buy--btn">ADD TO CART</button>
+        </div>
+
+    </section>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.AgendamentoID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<!-- --------------------------------------------------------------------------------------------- -->
+
+<div class="visibledevice" style="padding-left:50px;">
+    <section class="dproduct">
+
+        <h2>@Html.DisplayFor(model => model.PontoDeInteresse.PNome)</h2>
+
+        <br />
+
+        <div class="dproduct__photo">
+            <div class="dphoto-container">
+
+
+                <div class="dphoto-main">
+
+                    <img style="max-width: 100%; filter: drop-shadow(5px 5px 10px #f4623a); position: absolute;
+                    left: -3.5em; top: 2em; max-width: 110%; filter: saturate(150%) contrast(120%)
+                    hue-rotate(10deg) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));"
+                         src="data:image/*;base64,@(Convert.ToBase64String(Model.PontoDeInteresse.PImagem))">
+
+                </div>
+                <div class="dphoto-album">
+
+
+
+                    @*<span>Estado: @Html.DisplayFor(model => model.Estado.ENome)</span>*@
+                    @*<ul class="dphoto-album-ul">
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                        </ul>*@
+
+                    @*<span>Pessoas: @Html.DisplayFor(model => model.PNumPessoas) Max: @Html.DisplayFor(model => model.PMaxPessoas)</span>
+                        <span>@Html.DisplayFor(model => model.PCoordenadas)</span>*@
+
+                    <iframe src="@Html.DisplayFor(model => model.PontoDeInteresse.PCoordenadas)" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+        <br />
+
+
+        <div class="dproduct__info" style="padding-top:700px;width:400px">
+
+
+
+            <span>@Html.DisplayFor(model => model.PontoDeInteresse.PDescricao)</span>
+
+            <div class="price">
+            </div>
+
+            <br />
+
+            <div class="ddescription">
+                <h3>BENEFITS</h3>
+                <ul>
+                    <li>Apples are nutricious</li>
+                    <li>Apples may be good for weight loss</li>
+                    <li>Apples may be good for bone health</li>
+                    <li>They're linked to a lowest risk of diabetes</li>
+                </ul>
+            </div>
+            <button class="buy--btn">ADD TO CART</button>
+        </div>
+
+    </section>
+
 </div>
+
+
+
+
+
+
+
+
+
+<footer>
+    <p>Design from <a href="https://dribbble.com/shots/5216438-Daily-UI-012">dribbble shot</a> of <a href="https://dribbble.com/rodrigorramos">Rodrigo Ramos</a></p>
+</footer>
+
+
+
+
+
+
