@@ -1,0 +1,73 @@
+﻿@model EI20_21_ESII_PI_GGLP.Models.Horario
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h2 class="text-center mt-0">Editar Horário</h2>
+<h2 class="text-center mt-0" style="color:gray">@Model.PontoDeInteresse.PNome</h2>
+<hr />
+
+<br />
+
+
+<section class="container" style="width:600px">
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="HorarioID" />
+        <div class="form-group">
+            <label asp-for="PontoDeInteresseID" class="control-label"></label>
+            <select asp-for="PontoDeInteresseID" class="form-control" asp-items="ViewBag.PontoDeInteresseID"></select>
+            <span asp-validation-for="PontoDeInteresseID" class="text-danger"></span>
+
+            <br />
+            <br />
+
+            <label asp-for="DiaID" class="control-label"></label>
+            <select asp-for="DiaID" class="form-control" asp-items="ViewBag.DiaID"></select>
+            <span asp-validation-for="DiaID" class="text-danger"></span>
+
+            <br />
+            <br />
+
+            <label asp-for="HInicio" class="control-label"></label>
+            <input asp-for="HInicio" class="form-control" />
+            <span asp-validation-for="HInicio" class="text-danger"></span>
+
+            <br />
+            <br />
+
+            <label asp-for="HFim" class="control-label"></label>
+            <input asp-for="HFim" class="form-control" />
+            <span asp-validation-for="HFim" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" style="float: right" />
+
+        </div>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    @*<div>
+            <a asp-action="Index">Back to List</a>
+        </div>*@
+
+</section>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

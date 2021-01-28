@@ -24,12 +24,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
         // GET: PontoDeInteresse
         public async Task<IActionResult> Index(string name = null, int page = 1, string category = null)
         {
-            var gGLPDbContext = _context.PontoDeInteresse.Include(p => p.Categoria).Include(p => p.Estado);
 
-            // Horarios
-            
-
-
+            var gGLPDbContext = _context.PontoDeInteresse.Include(p => p.Categoria).Include(p => p.Estado).Include(p => p.Horario).Include(p => p.Horario).ThenInclude(y => y.Dia);
 
 
             //return View(await gGLPDbContext.ToListAsync());
@@ -56,6 +52,11 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             );
         }
 
+
+
+
+
+        
         // GET: PontoDeInteresse/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -67,9 +68,9 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             var pontoDeInteresse = await _context.PontoDeInteresse
                 .Include(p => p.Categoria)
                 .Include(p => p.Estado)
+                .Include(p => p.Horario)
+                .Include(p => p.Horario).ThenInclude(y => y.Dia)
                 .FirstOrDefaultAsync(m => m.PontoDeInteresseID == id);
-
-            
 
             if (pontoDeInteresse == null)
             {
@@ -77,9 +78,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             }
 
             return View(pontoDeInteresse);
+
         }
-
-
 
 
 
@@ -150,7 +150,6 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
 
 
 
-
         // GET: PontoDeInteresse/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -169,18 +168,34 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             return View(pontoDeInteresse);
         }
 
+
+        
         // POST: PontoDeInteresse/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PontoDeInteresseID,CategoriaID,PImagem,PNome,PDescricao,PEndereco,PCoordenadas,PContacto,PEmail,PNumPessoas,PMaxPessoas,EstadoID,PDataEstado,PComments")] PontoDeInteresse pontoDeInteresse)
+        public async Task<IActionResult> Edit(int id, [Bind("PontoDeInteresseID,CategoriaID,PImagem,PNome,PDescricao,PEndereco,PCoordenadas,PContacto,PEmail,PNumPessoas,PMaxPessoas,EstadoID,PDataEstado,PComments")] PontoDeInteresse pontoDeInteresse, List<IFormFile> PImagem)
         {
 
             if (id != pontoDeInteresse.PontoDeInteresseID)
             {
                 return NotFound();
             }
+
+            foreach (var item in PImagem)
+            {
+                if (item.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await item.CopyToAsync(stream);
+                        pontoDeInteresse.PImagem = stream.ToArray();
+                    }
+                }
+            }
+            _context.PontoDeInteresse.Update(pontoDeInteresse);
+
 
             if (ModelState.IsValid)
             {
@@ -200,12 +215,21 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
                         throw;
                     }
                 }
+                
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoriaID"] = new SelectList(_context.Categoria, "CategoriaID", "CategoriaID", pontoDeInteresse.CategoriaID);
             ViewData["EstadoID"] = new SelectList(_context.Estado, "EstadoID", "EstadoID", pontoDeInteresse.EstadoID);
             return View(pontoDeInteresse);
         }
+
+
+
+
+
+
+
+
 
         // GET: PontoDeInteresse/Delete/5
         public async Task<IActionResult> Delete(int? id)

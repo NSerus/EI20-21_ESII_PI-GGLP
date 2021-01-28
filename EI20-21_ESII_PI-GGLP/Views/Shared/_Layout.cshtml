@@ -22,12 +22,12 @@
 </head>
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-dark" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" style="background-color:dodgerblue" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="~/assets/img/logo.png" width="30" height="40" alt="">
             </a>
-            <a class="navbar-brand js-scroll-trigger" asp-controller="Home" asp-action="Index" >GGLP</a>
+            <a class="navbar-brand js-scroll-trigger" asp-controller="Home" asp-action="Index" href="Index" style="color: white">GGLP</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
@@ -36,7 +36,7 @@
                     <!--TODO: Tirar COM IF QND HOUVER LOGIN-->
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Agendamentos" asp-action="Index">Agendamentos</a></li>
                     <!--TODO: Tirar COM IF QND HOUVER LOGIN-->
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="PontosDeInteresse" asp-action="Index">Pontos De Interesse</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="PontoDeInteresse" asp-action="Index">Pontos De Interesse</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="Sobre">Sobre</a></li>
 
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
@@ -44,7 +44,7 @@
 
                 </ul>
 
-           
+
 
 
 
@@ -54,10 +54,10 @@
     </br>
     <!-- Masthead-->
     @*<header class="img_header">
-        <div class="container h-100">
-            @RenderBody()
-        </div>
-    </header>*@
+            <div class="container h-100">
+                @RenderBody()
+            </div>
+        </header>*@
     @RenderBody()
     <!-- Services-->
     <!--<section class="page-section" id="services">

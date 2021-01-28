@@ -11,7 +11,7 @@
         box-sizing: border-box;
     }
 
-    
+
 
     /*img {
         max-width: 100%;
@@ -26,8 +26,8 @@
         background-color: white;
         border-radius: 5px;
         /*max-width: 800px;*/
-        width:90%;
-        height:1000px;
+        width: 90%;
+        min-height: 700px;
     }
     /* ----- Photo Section ----- */
     .dproduct__photo {
@@ -51,7 +51,7 @@
         border-radius: 6px 6px 0 0;
         /*background-color: #9be010;*/
         background-color: #f4623a;
-       /* background: radial-gradient(#e5f89e, #f4623a);*/
+        /* background: radial-gradient(#e5f89e, #f4623a);*/
     }
 
     .dcontrols {
@@ -167,6 +167,10 @@
             background-color: lightgray;
         }
     }
+    th, td {
+        border: none;
+        text-align:center;
+    }
 </style>
 
 
@@ -214,31 +218,155 @@
 
 
 
-        <div class="dproduct__info">
+        <div class="dproduct__info" style="padding-right:50px">
             <div class="title">
                 <h2>@Html.DisplayFor(model => model.PNome)</h2>
+                <h3 style="color:gray;float: left">@Html.DisplayFor(model => model.Categoria.CTipo)</h3>
+                <a style="color: darkorange;float: right" href="../Edit/@Html.DisplayFor(model => model.PontoDeInteresseID)">Editar</a>
+                <br />
+                <br />
+                @*<h3 style="text-align:center">
+            @if (Model.EstadoID == 1)
+            {
+                <font style="color:forestgreen">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
+                <font style="font-size:small;color:forestgreen">@Html.DisplayFor(model => model.PDataEstado)</font>
+            }
+            else if (Model.EstadoID == 2)
+            {
+                <font style="color:red">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
+                <font style="font-size:small;color:red">@Html.DisplayFor(model => model.PDataEstado)</font>
+            }
+            else if (Model.EstadoID == 3)
+            {
+                <font style="color:orange">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
+                <font style="font-size:small;color:orange">@Html.DisplayFor(model => model.PDataEstado)</font>
+            }
+        </h3>*@
+
+                <table style="border-collapse: collapse; width: 100%;">
+                    <tr>
+                        <th>
+                            <h3 style="text-align:left">
+                                @if (Model.EstadoID == 1)
+                                {
+                                    <font style="color:forestgreen">@Html.DisplayFor(model => model.Estado.ENome)</font>
+                                }
+                                else if (Model.EstadoID == 2)
+                                {
+                                    <font style="color:red">@Html.DisplayFor(model => model.Estado.ENome)</font>
+                                }
+                                else if (Model.EstadoID == 3)
+                                {
+                                    <font style="color:orange">@Html.DisplayFor(model => model.Estado.ENome)</font>
+                                }
+                            </h3>
+                        </th>
+                        <th><img src="/assets/img/persons.png" alt="" width="25" height="25"><br />Pessoas</th>
+                        <th><img src="/assets/img/persons.png" alt="" width="25" height="25"><br />Máximo</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3 style="text-align:left">
+                                @if (Model.EstadoID == 1)
+                                {
+                                    <font style="font-size:small;color:forestgreen">@Html.DisplayFor(model => model.PDataEstado)</font>
+                                }
+                                else if (Model.EstadoID == 2)
+                                {
+                                    <font style="font-size:small;color:red">@Html.DisplayFor(model => model.PDataEstado)</font>
+                                }
+                                else if (Model.EstadoID == 3)
+                                {
+                                    <font style="font-size:small;color:orange">@Html.DisplayFor(model => model.PDataEstado)</font>
+                                }
+                            </h3>
+                        </td>
+
+                        @if (Model.EstadoID == 1)
+                        {
+                            <td>@Html.DisplayFor(model => model.PNumPessoas)</td>
+                        }
+                        else if (Model.EstadoID == 2)
+                        {
+                            <td>-</td>
+                        }
+                        else if (Model.EstadoID == 3)
+                        {
+                            <td>-</td>
+                        }
+                        <td>@Html.DisplayFor(model => model.PMaxPessoas)</td>
+                    </tr>
+
+                </table>
+
+                <br />
+
                 <span>@Html.DisplayFor(model => model.PDescricao)</span>
-            </div>
-            <div class="price">
-            </div>
+
+                <br />
+                <hr />
+
+                <h3>Horários</h3>
+
+                <a style="color:darkorange;" asp-controller="Horarios" asp-action="Create">Criar Horário</a>
+                <br />
+                <br />
+
+
+                @foreach (var item in @Model.Horario)
+                {
+                    //var gg = item.HorarioID.ToString();
+
+                    if (Model != null)
+                    {
+                        <span>
+                            @Html.DisplayFor(modelItem => item.Dia.DNome) : @Html.DisplayFor(modelItem => item.HInicio):00 - @Html.DisplayFor(modelItem => item.HFim):00
+
+                            &nbsp;&nbsp;<a style="color: darkorange;" href="../../Horarios/Edit/@Html.DisplayFor(modelItem => item.HorarioID)">Editar</a>
+                            <br />
+                            @*@gg*@
+                        </span>
+
+
+                    }
+                    else
+                    {
+                        @*<span>ggg</span>*@
+                    }
+                }
 
 
 
-            <div class="variant">
-                <h3>SELECT A COLOR</h3>
+                <hr />
+                <h3>Detalhes:</h3>
+                <span>
+                    Endereço: @Html.DisplayFor(model => model.PEndereco) &nbsp;&nbsp;&nbsp; Contacto: @Html.DisplayFor(model => model.PContacto) <br />
+                    E-mail: @Html.DisplayFor(model => model.PEmail)
+                </span>
+                <br />
 
-            </div>
-            <div class="ddescription">
-                <h3>BENEFITS</h3>
-                <ul>
-                    <li>Apples are nutricious</li>
-                    <li>Apples may be good for weight loss</li>
-                    <li>Apples may be good for bone health</li>
-                    <li>They're linked to a lowest risk of diabetes</li>
-                </ul>
-            </div>
-            <button class="buy--btn">ADD TO CART</button>
+                <hr />
+                <h3>Informações Adicionais:</h3>
+                <span>@Html.DisplayFor(model => model.PComments)</span>
+
+
+                @*<button asp-controller="Horarios" asp-action="Index">Horários</button>*@
+
+                @*<div class="variant">
+            <h3>SELECT A COLOR</h3>
+
         </div>
+        <div class="ddescription">
+            <h3>BENEFITS</h3>
+            <ul>
+                <li>Apples are nutricious</li>
+                <li>Apples may be good for weight loss</li>
+                <li>Apples may be good for bone health</li>
+                <li>They're linked to a lowest risk of diabetes</li>
+            </ul>
+        </div>
+        <button class="buy--btn">ADD TO CART</button>*@
+            </div>
 
     </section>
 </div>
@@ -270,14 +398,14 @@
 
                     @*<span>Estado: @Html.DisplayFor(model => model.Estado.ENome)</span>*@
                     @*<ul class="dphoto-album-ul">
-                        <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
-                        <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
-                        <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
-                        <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
-                    </ul>*@
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                        </ul>*@
 
                     @*<span>Pessoas: @Html.DisplayFor(model => model.PNumPessoas) Max: @Html.DisplayFor(model => model.PMaxPessoas)</span>
-                    <span>@Html.DisplayFor(model => model.PCoordenadas)</span>*@
+                        <span>@Html.DisplayFor(model => model.PCoordenadas)</span>*@
 
                     <iframe src="@Html.DisplayFor(model => model.PCoordenadas)" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
@@ -291,15 +419,103 @@
         <div class="dproduct__info" style="padding-top:700px;width:400px">
 
 
+            <table style="border-collapse: collapse; width: 100%;">
+                <tr>
+                    <th>
+                        <h3 style="text-align:left">
+                            @if (Model.EstadoID == 1)
+                            {
+                                <font style="color:forestgreen">@Html.DisplayFor(model => model.Estado.ENome)</font>
+                            }
+                            else if (Model.EstadoID == 2)
+                            {
+                                <font style="color:red">@Html.DisplayFor(model => model.Estado.ENome)</font>
+                            }
+                            else if (Model.EstadoID == 3)
+                            {
+                                <font style="color:orange">@Html.DisplayFor(model => model.Estado.ENome)</font>
+                            }
+                        </h3>
+                    </th>
+                    <th><img src="/assets/img/persons.png" alt="" width="25" height="25"><br />Pessoas</th>
+                    <th><img src="/assets/img/persons.png" alt="" width="25" height="25"><br />Máximo</th>
+                </tr>
+                <tr>
+                    <td>
+                        <h3 style="text-align:left">
+                            @if (Model.EstadoID == 1)
+                            {
+                                <font style="font-size:small;color:forestgreen">@Html.DisplayFor(model => model.PDataEstado)</font>
+                            }
+                            else if (Model.EstadoID == 2)
+                            {
+                                <font style="font-size:small;color:red">@Html.DisplayFor(model => model.PDataEstado)</font>
+                            }
+                            else if (Model.EstadoID == 3)
+                            {
+                                <font style="font-size:small;color:orange">@Html.DisplayFor(model => model.PDataEstado)</font>
+                            }
+                        </h3>
+                    </td>
 
-            <span>@Html.DisplayFor(model => model.PDescricao)</span>
+                    @if (Model.EstadoID == 1)
+                    {
+                        <td>@Html.DisplayFor(model => model.PNumPessoas)</td>
+                    }
+                    else if (Model.EstadoID == 2)
+                    {
+                        <td>-</td>
+                    }
+                    else if (Model.EstadoID == 3)
+                    {
+                        <td>-</td>
+                    }
+                    <td>@Html.DisplayFor(model => model.PMaxPessoas)</td>
+                </tr>
 
-            <div class="price">
-            </div>
+            </table>
 
             <br />
 
-            <div class="variant">
+            <span>@Html.DisplayFor(model => model.PDescricao)</span>
+
+            <br />
+            <br />
+
+            <h3>Horários</h3>
+
+            @foreach (var item in @Model.Horario)
+            {
+                //var gg = item.HorarioID.ToString();
+
+                if (Model != null)
+                {
+                    <span>
+                        @Html.DisplayFor(modelItem => item.Dia.DNome) : @Html.DisplayFor(modelItem => item.HInicio):00 - @Html.DisplayFor(modelItem => item.HFim):00
+                        <br />
+                        @*@gg*@
+                    </span>
+                }
+                else
+                {
+                    @*<span>ggg</span>*@
+                }
+            }
+            <br />
+            <h3>Informações:</h3>
+            <span>
+                Endereço: @Html.DisplayFor(model => model.PEndereco) &nbsp;&nbsp;&nbsp; Contacto: @Html.DisplayFor(model => model.PContacto) <br />
+                E-mail: @Html.DisplayFor(model => model.PEmail)
+            </span>
+            <br />
+            <br />
+
+            <span>@Html.DisplayFor(model => model.PComments)</span>
+
+            <br />
+            <br />
+
+            @*<div class="variant">
                 <h3>SELECT A COLOR</h3>
 
             </div>
@@ -313,29 +529,11 @@
                 </ul>
             </div>
             <button class="buy--btn">ADD TO CART</button>
-        </div>
+        </div>*@
 
-    </section>
+</section>
 
 </div>
-
-
-
-
-
-
-
-
-
-<footer>
-    <p>Design from <a href="https://dribbble.com/shots/5216438-Daily-UI-012">dribbble shot</a> of <a href="https://dribbble.com/rodrigorramos">Rodrigo Ramos</a></p>
-</footer>
-
-
-
-
-
-
 
 
 
