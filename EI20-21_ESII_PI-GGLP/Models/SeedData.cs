@@ -54,11 +54,11 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PComments = "Diretor de Museu",
                 }
             );
-            
-        }
-
             dbContext.SaveChanges();
         }
+
+            
+        
 
         private static void PopulateEstado(GGLPDbContext dbContext)
         {
@@ -202,7 +202,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
             dbContext.SaveChanges();
         }
 
-         
+
 
         private static void PopulatePontoDeInteresse(GGLPDbContext dbContext)
         {
@@ -427,6 +427,38 @@ namespace EI20_21_ESII_PI_GGLP.Models
             dbContext.SaveChanges();
         }
 
+        private static void PopulateHorario(GGLPDbContext dbContext)
+        {
+            if (dbContext.Horario.Any())
+            {
+                return;
+            }
+
+            dbContext.Horario.AddRange(
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 1,
+                    PontoDeInteresseID = 2,
+                    HInicio = 13,
+                    HFim = 14
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 2,
+                    PontoDeInteresseID = 2,
+                    HInicio = 9,
+                    HFim = 10
+                }
+            );
+
+            dbContext.SaveChanges();
+        }
+
+
+
+
         private static void PopulateAgendamentos(GGLPDbContext dbContext)
         {
             if (dbContext.Agendamento.Any())
@@ -562,41 +594,6 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
             dbContext.SaveChanges();
         }
-
-
-        private static void PopulateHorario(GGLPDbContext dbContext)
-        {
-            if (dbContext.Horario.Any())
-            {
-                return;
-            }
-
-            dbContext.Horario.AddRange(
-                new Horario
-                {
-                    //HorarioID
-                    DiaID = 1,
-                    PontoDeInteresseID = 2,
-                    HInicio = 13,
-                    HFim = 14
-                },
-                new Horario
-                {
-                    //HorarioID
-                    DiaID = 2,
-                    PontoDeInteresseID = 2,
-                    HInicio = 9,
-                    HFim = 10
-                }
-            );
-
-            dbContext.SaveChanges();
-        }
-
-
-
-
-
 
 
 
