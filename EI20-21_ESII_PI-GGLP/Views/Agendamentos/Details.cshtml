@@ -252,10 +252,17 @@
 
 <!-- --------------------------------------------------------------------------------------------- -->
 
-<div class="visibledevice" style="padding-left:50px;">
+<div class="visibledevice" style="padding-left:50px; padding-top:-100px">
     <section class="dproduct">
 
-        <h2>@Html.DisplayFor(model => model.PontoDeInteresse.PNome)</h2>
+        <h4>@Html.DisplayFor(model => model.PontoDeInteresse.PNome)</h4><h2>Agendamento</h2>
+
+        <h4> • @Html.DisplayFor(model => model.AData)   &nbsp    @Html.DisplayFor(model => model.AHoraInicio):00-@Html.DisplayFor(model => model.AHoraFim):00</h4>
+        
+        
+        
+        <h4>• @Html.DisplayFor(model => model.ANumPessoas) pessoas</h4>
+        
 
         <br />
 
@@ -277,16 +284,16 @@
 
                     @*<span>Estado: @Html.DisplayFor(model => model.Estado.ENome)</span>*@
                     @*<ul class="dphoto-album-ul">
-                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
-                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
-                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
-                            <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
-                        </ul>*@
+                        <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                        <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                        <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                        <li class="dphoto-album-li">@Html.DisplayFor(model => model.Estado.ENome)</li>
+                    </ul>*@
 
                     @*<span>Pessoas: @Html.DisplayFor(model => model.PNumPessoas) Max: @Html.DisplayFor(model => model.PMaxPessoas)</span>
-                        <span>@Html.DisplayFor(model => model.PCoordenadas)</span>*@
+                    <span>@Html.DisplayFor(model => model.PCoordenadas)</span>*@
 
-                    <iframe src="@Html.DisplayFor(model => model.PontoDeInteresse.PCoordenadas)" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <iframe src="@Html.DisplayFor(model => model.PontoDeInteresse.PCoordenadas)" width="400" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
         </div>
@@ -299,22 +306,6 @@
 
 
 
-            <span>@Html.DisplayFor(model => model.PontoDeInteresse.PDescricao)</span>
-
-            <div class="price">
-            </div>
-
-            <br />
-
-            <div class="ddescription">
-                <h3>BENEFITS</h3>
-                <ul>
-                    <li>Apples are nutricious</li>
-                    <li>Apples may be good for weight loss</li>
-                    <li>Apples may be good for bone health</li>
-                    <li>They're linked to a lowest risk of diabetes</li>
-                </ul>
-            </div>
             <button class="buy--btn">ADD TO CART</button>
         </div>
 
