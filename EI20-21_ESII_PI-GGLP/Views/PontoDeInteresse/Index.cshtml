@@ -40,11 +40,19 @@
             <a asp-action="Index" class="btn btn-secondary">Clear</a>*@
 
         <form asp-action="Index" method="get" class="row no-gutters">
+            @*<ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <b><a style="color:white" class="nav-link js-scroll-trigger">Nome/Cat.: </a></b>
+                </ul>*@
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                <b><a style="color:white" class="nav-link js-scroll-trigger">Nome: </a></b>
                 <input name="name" type="search" class="form-control" value="@Model.SearchName" * />
+            </ul>
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
                 <input name="page" type="hidden" value="1" />
+            </ul>
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
                 <input type="submit" value="Procurar" class="btn btn-primary" />
+            </ul>
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
                 <a asp-action="Index" class="btn btn-secondary">Limpar</a>
             </ul>
         </form>
@@ -55,8 +63,8 @@
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
 
                 @*<li class="nav-item"><button onclick="myFunction()">Alterar vista</button></li>*@
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="myFunction()">Alterar vista</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="PontoDeInteresse" asp-action="Create">Create New</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color: white" onclick="myFunction()">Alterar vista</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color: white" asp-controller="PontoDeInteresse" asp-action="Create">Criar Novo Ponto de Interesse</a></li>
 
             </ul>
         </div>
@@ -71,9 +79,12 @@
 <br />
 <br />
 <br />
+<br />
+<br />
 
 <h2 class="text-center mt-0">Pontos de Interesse (@Model.PontoDeInteresses.Count().ToString())</h2>
-<hr />
+<hr class="divider my-4" />
+@*<hr />*@
 
 
 
@@ -109,13 +120,14 @@
 
 
 <div id="portfolio2" style="display:none">
+
     <table class="table">
         <thead>
             <tr>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Categoria)*@
-                    Categoria:
-                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Categoria)
+                        Categoria:
+                    </th>*@
                 <th>
                     @*@Html.DisplayNameFor(model => model.PImagem)*@
                     Foto:
@@ -139,19 +151,23 @@
                     <th>
                         @Html.DisplayNameFor(model => model.PEmail)
                     </th>*@
-                <th>
+                <th style="text-align:center">
                     @*@Html.DisplayNameFor(model => model.PNumPessoas)*@
-                    Número de Pessoas:
+                    <img src="/assets/img/persons.png" alt="" width="25" height="25">
+                    <br />
+                    Pessoas
                 </th>
-                <th>
+                <th style="text-align:center">
                     @*@Html.DisplayNameFor(model => model.PMaxPessoas)*@
-                    Número Máximo de Pessoas
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Estado)*@
-                    Estado:
+                    <img src="/assets/img/persons.png" alt="" width="25" height="25">
+                    <br />
+                    Máximo
                 </th>
                 @*<th>
+                        @Html.DisplayNameFor(model => model.Estado)
+                        Estado:
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.PDataEstado)
                     </th>
                     <th>
@@ -163,12 +179,14 @@
         <tbody>
             @foreach (var item in @Model.PontoDeInteresses)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Categoria.CTipo)
-                        @*@Html.DisplayFor(modelItem => item.CategoriaID)*@
 
-                    </td>
+
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Categoria.CTipo)
+                            @Html.DisplayFor(modelItem => item.CategoriaID)
+
+                        </td>*@
                     <td>
                         @*@Html.DisplayFor(modelItem => item.PImagem)*@
 
@@ -179,6 +197,8 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.PNome)
+                        <br />
+                        <p style="color:gray">@Html.DisplayFor(modelItem => item.Categoria.CTipo)</p>
                     </td>
                     @*<td>
                             @Html.DisplayFor(modelItem => item.PDescricao)
@@ -195,21 +215,24 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.PEmail)
                         </td>*@
-                    <td>
+                    <td style="text-align:center">
                         @Html.DisplayFor(modelItem => item.PNumPessoas)
                     </td>
-                    <td>
+                    <td style="text-align:center">
                         @Html.DisplayFor(modelItem => item.PMaxPessoas)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Estado.ENome)
-                    </td>
                     @*<td>
+                            @Html.DisplayFor(modelItem => item.Estado.ENome)
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.PDataEstado)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.PComments)
                         </td>*@
+
+
+
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.PontoDeInteresseID">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.PontoDeInteresseID">Details</a> |
@@ -228,14 +251,14 @@
 
 
 
-<div id="portfolio" style="display:grid;grid-template-columns:1fr 1fr;grid-gap:20px">
-    <div style="width:500px;background-color:aqua;margin-right:auto">
-        g
-    </div>
-    <div style="width:500px;background-color:black;margin-left:auto">
-        a
-    </div>
-</div>
+@*<div id="portfolio" style="display:grid;grid-template-columns:1fr 1fr;grid-gap:20px">
+        <div style="width:500px;background-color:aqua;margin-right:auto">
+            g
+        </div>
+        <div style="width:500px;background-color:black;margin-left:auto">
+            a
+        </div>
+    </div>*@
 
 
 

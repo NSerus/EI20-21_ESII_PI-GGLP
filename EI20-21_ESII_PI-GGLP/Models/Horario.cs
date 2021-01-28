@@ -13,16 +13,22 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // Horario Class '* to 1' PontoDeInteresse Class
-        public int PontosDeInteresseID { get; set; }
+        [Display(Name = "Confirme o Ponto de Interesse:")]
+        public int PontoDeInteresseID { get; set; }
         public PontoDeInteresse PontoDeInteresse { get; set; }
 
 
         // Horario Class '* to 1' Dia Class
+        [Display(Name = "O tipo de Dia:")]
         public int DiaID { get; set; }
         public Dia Dia { get; set; }
 
-
+        [Required(ErrorMessage = "Introduza uma hora de Início válida.")]
+        [Display(Name = "Hora de Início:")]
         public int HInicio { get; set; }
+
+        [Required(ErrorMessage = "Introduza uma hora de Fim válida.")]
+        [Display(Name = "Hora de Fim:")]
         public int HFim { get; set; }
 
 

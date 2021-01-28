@@ -18,7 +18,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // Agendamento Class '* to 1' PontoDeInteresse Class
-        public int PontoDeIntersseID { get; set; }
+        public int PontoDeInteresseID { get; set; }
         public PontoDeInteresse PontoDeInteresse { get; set; }
 
 

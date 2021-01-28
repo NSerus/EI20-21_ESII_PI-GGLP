@@ -1,0 +1,43 @@
+﻿@model EI20_21_ESII_PI_GGLP.Models.Horario
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Horario</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PontoDeInteresse)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PontoDeInteresse.PCoordenadas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dia.DiaID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HInicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HFim)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HFim)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.HorarioID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

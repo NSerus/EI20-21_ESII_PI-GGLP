@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EI20_21_ESII_PI_GGLP.Models.Horario>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PontoDeInteresse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HFim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HFim)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PontoDeInteresse.PNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dia.DNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HFim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PontoDeInteresse.Estado.ENome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PontoDeInteresse.Categoria.CTipo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HorarioID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HorarioID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HorarioID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

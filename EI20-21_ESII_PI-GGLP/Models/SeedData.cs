@@ -16,6 +16,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
             PopulateCategoria(dbContext);
             PopulateDia(dbContext);
             PopulatePontoDeInteresse(dbContext);
+            PopulateHorario(dbContext);
         }
 
 
@@ -161,7 +162,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
             dbContext.SaveChanges();
         }
 
-
+         
 
         private static void PopulatePontoDeInteresse(GGLPDbContext dbContext)
         {
@@ -238,6 +239,40 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     EstadoID = 1,
                     PDataEstado = DateTime.Today,
                     PComments = "Espaço com diversas e vários tipos de actividades de lazer, como exibição de cultura, teatro, cinematografia, etc..."
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 6,
+                    PImagem = ReadFile("wwwroot/assets/img/7.jpg"),
+                    PNome = "Cine-Teatro da Guarda",
+                    PDescricao = "Encerrado desde 1987, o Cine-Teatro da Guarda é um espaço preponderante que marcou a cultura da cidade da Guarda, funcionou no imaginário coletivo como o “cinema” que nos fez sonhar, mas também como sala de espetáculos onde teatro, revistas e concertos aconteceram.",
+                    PEndereco = "Largo de São João 10, 6300 - 772, Guarda",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.143482353722!2d-7.267870985332678!3d40.53841907935112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3ce532a97ec3cb%3A0x7a5e91433c530221!2sLargo%20de%20S%C3%A3o%20Jo%C3%A3o%2010%2C%206300-772%20Guarda!5e0!3m2!1sen!2spt!4v1611414041133!5m2!1sen!2spt",
+                    PContacto = 271220220,
+                    PEmail = "geral@mun-guarda.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 718,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "Arquitectura cultural, modernista."
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 7,
+                    PImagem = ReadFile("wwwroot/assets/img/8.jpg"),
+                    PNome = "Hotel Vanguarda",
+                    PDescricao = "Este hotel no centro da Guarda está localizado no ponto mais alto de Portugal, a 1 km de altitude. Tem um restaurante com vista para a Serra da Estrela. Os quartos climatizados do Hotel Vanguarda estão decorados com cores quentes.",
+                    PEndereco = "Av. Monsenhor Mendes do Carmo, 6300-586, Guarda",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12127.733514192372!2d-7.266209!3d40.543061!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbe65a0d863c795ee!2sHotel%20VanGuarda!5e0!3m2!1sen!2spt!4v1611799104773!5m2!1sen!2spt",
+                    PContacto = 271208390,
+                    PEmail = "centraldereservas@naturaimbhotels.com",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 300,
+                    EstadoID = 1,
+                    PDataEstado = DateTime.Today,
+                    PComments = "Incluem televisão por cabo e um mini - bar.As casas de banho privativas estão equipadas com produtos de higiene pessoal e algumas casas de banho têm uma banheira de hidromassagem. O Restaurante D. Sancho, no último piso, oferece vistas panorâmicas e comida local num ambiente descontraído. Com vista para as montanhas circundantes, o bar do hotel dispõe de uma lareira acolhedora."
                 }
 
 
@@ -353,6 +388,35 @@ namespace EI20_21_ESII_PI_GGLP.Models
         }
 
 
+
+        private static void PopulateHorario(GGLPDbContext dbContext)
+        {
+            if (dbContext.Horario.Any())
+            {
+                return;
+            }
+
+            dbContext.Horario.AddRange(
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 1,
+                    PontoDeInteresseID = 2,
+                    HInicio = 13,
+                    HFim = 14
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 2,
+                    PontoDeInteresseID = 2,
+                    HInicio = 9,
+                    HFim = 10
+                }
+            );
+
+            dbContext.SaveChanges();
+        }
 
 
 

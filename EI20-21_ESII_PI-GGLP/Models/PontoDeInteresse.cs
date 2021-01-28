@@ -14,11 +14,12 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // PontoDeInteresse Class '1 to *' Horario Class
-        public ICollection<Horario> Horarios { get; set; }
+        public ICollection<Horario> Horario { get; set; }
 
 
         // PontoDeInteresse Class '* to 1' Categoria Class
-        [Display(Name = "Tipo de Ponto de Interesse:")]
+        [Required(ErrorMessage = "Selecione uma Categoria.")]
+        [Display(Name = "Categoria do Ponto de Interesse:")]
         public int CategoriaID { get; set; }
         public Categoria Categoria { get; set; }
 
@@ -29,7 +30,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
         // PImagem
-        //[Required(ErrorMessage = "Introduza uma foto do novo Ponto de Interesse.")]
+        [Required]
         [Display(Name = "Imagem:")]
         public byte[] PImagem { get; set; }
 
@@ -110,5 +111,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         // PontoDeInteresse Class '1 to *' Agendamento Class
         public ICollection<Agendamento> Agendamentos { get; set; }
+
+        //public IEnumerable<Dia> Dia { get; set; }
     }
 }

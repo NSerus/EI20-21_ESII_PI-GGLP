@@ -18,93 +18,110 @@
 
 <section class="container" style="width:600px">
 
-        <form asp-action="Create" method="post" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
-                <label asp-for="CategoriaID" class="control-label"></label>
-                <select asp-for="CategoriaID" class="form-control" asp-items="ViewBag.CategoriaID"></select>
+        <div class="form-group">
+            <label asp-for="CategoriaID" class="control-label"></label>
+            <select asp-for="CategoriaID" class="form-control" asp-items="ViewBag.CategoriaID"></select>
 
-                <br /><br />
+            <br /><br />
+            <br />
 
-                <label asp-for="PImagem" class="control-label"></label>
-                @*<input asp-for="PImagem" class="form-control" />*@
-                <input type="file" id="files" asp-for="PImagem" />
-                <span asp-validation-for="PImagem" class="text-danger"></span>
+            <label asp-for="PImagem" class="control-label"></label>
+            @*<input asp-for="PImagem" class="form-control" />*@
+            <input type="file" id="files" asp-for="PImagem" />
+            <span asp-validation-for="PImagem" class="text-danger"></span>
 
-                <br /><br /><br />
+            <br /><br /><br />
+            <br />
 
-                <label asp-for="PNome" class="control-label"></label>
-                <input asp-for="PNome" class="form-control" />
-                <span asp-validation-for="PNome" class="text-danger"></span>
+            <label asp-for="PNome" class="control-label"></label>
+            <input asp-for="PNome" class="form-control" />
+            <span asp-validation-for="PNome" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PDescricao" class="control-label"></label>
-                <textarea rows="9" asp-for="PDescricao" class="form-control"></textarea>
-                <span asp-validation-for="PDescricao" class="text-danger"></span>
+            <label asp-for="PDescricao" class="control-label"></label>
+            <textarea rows="9" asp-for="PDescricao" class="form-control"></textarea>
+            <span asp-validation-for="PDescricao" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PEndereco" class="control-label"></label>
-                <input asp-for="PEndereco" class="form-control" />
-                <span asp-validation-for="PEndereco" class="text-danger"></span>
+            <label asp-for="PEndereco" class="control-label"></label>
+            <input asp-for="PEndereco" class="form-control" />
+            <span asp-validation-for="PEndereco" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PCoordenadas" class="control-label"></label>
-                <input asp-for="PCoordenadas" class="form-control" />
-                <span asp-validation-for="PCoordenadas" class="text-danger"></span>
+            <label asp-for="PCoordenadas" class="control-label"></label>
+            <input asp-for="PCoordenadas" class="form-control" />
+            <span asp-validation-for="PCoordenadas" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PContacto" class="control-label"></label>
-                <input asp-for="PContacto" class="form-control" />
-                <span asp-validation-for="PContacto" class="text-danger"></span>
+            <label asp-for="PContacto" class="control-label"></label>
+            <input asp-for="PContacto" class="form-control" />
+            <span asp-validation-for="PContacto" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PEmail" class="control-label"></label>
-                <input asp-for="PEmail" class="form-control" />
-                <span asp-validation-for="PEmail" class="text-danger"></span>
+            <label asp-for="PEmail" class="control-label"></label>
+            <input asp-for="PEmail" class="form-control" />
+            <span asp-validation-for="PEmail" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PNumPessoas" class="control-label"></label>
-                <input asp-for="PNumPessoas" class="form-control" value="0" disabled />
-                <span asp-validation-for="PNumPessoas" class="text-danger"></span>
+            <label asp-for="PNumPessoas" class="control-label"></label>
+            <input asp-for="PNumPessoas" class="form-control" value="0" disabled />
+            <span asp-validation-for="PNumPessoas" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PMaxPessoas" class="control-label"></label>
-                <input asp-for="PMaxPessoas" class="form-control" />
-                <span asp-validation-for="PMaxPessoas" class="text-danger"></span>
+            <label asp-for="PMaxPessoas" class="control-label"></label>
+            <input asp-for="PMaxPessoas" class="form-control" />
+            <span asp-validation-for="PMaxPessoas" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="EstadoID" class="control-label"></label>
-                <select asp-for="EstadoID" class="form-control" asp-items="ViewBag.EstadoID"></select>
+            <label asp-for="EstadoID" class="control-label"></label>
+            <select asp-for="EstadoID" class="form-control" asp-items="ViewBag.EstadoID"></select>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PDataEstado" class="control-label"></label>
-                <input asp-for="PDataEstado" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")" disabled />
-                <span asp-validation-for="PDataEstado" class="text-danger"></span>
+            <label asp-for="PDataEstado" class="control-label"></label>
+            <input asp-for="PDataEstado" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")" disabled />
+            <span asp-validation-for="PDataEstado" class="text-danger"></span>
 
-                <br />
+            <br />
+            <br />
 
-                <label asp-for="PComments" class="control-label"></label>
-                <textarea rows="5" asp-for="PComments" class="form-control"></textarea>
-                <span asp-validation-for="PComments" class="text-danger"></span>
-            </div>
+            <label asp-for="PComments" class="control-label"></label>
+            <textarea rows="5" asp-for="PComments" class="form-control"></textarea>
+            <span asp-validation-for="PComments" class="text-danger"></span>
+        </div>
 
+        <br />
 
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        <div class="form-group">
+            <a class="text-center mt-0" asp-action="Index" style="float:left">Voltar à Lista</a>
+            <input type="submit" value="Criar Ponto de Interesse" class="btn btn-primary" style="float: right" />
+        </div>
+    </form>
 
-        
+    <br />
+    <br />
+    <br />
+
 </section>
 
 
@@ -199,16 +216,7 @@
 
 -->
 
-<br />
-<br />
-<hr />
 
-<section class="container">
-    <a class="text-center mt-0" asp-action="Index">Back to List</a>
-</section>
-
-<br />
-<br />
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

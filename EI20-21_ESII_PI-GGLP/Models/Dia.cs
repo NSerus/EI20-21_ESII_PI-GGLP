@@ -18,5 +18,6 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         // Dia Class '1 to *' Horario Class
         public ICollection<Horario> Horarios { get; set; }
+
     }
 }
