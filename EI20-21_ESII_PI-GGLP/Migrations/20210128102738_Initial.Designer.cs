@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EI20_21_ESII_PI_GGLP.Migrations
 {
     [DbContext(typeof(GGLPDbContext))]
-    [Migration("20210127005737_Initial")]
+    [Migration("20210128102738_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -161,10 +161,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     b.Property<int>("HInicio")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PontoDeInteresseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PontosDeInteresseID")
+                    b.Property<int>("PontoDeInteresseID")
                         .HasColumnType("int");
 
                     b.HasKey("HorarioID");
@@ -248,6 +245,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasMaxLength(200);
 
                     b.Property<byte[]>("PImagem")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<int>("PMaxPessoas")
@@ -387,8 +385,10 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .IsRequired();
 
                     b.HasOne("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", "PontoDeInteresse")
-                        .WithMany("Horarios")
-                        .HasForeignKey("PontoDeInteresseID");
+                        .WithMany("Horario")
+                        .HasForeignKey("PontoDeInteresseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EI20_21_ESII_PI_GGLP.Models.PontoDeInteresse", b =>

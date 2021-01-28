@@ -129,7 +129,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     PontoDeInteresseID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoriaID = table.Column<int>(nullable: false),
-                    PImagem = table.Column<byte[]>(nullable: true),
+                    PImagem = table.Column<byte[]>(nullable: false),
                     PNome = table.Column<string>(maxLength: 30, nullable: false),
                     PDescricao = table.Column<string>(maxLength: 400, nullable: false),
                     PEndereco = table.Column<string>(maxLength: 200, nullable: false),
@@ -195,8 +195,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                 {
                     HorarioID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PontosDeInteresseID = table.Column<int>(nullable: false),
-                    PontoDeInteresseID = table.Column<int>(nullable: true),
+                    PontoDeInteresseID = table.Column<int>(nullable: false),
                     DiaID = table.Column<int>(nullable: false),
                     HInicio = table.Column<int>(nullable: false),
                     HFim = table.Column<int>(nullable: false)
@@ -215,7 +214,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         column: x => x.PontoDeInteresseID,
                         principalTable: "PontoDeInteresse",
                         principalColumn: "PontoDeInteresseID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

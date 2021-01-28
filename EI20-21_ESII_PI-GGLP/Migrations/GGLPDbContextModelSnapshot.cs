@@ -243,6 +243,7 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasMaxLength(200);
 
                     b.Property<byte[]>("PImagem")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<int>("PMaxPessoas")
