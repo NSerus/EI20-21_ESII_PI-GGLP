@@ -178,6 +178,25 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CTDataNas")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CTEndereco")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CTLocalidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CTNIF")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CTPais")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
+
                     b.Property<string>("PComments")
                         .IsRequired()
                         .HasColumnType("nvarchar(500)")
