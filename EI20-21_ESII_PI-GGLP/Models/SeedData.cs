@@ -95,61 +95,61 @@ namespace EI20_21_ESII_PI_GGLP.Models
             PopulateCategoria(dbContext);
             PopulateDia(dbContext);
             PopulatePontoDeInteresse(dbContext);
-            PopulatePessoas(dbContext);
-            PopulateAgendamentos(dbContext);
+            //PopulatePessoas(dbContext);
+            //PopulateAgendamentos(dbContext);
             PopulateHorario(dbContext);
         }
 
-        private static void PopulatePessoas(GGLPDbContext dbContext)
-        {
-            if (dbContext.Pessoa.Any())
-            {
-                return;
-            }
+        //private static void PopulatePessoas(GGLPDbContext dbContext)
+        //{
+        //    if (dbContext.Pessoa.Any())
+        //    {
+        //        return;
+        //    }
 
-            dbContext.Pessoa.AddRange(
-                new Pessoa
-                {
-                    //PessoaID
-                    PNome = "José Martins",
-                    PContato = 928312764,
-                    PEmail = "jmartisn@gmail.com",
-                    CTDataNas = new DateTime(1985, 02, 21),
-                    CTNIF = 826496108,
-                    CTLocalidade = "Aveiro",
-                    CTPais = "Portugal",
-                    CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
-                    PComments = "Dono de Restaurante",
-                },
-                new Pessoa
-                {
-                    //PessoaID
-                    PNome = "Maria Bataguas",
-                    PContato = 931231184,
-                    PEmail = "mbata@gmail.com",
-                    CTDataNas = new DateTime(1988, 07, 15),
-                    CTNIF = 947534012,
-                    CTLocalidade = "Porto",
-                    CTPais = "Portugal",
-                    CTEndereco = "Rua. Maria das Flores, 6783-687, Porto",
-                    PComments = "Cliente de Restaurante",
-                },
-                new Pessoa
-                {
-                    //PessoaID
-                    PNome = "José Serôdio",
-                    PContato = 912364712,
-                    PEmail = "jserus@gmail.com",
-                    CTDataNas = new DateTime(1992, 11, 03),
-                    CTNIF = 486713967,
-                    CTLocalidade = "Lisboa",
-                    CTPais = "Portugal",
-                    CTEndereco = "Rua. Quinta das Telhas, 9587-028, Lisboa",
-                    PComments = "Diretor de Museu",
-                }
-            );
-            dbContext.SaveChanges();
-        }
+        //    dbContext.Pessoa.AddRange(
+        //        new Pessoa
+        //        {
+        //            //PessoaID
+        //            PNome = "José Martins",
+        //            PContato = 928312764,
+        //            PEmail = "jmartisn@gmail.com",
+        //            CTDataNas = new DateTime(1985, 02, 21),
+        //            CTNIF = 826496108,
+        //            CTLocalidade = "Aveiro",
+        //            CTPais = "Portugal",
+        //            CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
+        //            PComments = "Dono de Restaurante",
+        //        },
+        //        new Pessoa
+        //        {
+        //            //PessoaID
+        //            PNome = "Maria Bataguas",
+        //            PContato = 931231184,
+        //            PEmail = "mbata@gmail.com",
+        //            CTDataNas = new DateTime(1988, 07, 15),
+        //            CTNIF = 947534012,
+        //            CTLocalidade = "Porto",
+        //            CTPais = "Portugal",
+        //            CTEndereco = "Rua. Maria das Flores, 6783-687, Porto",
+        //            PComments = "Cliente de Restaurante",
+        //        },
+        //        new Pessoa
+        //        {
+        //            //PessoaID
+        //            PNome = "José Serôdio",
+        //            PContato = 912364712,
+        //            PEmail = "jserus@gmail.com",
+        //            CTDataNas = new DateTime(1992, 11, 03),
+        //            CTNIF = 486713967,
+        //            CTLocalidade = "Lisboa",
+        //            CTPais = "Portugal",
+        //            CTEndereco = "Rua. Quinta das Telhas, 9587-028, Lisboa",
+        //            PComments = "Diretor de Museu",
+        //        }
+        //    );
+        //    dbContext.SaveChanges();
+        //}
 
             
         
@@ -445,128 +445,128 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
 
-        private static void PopulateAgendamentos(GGLPDbContext dbContext)
-        {
-            if (dbContext.Agendamento.Any())
-            {
-                return;
-            }
+        //private static void PopulateAgendamentos(GGLPDbContext dbContext)
+        //{
+        //    if (dbContext.Agendamento.Any())
+        //    {
+        //        return;
+        //    }
 
-            dbContext.Agendamento.AddRange(
-                new Agendamento
-                {
-                    //AgendamentoID
-                    PessoaID = 1,
-                    PontoDeInteresseID = 4,
-                    AData = new DateTime(2021, 02, 12),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 2
-                }
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 2,
-                //    PontoDeInteresseID = 3,
-                //    AData = new DateTime(2020, 12, 12),
-                //    AHoraInicio = "13",
-                //    AHoraFim = "17",
-                //    ANumPessoas = 1
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2021, 02, 21),
-                //    AHoraInicio = "15",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2021, 12, 01),
-                //    AHoraInicio = "21",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2020, 12, 20),
-                //    AHoraInicio = "21",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2021, 12, 23),
-                //    AHoraInicio = "21",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2021, 02, 21),
-                //    AHoraInicio = "21",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2021, 02, 21),
-                //    AHoraInicio = "21",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2021, 02, 21),
-                //    AHoraInicio = "21",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2021, 02, 21),
-                //    AHoraInicio = "21",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //},
-                //new Agendamento
-                //{
-                //    //AgendamentoID
-                //    PessoaID = 3,
-                //    PontoDeInteresseID = 2,
-                //    AData = new DateTime(2021,02,21),
-                //    AHoraInicio = "21",
-                //    AHoraFim = "22",
-                //    ANumPessoas = 4
-                //}
-            );
+        //    dbContext.Agendamento.AddRange(
+        //        new Agendamento
+        //        {
+        //            //AgendamentoID
+        //            PessoaID = 1,
+        //            PontoDeInteresseID = 4,
+        //            AData = new DateTime(2021, 02, 12),
+        //            AHoraInicio = "21",
+        //            AHoraFim = "22",
+        //            ANumPessoas = 2
+        //        }
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 2,
+        //        //    PontoDeInteresseID = 3,
+        //        //    AData = new DateTime(2020, 12, 12),
+        //        //    AHoraInicio = "13",
+        //        //    AHoraFim = "17",
+        //        //    ANumPessoas = 1
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "15",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 12, 01),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2020, 12, 20),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 12, 23),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021,02,21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //}
+        //    );
 
-            dbContext.SaveChanges();
-        }
+        //    dbContext.SaveChanges();
+        //}
 
 
 

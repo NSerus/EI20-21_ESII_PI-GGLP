@@ -80,7 +80,9 @@ namespace EI20_21_ESII_PI_GGLP.Migrations
                     CTLocalidade = table.Column<string>(nullable: false),
                     CTPais = table.Column<string>(maxLength: 30, nullable: false),
                     CTEndereco = table.Column<string>(nullable: false),
-                    PComments = table.Column<string>(maxLength: 500, nullable: false)
+                    PComments = table.Column<string>(maxLength: 500, nullable: false),
+                    Password = table.Column<string>(nullable: false),
+                    ConfirmPassword = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
