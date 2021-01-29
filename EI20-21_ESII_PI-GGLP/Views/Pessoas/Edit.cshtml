@@ -1,0 +1,85 @@
+﻿@model EI20_21_ESII_PI_GGLP.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Pessoa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PessoaID" />
+            <div class="form-group">
+                <label asp-for="PNome" class="control-label"></label>
+                <input asp-for="PNome" class="form-control" />
+                <span asp-validation-for="PNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PContato" class="control-label"></label>
+                <input asp-for="PContato" class="form-control" />
+                <span asp-validation-for="PContato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PEmail" class="control-label"></label>
+                <input asp-for="PEmail" class="form-control" />
+                <span asp-validation-for="PEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CTDataNas" class="control-label"></label>
+                <input asp-for="CTDataNas" class="form-control" />
+                <span asp-validation-for="CTDataNas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CTNIF" class="control-label"></label>
+                <input asp-for="CTNIF" class="form-control" />
+                <span asp-validation-for="CTNIF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CTLocalidade" class="control-label"></label>
+                <input asp-for="CTLocalidade" class="form-control" />
+                <span asp-validation-for="CTLocalidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CTPais" class="control-label"></label>
+                <input asp-for="CTPais" class="form-control" />
+                <span asp-validation-for="CTPais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CTEndereco" class="control-label"></label>
+                <input asp-for="CTEndereco" class="form-control" />
+                <span asp-validation-for="CTEndereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PComments" class="control-label"></label>
+                <input asp-for="PComments" class="form-control" />
+                <span asp-validation-for="PComments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

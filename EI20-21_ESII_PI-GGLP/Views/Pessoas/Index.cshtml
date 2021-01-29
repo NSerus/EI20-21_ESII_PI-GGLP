@@ -1,0 +1,96 @@
+﻿@model IEnumerable<EI20_21_ESII_PI_GGLP.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PContato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CTDataNas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CTNIF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CTLocalidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CTPais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CTEndereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PComments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConfirmPassword)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PContato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CTDataNas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CTNIF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CTLocalidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CTPais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CTEndereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConfirmPassword)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PessoaID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PessoaID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PessoaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

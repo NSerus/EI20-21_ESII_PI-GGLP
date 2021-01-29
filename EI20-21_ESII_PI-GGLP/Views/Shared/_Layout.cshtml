@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     @*<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Serviços</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Categorias</a></li>*@
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Categorias</a></li>*@
                     <!--TODO: Tirar COM IF QND HOUVER LOGIN-->
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Agendamentos" asp-action="Index">Agendamentos</a></li>
                     <!--TODO: Tirar COM IF QND HOUVER LOGIN-->
@@ -41,9 +41,8 @@
 
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
 
-
                 </ul>
-
+                <partial name="_LoginPartial" />
 
 
 
