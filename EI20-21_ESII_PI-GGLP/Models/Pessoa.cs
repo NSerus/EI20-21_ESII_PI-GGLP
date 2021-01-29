@@ -61,6 +61,20 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public string PComments { get; set; }
 
 
+
+
+
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        [Compare("Password", ErrorMessage = "The passwords don't match")]
+        public string ConfirmPassword { get; set; }
+
+
+
+
+
         // Pessoa Class '1 to *' Agendamento Class
         public ICollection<Agendamento> Agendamentos { get; set; }
 
