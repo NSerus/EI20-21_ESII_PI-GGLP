@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace EI20_21_ESII_PI_GGLP.Models
 {
-    public class Pessoa
+    public class EditLoggedInPessoaViewModel
     {
-
-        [Key]
-        public int PessoaID { get; set; }
-
         // PNome
         [Required(ErrorMessage = "Introduza seu o Nome")]
         [RegularExpression(@"[a-zA-Z]+")]
@@ -24,8 +20,8 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public int PContato { get; set; }
 
         // PEmail
-        [Required(ErrorMessage = "Introduza o Email")]
-        [EmailAddress(ErrorMessage = "Email Incorreto")]
+        //[Required(ErrorMessage = "Introduza o Email")]
+        //[EmailAddress(ErrorMessage = "Email Incorreto")]
         public string PEmail { get; set; }
 
         // PDataNasc
@@ -59,26 +55,5 @@ namespace EI20_21_ESII_PI_GGLP.Models
         [Required(ErrorMessage = "Introzua um Comentario")]
         [StringLength(500, MinimumLength = 10, ErrorMessage = "No mínimo 10 carateres")]
         public string PComments { get; set; }
-
-
-
-
-
-        //[Required]
-        //public string Password { get; set; }
-
-        //[Required]
-        //[Compare("Password", ErrorMessage = "The passwords don't match")]
-        //public string ConfirmPassword { get; set; }
-
-
-
-
-
-        // Pessoa Class '1 to *' Agendamento Class
-        public ICollection<Agendamento> Agendamentos { get; set; }
-
-        // Pessoa Class '1 to *' PontoDeInteresse Class
-        //public ICollection<PontoDeInteresse> PontoDeInteresses { get; set; }
     }
 }

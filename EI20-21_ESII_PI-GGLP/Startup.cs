@@ -30,21 +30,45 @@ namespace EI20_21_ESII_PI_GGLP
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("GGLPUsersConnection")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+                // Sign in
+                options.SignIn.RequireConfirmedAccount = false;
+
+                // Password
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 6;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+
+                // Lockout
+                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI();
+
+            services.AddControllersWithViews();
+            services.AddRazorPages();
 
             services.AddDbContext<GGLPDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("GGLPConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddControllersWithViews();
-            services.AddRazorPages();
+            //services.AddControllersWithViews();
+            //services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+            GGLPDbContext db,
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -73,8 +97,17 @@ namespace EI20_21_ESII_PI_GGLP
                 endpoints.MapRazorPages();
             });
 
+            SeedData.SeedRolesAsync(roleManager).Wait();
+            SeedData.SeedDefaultAdminAsync(userManager).Wait();
+
             if (env.IsDevelopment())
             {
+
+                //SeedData.SeedDevData(db);
+                SeedData.SeedDevUsersAsync(userManager).Wait();
+
+
+
                 using (var serviceScope = app.ApplicationServices.CreateScope())
                 {
                     var dbContext = serviceScope.ServiceProvider.GetService<GGLPDbContext>();

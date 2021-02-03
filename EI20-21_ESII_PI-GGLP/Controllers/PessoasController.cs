@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EI20_21_ESII_PI_GGLP.Data;
 using EI20_21_ESII_PI_GGLP.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace EI20_21_ESII_PI_GGLP.Controllers
 {
@@ -49,6 +49,10 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             return View(pessoa);
         }
 
+
+
+
+
         // GET: Pessoas/Create
         public IActionResult Register()
         {
@@ -62,61 +66,144 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterPessoaViewModel pessoaInfo)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(pessoaInfo);
             }
 
-            string username = pessoaInfo.Email;
-
+            string username = pessoaInfo.PEmail;
             IdentityUser user = await _userManager.FindByNameAsync(username);
+
 
             if (user != null)
             {
-                ModelState.AddModelError("Email", "There is allready a customer with that email.");
+                ModelState.AddModelError("PEmail", "Já existe um utilizador com esse e-mail.");
                 return View(pessoaInfo);
             }
 
             user = new IdentityUser(username);
             await _userManager.CreateAsync(user, pessoaInfo.Password);
-            await _userManager.AddToRoleAsync(user, "User");
+            await _userManager.AddToRoleAsync(user, "Pessoa");
 
-            IdentityUser identityUser = new IdentityUser
-            {
-                UserName = pessoaInfo.Name,
-                Email = pessoaInfo.Email
-            };
 
             Pessoa pessoa = new Pessoa
             {
-                PNome = pessoaInfo.Name,
-                PEmail = pessoaInfo.Email
-
-                //PessoaID
-                //PNome = pessoaInfo.Name,
-                //PEmail = pessoaInfo.Email,
-                //PContato = 928312764,
-                //CTDataNas = new DateTime(1985, 02, 21),
-                //CTNIF = 826496108,
-                //CTLocalidade = "Aveiro",
-                //CTPais = "Portugal",
-                //CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
-                //PComments = "Dono de Restaurante"
+                PNome = pessoaInfo.PNome,
+                PContato = pessoaInfo.PContato,
+                PEmail = pessoaInfo.PEmail,
+                CTDataNas = pessoaInfo.CTDataNas,
+                CTNIF = pessoaInfo.CTNIF,
+                CTLocalidade = pessoaInfo.CTLocalidade,
+                CTPais = pessoaInfo.CTPais,
+                CTEndereco = pessoaInfo.CTEndereco,
+                PComments = pessoaInfo.PComments
             };
-            //_context.Add(pessoa);
-            _context.Pessoa.Add(pessoa);
+
+
+            _context.Add(pessoa);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index), "Home");
-
-
+        
         }
 
 
-        //------------------------
+        // EDIT
+        [Authorize(Roles = "Pessoa")]
+        public async Task<IActionResult> EditPersonalData()
+        {
+            string email = User.Identity.Name;
+
+            var pessoa = await _context.Pessoa.SingleOrDefaultAsync(p => p.PEmail == email);
+            if (pessoa == null)
+            {
+                return NotFound();
+            }
+
+            EditLoggedInPessoaViewModel pessoaInfo = new EditLoggedInPessoaViewModel
+            {
+                PNome = pessoa.PNome,
+                PContato = pessoa.PContato,
+                PEmail = pessoa.PEmail,
+                CTDataNas = pessoa.CTDataNas,
+                CTNIF = pessoa.CTNIF,
+                CTLocalidade = pessoa.CTLocalidade,
+                CTPais = pessoa.CTPais,
+                CTEndereco = pessoa.CTEndereco,
+                PComments = pessoa.PComments
+            };
+
+            return View(pessoaInfo);
+        }
+
+        // POST: Pessoas/EditLoggedInPessoaViewModel
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Pessoa")]
+        public async Task<IActionResult> EditPersonalData(EditLoggedInPessoaViewModel pessoa)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(pessoa);
+            }
+
+
+            string email = User.Identity.Name;
+
+            var pessoaLoggedin = await _context.Pessoa.SingleOrDefaultAsync(p => p.PEmail == email);
+            if (pessoaLoggedin == null)
+            {
+                return NotFound();
+            }
+
+            pessoaLoggedin.PNome = pessoa.PNome;
+            pessoaLoggedin.PContato = pessoa.PContato;
+            //pessoaLoggedin.PEmail = pessoa.PEmail;
+            pessoaLoggedin.CTDataNas = pessoa.CTDataNas;
+            pessoaLoggedin.CTNIF = pessoa.CTNIF;
+            pessoaLoggedin.CTLocalidade = pessoa.CTLocalidade;
+            pessoaLoggedin.CTPais = pessoa.CTPais;
+            pessoaLoggedin.CTEndereco = pessoa.CTEndereco;
+            pessoaLoggedin.PComments = pessoa.PComments;
+
+            //if (pessoaLoggedin.PessoaID != pessoa.PessoaID)
+            //{
+            //    return NotFound();
+            //}
+
+            try
+            {
+                _context.Update(pessoaLoggedin);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                //if (!PessoaExists(pessoa.PessoaID))
+                //{
+                //    return NotFound();
+                //}
+                //else
+                //{
+                    throw;
+                //}
+            }
+            return RedirectToAction(nameof(Index), "Home");
+        }
+
+
+
+
+
+
+
+
+
+
 
 
 
         // GET: Pessoas/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -137,7 +224,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PessoaID,PNome,PContato,PEmail,CTDataNas,CTNIF,CTLocalidade,CTPais,CTEndereco,PComments,Password,ConfirmPassword")] Pessoa pessoa)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, [Bind("PessoaID,PNome,PContato,PEmail,CTDataNas,CTNIF,CTLocalidade,CTPais,CTEndereco,PComments")] Pessoa pessoa)
         {
             if (id != pessoa.PessoaID)
             {
@@ -167,6 +255,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             return View(pessoa);
         }
 
+
+
         // GET: Pessoas/Delete/5
         //public async Task<IActionResult> Delete(int? id)
         //{
@@ -185,7 +275,7 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
         //    return View(pessoa);
         //}
 
-        //// POST: Pessoas/Delete/5
+        // POST: Pessoas/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         //public async Task<IActionResult> DeleteConfirmed(int id)

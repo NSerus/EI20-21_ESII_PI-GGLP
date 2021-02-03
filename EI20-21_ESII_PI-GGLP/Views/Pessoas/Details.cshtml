@@ -1,0 +1,73 @@
+﻿@model EI20_21_ESII_PI_GGLP.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Pessoa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PNome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PNome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PContato)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PContato)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CTDataNas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CTDataNas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CTNIF)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CTNIF)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CTLocalidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CTLocalidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CTPais)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CTPais)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CTEndereco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CTEndereco)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PComments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PComments)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PessoaID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

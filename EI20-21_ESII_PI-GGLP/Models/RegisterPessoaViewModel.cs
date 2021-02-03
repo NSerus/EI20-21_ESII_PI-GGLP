@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace EI20_21_ESII_PI_GGLP.Models
 {
-    public class Pessoa
+    public class RegisterPessoaViewModel
     {
-
-        [Key]
-        public int PessoaID { get; set; }
-
         // PNome
         [Required(ErrorMessage = "Introduza seu o Nome")]
         [RegularExpression(@"[a-zA-Z]+")]
@@ -52,7 +48,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         // CTEndereco
         [Required(ErrorMessage = "Introduza seu Endereço")]
-        //[RegularExpression(@"\d{4}(-\d{3})?", ErrorMessage = "Endereço inválido")]
+        [RegularExpression(@"\d{4}(-\d{3})?", ErrorMessage = "Endereço inválido")]
         public string CTEndereco { get; set; }
 
         // PComments
@@ -62,23 +58,11 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
 
+        [Required]
+        public string Password { get; set; }
 
-
-        //[Required]
-        //public string Password { get; set; }
-
-        //[Required]
-        //[Compare("Password", ErrorMessage = "The passwords don't match")]
-        //public string ConfirmPassword { get; set; }
-
-
-
-
-
-        // Pessoa Class '1 to *' Agendamento Class
-        public ICollection<Agendamento> Agendamentos { get; set; }
-
-        // Pessoa Class '1 to *' PontoDeInteresse Class
-        //public ICollection<PontoDeInteresse> PontoDeInteresses { get; set; }
+        [Required]
+        [Compare("Password", ErrorMessage = "The passwords don't match")]
+        public string ConfirmPassword { get; set; }
     }
 }

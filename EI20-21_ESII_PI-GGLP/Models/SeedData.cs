@@ -16,7 +16,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         private const string ROLE_ADMINISTRATOR = "Admin";
         private const string ROLE_PRODUCT_MANAGER = "ProdutManager";
-        private const string ROLE_CUSTOMER = "Customer";
+        private const string ROLE_CUSTOMER = "Pessoa";
 
         internal static async Task SeedDefaultAdminAsync(UserManager<IdentityUser> userManager)
         {
@@ -56,33 +56,39 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
         internal static async Task SeedDevUsersAsync(UserManager<IdentityUser> userManager)
         {
-            await EnsureUserIsCreated(userManager, "john@ipg.pt", "Secret123$", ROLE_PRODUCT_MANAGER);
-            await EnsureUserIsCreated(userManager, "mary@ipg.pt", "Secret123$", ROLE_CUSTOMER);
+            await EnsureUserIsCreated(userManager, "admin@ipg.pt", "Secret123$", ROLE_PRODUCT_MANAGER);
+
+            await EnsureUserIsCreated(userManager, "richards@ipg.pt", "Secret123$", ROLE_PRODUCT_MANAGER);
+            await EnsureUserIsCreated(userManager, "nserus@ipg.pt", "Secret123$", ROLE_PRODUCT_MANAGER);
+            await EnsureUserIsCreated(userManager, "aureopaquete@ipg.pt", "Secret123$", ROLE_PRODUCT_MANAGER);
+
+
+            await EnsureUserIsCreated(userManager, "jose@gmail.pt", "Secret123$", ROLE_CUSTOMER);
         }
 
-        internal static void SeedDevData(GGLPDbContext db)
-        {
-            if (db.Pessoa.Any()) return;
+        //internal static void SeedDevData(GGLPDbContext db)
+        //{
+        //    if (db.Pessoa.Any()) return;
 
-            db.Pessoa.Add(new Pessoa
-            {
-                //Name = "Mary",
-                //Email = "mary@ipg.pt"
+        //    db.Pessoa.Add(new Pessoa
+        //    {
+        //        //Name = "Mary",
+        //        //Email = "mary@ipg.pt"
 
-                ////PessoaID
-                //PNome = "José Martins",
-                //PContato = 928312764,
-                //PEmail = "jmartisn@gmail.com",
-                //CTDataNas = new DateTime(1985, 02, 21),
-                //CTNIF = 826496108,
-                //CTLocalidade = "Aveiro",
-                //CTPais = "Portugal",
-                //CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
-                //PComments = "Dono de Restaurante"
-            });
+        //        //PessoaID
+        //        PNome = "José Martins",
+        //        PContato = 928312764,
+        //        PEmail = "jose@gmail.pt",
+        //        CTDataNas = new DateTime(1985, 02, 21),
+        //        CTNIF = 826496108,
+        //        CTLocalidade = "Aveiro",
+        //        CTPais = "Portugal",
+        //        CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
+        //        PComments = "Dono de Restaurante"
+        //});
 
-            db.SaveChanges();
-        }
+        //    db.SaveChanges();
+        //}
 
 
 
@@ -95,64 +101,38 @@ namespace EI20_21_ESII_PI_GGLP.Models
             PopulateCategoria(dbContext);
             PopulateDia(dbContext);
             PopulatePontoDeInteresse(dbContext);
-            //PopulatePessoas(dbContext);
+            PopulatePessoas(dbContext);
             //PopulateAgendamentos(dbContext);
             PopulateHorario(dbContext);
         }
 
-        //private static void PopulatePessoas(GGLPDbContext dbContext)
-        //{
-        //    if (dbContext.Pessoa.Any())
-        //    {
-        //        return;
-        //    }
+        private static void PopulatePessoas(GGLPDbContext dbContext)
+        {
+            if (dbContext.Pessoa.Any())
+            {
+                return;
+            }
 
-        //    dbContext.Pessoa.AddRange(
-        //        new Pessoa
-        //        {
-        //            //PessoaID
-        //            PNome = "José Martins",
-        //            PContato = 928312764,
-        //            PEmail = "jmartisn@gmail.com",
-        //            CTDataNas = new DateTime(1985, 02, 21),
-        //            CTNIF = 826496108,
-        //            CTLocalidade = "Aveiro",
-        //            CTPais = "Portugal",
-        //            CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
-        //            PComments = "Dono de Restaurante",
-        //        },
-        //        new Pessoa
-        //        {
-        //            //PessoaID
-        //            PNome = "Maria Bataguas",
-        //            PContato = 931231184,
-        //            PEmail = "mbata@gmail.com",
-        //            CTDataNas = new DateTime(1988, 07, 15),
-        //            CTNIF = 947534012,
-        //            CTLocalidade = "Porto",
-        //            CTPais = "Portugal",
-        //            CTEndereco = "Rua. Maria das Flores, 6783-687, Porto",
-        //            PComments = "Cliente de Restaurante",
-        //        },
-        //        new Pessoa
-        //        {
-        //            //PessoaID
-        //            PNome = "José Serôdio",
-        //            PContato = 912364712,
-        //            PEmail = "jserus@gmail.com",
-        //            CTDataNas = new DateTime(1992, 11, 03),
-        //            CTNIF = 486713967,
-        //            CTLocalidade = "Lisboa",
-        //            CTPais = "Portugal",
-        //            CTEndereco = "Rua. Quinta das Telhas, 9587-028, Lisboa",
-        //            PComments = "Diretor de Museu",
-        //        }
-        //    );
-        //    dbContext.SaveChanges();
-        //}
+            dbContext.Pessoa.AddRange(
+                new Pessoa
+                {
+                    //PessoaID
+                    PNome = "José Martins",
+                    PContato = 928312764,
+                    PEmail = "jose@gmail.pt",
+                    CTDataNas = new DateTime(1985, 02, 21),
+                    CTNIF = 826496108,
+                    CTLocalidade = "Aveiro",
+                    CTPais = "Portugal",
+                    CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
+                    PComments = "Dono de Restaurante"
+                }
+            );
+            dbContext.SaveChanges();
+        }
 
-            
-        
+
+
 
         private static void PopulateEstado(GGLPDbContext dbContext)
         {
