@@ -1,4 +1,5 @@
 ﻿using EI20_21_ESII_PI_GGLP.Data;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,84 @@ namespace EI20_21_ESII_PI_GGLP.Models
 {
     public class SeedData
     {
+        // Login
+        private const string DEFAULT_ADMIN_USER = "admin@ipg.pt";
+        private const string DEFAULT_ADMIN_PASSWORD = "Secret123$";
+
+        private const string ROLE_ADMINISTRATOR = "Admin";
+        private const string ROLE_PRODUCT_MANAGER = "ProdutManager";
+        private const string ROLE_CUSTOMER = "Customer";
+
+        internal static async Task SeedDefaultAdminAsync(UserManager<IdentityUser> userManager)
+        {
+            await EnsureUserIsCreated(userManager, DEFAULT_ADMIN_USER, DEFAULT_ADMIN_PASSWORD, ROLE_ADMINISTRATOR);
+        }
+
+        private static async Task EnsureUserIsCreated(UserManager<IdentityUser> userManager, string username, string password, string role)
+        {
+            IdentityUser user = await userManager.FindByNameAsync(username);
+
+            if (user == null)
+            {
+                user = new IdentityUser(username);
+                await userManager.CreateAsync(user, password);
+            }
+
+            if (!await userManager.IsInRoleAsync(user, role))
+            {
+                await userManager.AddToRoleAsync(user, role);
+            }
+        }
+
+        internal static async Task SeedRolesAsync(RoleManager<IdentityRole> roleManager)
+        {
+            await EnsureRoleIsCreated(roleManager, ROLE_ADMINISTRATOR);
+            await EnsureRoleIsCreated(roleManager, ROLE_PRODUCT_MANAGER);
+            await EnsureRoleIsCreated(roleManager, ROLE_CUSTOMER);
+        }
+
+        private static async Task EnsureRoleIsCreated(RoleManager<IdentityRole> roleManager, string role)
+        {
+            if (!await roleManager.RoleExistsAsync(role))
+            {
+                await roleManager.CreateAsync(new IdentityRole(role));
+            }
+        }
+
+        internal static async Task SeedDevUsersAsync(UserManager<IdentityUser> userManager)
+        {
+            await EnsureUserIsCreated(userManager, "john@ipg.pt", "Secret123$", ROLE_PRODUCT_MANAGER);
+            await EnsureUserIsCreated(userManager, "mary@ipg.pt", "Secret123$", ROLE_CUSTOMER);
+        }
+
+        internal static void SeedDevData(GGLPDbContext db)
+        {
+            if (db.Pessoa.Any()) return;
+
+            db.Pessoa.Add(new Pessoa
+            {
+                //Name = "Mary",
+                //Email = "mary@ipg.pt"
+
+                ////PessoaID
+                //PNome = "José Martins",
+                //PContato = 928312764,
+                //PEmail = "jmartisn@gmail.com",
+                //CTDataNas = new DateTime(1985, 02, 21),
+                //CTNIF = 826496108,
+                //CTLocalidade = "Aveiro",
+                //CTPais = "Portugal",
+                //CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
+                //PComments = "Dono de Restaurante"
+            });
+
+            db.SaveChanges();
+        }
+
+
+
+
+
 
         internal static void Populate(GGLPDbContext dbContext)
         {
@@ -16,46 +95,61 @@ namespace EI20_21_ESII_PI_GGLP.Models
             PopulateCategoria(dbContext);
             PopulateDia(dbContext);
             PopulatePontoDeInteresse(dbContext);
-            PopulatePessoas(dbContext);
-            PopulateAgendamentos(dbContext);
+            //PopulatePessoas(dbContext);
+            //PopulateAgendamentos(dbContext);
             PopulateHorario(dbContext);
         }
 
-        private static void PopulatePessoas(GGLPDbContext dbContext)
-        {
-            if (dbContext.Pessoa.Any())
-            {
-                return;
-            }
+        //private static void PopulatePessoas(GGLPDbContext dbContext)
+        //{
+        //    if (dbContext.Pessoa.Any())
+        //    {
+        //        return;
+        //    }
 
-            dbContext.Pessoa.AddRange(
-                new Pessoa
-                {
-                    //PessoaID
-                    PNome = "José Martins",
-                    PContato = 928312764,
-                    PEmail = "jmartisn@gmail.com",
-                    PComments = "Dono de Restaurante",
-                },
-                new Pessoa
-                {
-                    //PessoaID
-                    PNome = "Maria Bataguas",
-                    PContato = 931231184,
-                    PEmail = "mbata@gmail.com",
-                    PComments = "Cliente de Restaurante",
-                },
-                new Pessoa
-                {
-                    //PessoaID
-                    PNome = "José Serôdio",
-                    PContato = 912364712,
-                    PEmail = "jserus@gmail.com",
-                    PComments = "Diretor de Museu",
-                }
-            );
-            dbContext.SaveChanges();
-        }
+        //    dbContext.Pessoa.AddRange(
+        //        new Pessoa
+        //        {
+        //            //PessoaID
+        //            PNome = "José Martins",
+        //            PContato = 928312764,
+        //            PEmail = "jmartisn@gmail.com",
+        //            CTDataNas = new DateTime(1985, 02, 21),
+        //            CTNIF = 826496108,
+        //            CTLocalidade = "Aveiro",
+        //            CTPais = "Portugal",
+        //            CTEndereco = "Rua. Manel Antonio, 3648-143, Aveiro",
+        //            PComments = "Dono de Restaurante",
+        //        },
+        //        new Pessoa
+        //        {
+        //            //PessoaID
+        //            PNome = "Maria Bataguas",
+        //            PContato = 931231184,
+        //            PEmail = "mbata@gmail.com",
+        //            CTDataNas = new DateTime(1988, 07, 15),
+        //            CTNIF = 947534012,
+        //            CTLocalidade = "Porto",
+        //            CTPais = "Portugal",
+        //            CTEndereco = "Rua. Maria das Flores, 6783-687, Porto",
+        //            PComments = "Cliente de Restaurante",
+        //        },
+        //        new Pessoa
+        //        {
+        //            //PessoaID
+        //            PNome = "José Serôdio",
+        //            PContato = 912364712,
+        //            PEmail = "jserus@gmail.com",
+        //            CTDataNas = new DateTime(1992, 11, 03),
+        //            CTNIF = 486713967,
+        //            CTLocalidade = "Lisboa",
+        //            CTPais = "Portugal",
+        //            CTEndereco = "Rua. Quinta das Telhas, 9587-028, Lisboa",
+        //            PComments = "Diretor de Museu",
+        //        }
+        //    );
+        //    dbContext.SaveChanges();
+        //}
 
             
         
@@ -314,114 +408,6 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     PDataEstado = DateTime.Today,
                     PComments = "Incluem televisão por cabo e um mini - bar.As casas de banho privativas estão equipadas com produtos de higiene pessoal e algumas casas de banho têm uma banheira de hidromassagem. O Restaurante D. Sancho, no último piso, oferece vistas panorâmicas e comida local num ambiente descontraído. Com vista para as montanhas circundantes, o bar do hotel dispõe de uma lareira acolhedora."
                 }
-
-
-
-                //
-
-
-                //new PontoDeInteresse
-                //{
-                //    //PontoDeInteresseID
-                //    CategoriaID = 8,
-                //    PImagem = ReadFile("wwwroot/assets/img/5.jpg"),
-                //    PNome = "Modelo Continente",
-                //    PDescricao = "O hipermercado onde encontra todas as promoções, campanhas e produtos aos preços mais baixos.",
-                //    PEndereco = "Freguesia S. Vicente, R. do Ferrinho, 6300-566, Guarda",
-                //    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12127.231499683416!2d-7.2647305!3d40.5458336!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x42f27027838f233e!2sContinente%20Modelo%20Guarda!5e0!3m2!1sen!2spt!4v1611138323924!5m2!1sen!2spt",
-                //    PContacto = 271100530,
-                //    PEmail = "",
-                //    PNumPessoas = ,
-                //    PMaxPessoas = 60,
-                //    EstadoID = 1,
-                //    PDataEstado = DateTime.Today,
-                //    PComments = "Com piso em carpete e móveis de madeira, os quartos e suítes modestos oferecem Wi - Fi gratuito, TV por satélite e frigobar, bem como cofre. O buffet de café da manhã é cortesia.Outras comodidades incluem um restaurante despretensioso, espaço para reuniões e um bar com lareira.Estacionamento disponível."
-                //},
-                //new PontoDeInteresse
-                //{
-                //    //PontoDeInteresseID
-                //    CategoriaID = 6,
-                //    PImagem = ReadFile("wwwroot/assets/img/5.jpg"),
-                //    PNome = "Teatro Municipal",
-                //    PDescricao = "Espaço de divulgação e promoção dos eventos culturais organizados, programados ou apoiados pelo Teatro Municipal da Guarda.",
-                //    PEndereco = "R. Batalha Reis 12, 6300-668, Guarda",
-                //    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12128.537572679055!2d-7.2698275!3d40.5386199!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29345b6fc74d0998!2sS%C3%A9%20da%20Guarda!5e0!3m2!1sen!2spt!4v1610848692106!5m2!1sen!2spt",
-                //    PContacto = 271205240,
-                //    PEmail = "geral@tmg.com.pt",
-                //    PNumPessoas = 0,
-                //    PMaxPessoas = 100,
-                //    EstadoID = 1,
-                //    PDataEstado = DateTime.Today,
-                //    PComments = "Espaço com diversas e vários tipos de actividades de lazer, como exibição de cultura, teatro, cinematografia, etc..."
-                //},
-                //new PontoDeInteresse
-                //{
-                //    //PontoDeInteresseID
-                //    CategoriaID = 6,
-                //    PImagem = ReadFile("wwwroot/assets/img/5.jpg"),
-                //    PNome = "Teatro Municipal",
-                //    PDescricao = "Espaço de divulgação e promoção dos eventos culturais organizados, programados ou apoiados pelo Teatro Municipal da Guarda.",
-                //    PEndereco = "R. Batalha Reis 12, 6300-668, Guarda",
-                //    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12128.537572679055!2d-7.2698275!3d40.5386199!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29345b6fc74d0998!2sS%C3%A9%20da%20Guarda!5e0!3m2!1sen!2spt!4v1610848692106!5m2!1sen!2spt",
-                //    PContacto = 271205240,
-                //    PEmail = "geral@tmg.com.pt",
-                //    PNumPessoas = 0,
-                //    PMaxPessoas = 100,
-                //    EstadoID = 1,
-                //    PDataEstado = DateTime.Today,
-                //    PComments = "Espaço com diversas e vários tipos de actividades de lazer, como exibição de cultura, teatro, cinematografia, etc..."
-                //},
-                //new PontoDeInteresse
-                //{
-                //    //PontoDeInteresseID
-                //    CategoriaID = 6,
-                //    PImagem = ReadFile("wwwroot/assets/img/5.jpg"),
-                //    PNome = "Teatro Municipal",
-                //    PDescricao = "Espaço de divulgação e promoção dos eventos culturais organizados, programados ou apoiados pelo Teatro Municipal da Guarda.",
-                //    PEndereco = "R. Batalha Reis 12, 6300-668, Guarda",
-                //    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12128.537572679055!2d-7.2698275!3d40.5386199!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29345b6fc74d0998!2sS%C3%A9%20da%20Guarda!5e0!3m2!1sen!2spt!4v1610848692106!5m2!1sen!2spt",
-                //    PContacto = 271205240,
-                //    PEmail = "geral@tmg.com.pt",
-                //    PNumPessoas = 0,
-                //    PMaxPessoas = 100,
-                //    EstadoID = 1,
-                //    PDataEstado = DateTime.Today,
-                //    PComments = "Espaço com diversas e vários tipos de actividades de lazer, como exibição de cultura, teatro, cinematografia, etc..."
-                //},
-                //new PontoDeInteresse
-                //{
-                //    //PontoDeInteresseID
-                //    CategoriaID = 6,
-                //    PImagem = ReadFile("wwwroot/assets/img/5.jpg"),
-                //    PNome = "Teatro Municipal",
-                //    PDescricao = "Espaço de divulgação e promoção dos eventos culturais organizados, programados ou apoiados pelo Teatro Municipal da Guarda.",
-                //    PEndereco = "R. Batalha Reis 12, 6300-668, Guarda",
-                //    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12128.537572679055!2d-7.2698275!3d40.5386199!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29345b6fc74d0998!2sS%C3%A9%20da%20Guarda!5e0!3m2!1sen!2spt!4v1610848692106!5m2!1sen!2spt",
-                //    PContacto = 271205240,
-                //    PEmail = "geral@tmg.com.pt",
-                //    PNumPessoas = 0,
-                //    PMaxPessoas = 100,
-                //    EstadoID = 1,
-                //    PDataEstado = DateTime.Today,
-                //    PComments = "Espaço com diversas e vários tipos de actividades de lazer, como exibição de cultura, teatro, cinematografia, etc..."
-                //},
-                //new PontoDeInteresse
-                //{
-                //    //PontoDeInteresseID
-                //    CategoriaID = 6,
-                //    PImagem = ReadFile("wwwroot/assets/img/5.jpg"),
-                //    PNome = "Teatro Municipal",
-                //    PDescricao = "Espaço de divulgação e promoção dos eventos culturais organizados, programados ou apoiados pelo Teatro Municipal da Guarda.",
-                //    PEndereco = "R. Batalha Reis 12, 6300-668, Guarda",
-                //    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12128.537572679055!2d-7.2698275!3d40.5386199!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29345b6fc74d0998!2sS%C3%A9%20da%20Guarda!5e0!3m2!1sen!2spt!4v1610848692106!5m2!1sen!2spt",
-                //    PContacto = 271205240,
-                //    PEmail = "geral@tmg.com.pt",
-                //    PNumPessoas = 0,
-                //    PMaxPessoas = 100,
-                //    EstadoID = 1,
-                //    PDataEstado = DateTime.Today,
-                //    PComments = "Espaço com diversas e vários tipos de actividades de lazer, como exibição de cultura, teatro, cinematografia, etc..."
-                //}
             );
 
             dbContext.SaveChanges();
@@ -459,141 +445,128 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
 
-        private static void PopulateAgendamentos(GGLPDbContext dbContext)
-        {
-            if (dbContext.Agendamento.Any())
-            {
-                return;
-            }
+        //private static void PopulateAgendamentos(GGLPDbContext dbContext)
+        //{
+        //    if (dbContext.Agendamento.Any())
+        //    {
+        //        return;
+        //    }
 
-            dbContext.Agendamento.AddRange(
-                new Agendamento
-                {
-                    //AgendamentoID
-                    PessoaID = 1,
-                    PontoDeInteresseID = 4,
-                    AData = new DateTime(2021, 02, 12),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 2
+        //    dbContext.Agendamento.AddRange(
+        //        new Agendamento
+        //        {
+        //            //AgendamentoID
+        //            PessoaID = 1,
+        //            PontoDeInteresseID = 4,
+        //            AData = new DateTime(2021, 02, 12),
+        //            AHoraInicio = "21",
+        //            AHoraFim = "22",
+        //            ANumPessoas = 2
+        //        }
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 2,
+        //        //    PontoDeInteresseID = 3,
+        //        //    AData = new DateTime(2020, 12, 12),
+        //        //    AHoraInicio = "13",
+        //        //    AHoraFim = "17",
+        //        //    ANumPessoas = 1
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "15",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 12, 01),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2020, 12, 20),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 12, 23),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021, 02, 21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //},
+        //        //new Agendamento
+        //        //{
+        //        //    //AgendamentoID
+        //        //    PessoaID = 3,
+        //        //    PontoDeInteresseID = 2,
+        //        //    AData = new DateTime(2021,02,21),
+        //        //    AHoraInicio = "21",
+        //        //    AHoraFim = "22",
+        //        //    ANumPessoas = 4
+        //        //}
+        //    );
 
-
-                },
-                new Agendamento
-                {
-                    //AgendamentoID
-                    PessoaID = 2,
-                    PontoDeInteresseID = 3,
-                    AData = new DateTime(2020, 12, 12),
-                    AHoraInicio = "13",
-                    AHoraFim = "17",
-                    ANumPessoas = 1
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2021, 02, 21),
-                    AHoraInicio = "15",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2021, 12, 01),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2020, 12, 20),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2021, 12, 23),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2021, 02, 21),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2021, 02, 21),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2021, 02, 21),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2021, 02, 21),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                },
-                new Agendamento
-
-                {
-                    //AgendamentoID
-                    PessoaID = 3,
-                    PontoDeInteresseID = 2,
-                    AData = new DateTime(2021,02,21),
-                    AHoraInicio = "21",
-                    AHoraFim = "22",
-                    ANumPessoas = 4
-                }
-
-
-            );
-
-            dbContext.SaveChanges();
-        }
+        //    dbContext.SaveChanges();
+        //}
 
 
 
