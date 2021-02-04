@@ -64,8 +64,11 @@
 
                 @*<li class="nav-item"><button onclick="myFunction()">Alterar vista</button></li>*@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color: white" onclick="myFunction()">Alterar vista</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color: white" asp-controller="PontoDeInteresse" asp-action="Create">Criar Novo Ponto de Interesse</a></li>
 
+                @if (User.IsInRole("Admin") || User.IsInRole("ProdutManager"))
+                {
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color: white" asp-controller="PontoDeInteresse" asp-action="Create">Criar Novo Ponto de Interesse</a></li>
+                }
             </ul>
         </div>
     </div>
@@ -234,9 +237,12 @@
 
 
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.PontoDeInteresseID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.PontoDeInteresseID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.PontoDeInteresseID">Delete</a>
+                        <a asp-action="Details" asp-route-id="@item.PontoDeInteresseID">Ver</a> 
+                        @if (User.IsInRole("Admin") || User.IsInRole("ProdutManager"))
+                         {
+                        <p>    </p><a asp-action="Edit" asp-route-id="@item.PontoDeInteresseID">Editar</a> 
+                        <p>    </p><a asp-action="Delete" asp-route-id="@item.PontoDeInteresseID">Eliminar</a>
+                         }
                     </td>
                 </tr>
             }

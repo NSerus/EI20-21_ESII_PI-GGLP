@@ -10,6 +10,8 @@
     <link rel="icon" type="image/x-icon" href="~/assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
@@ -34,12 +36,14 @@
                     @*<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Serviços</a></li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Categorias</a></li>*@
                     <!--TODO: Tirar COM IF QND HOUVER LOGIN-->
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Agendamentos" asp-action="Index">Agendamentos</a></li>
+                    @*<li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Agendamentos" asp-action="Index">Agendamentos</a></li>*@
                     <!--TODO: Tirar COM IF QND HOUVER LOGIN-->
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="PontoDeInteresse" asp-action="Index">Pontos De Interesse</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="COVID">DGS COVID-19</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="Sobre">Sobre</a></li>
 
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
+                    @*<li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="PontoSucesso">test</a></li>*@
 
                     <li>
                         <partial name="_LoginPartial" />

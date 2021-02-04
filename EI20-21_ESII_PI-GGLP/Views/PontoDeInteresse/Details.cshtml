@@ -222,7 +222,11 @@
             <div class="title">
                 <h2>@Html.DisplayFor(model => model.PNome)</h2>
                 <h3 style="color:gray;float: left">@Html.DisplayFor(model => model.Categoria.CTipo)</h3>
-                <a style="color: darkorange;float: right" href="../Edit/@Html.DisplayFor(model => model.PontoDeInteresseID)">Editar</a>
+
+                @if (User.IsInRole("Admin") || User.IsInRole("ProdutManager"))
+                {
+                    <a style="color: darkorange;float: right" href="../Edit/@Html.DisplayFor(model => model.PontoDeInteresseID)">Editar</a>
+                }
                 <br />
                 <br />
                 @*<h3 style="text-align:center">
@@ -305,12 +309,21 @@
 
                 <br />
                 <hr />
+                <br />
+                @if (User.IsInRole("Pessoa"))
+                {
+                    <a class="btn btn-primary" asp-controller="Agendamentos" asp-action="Create">Criar Agendamento</a>
+                }
+                <br />
+                <hr />
 
                 <h3>Horários</h3>
-
-                <a style="color:darkorange;" asp-controller="Horarios" asp-action="Create">Criar Horário</a>
-                <br />
-                <br />
+                @if (User.IsInRole("Admin") || User.IsInRole("ProdutManager"))
+                {
+                    <a style="color:darkorange;" asp-controller="Horarios" asp-action="Create">Criar Horário</a>
+                    <br />
+                }
+                @*<br />*@
 
 
                 @foreach (var item in @Model.Horario)
@@ -321,8 +334,11 @@
                     {
                         <span>
                             @Html.DisplayFor(modelItem => item.Dia.DNome) : @Html.DisplayFor(modelItem => item.HInicio):00 - @Html.DisplayFor(modelItem => item.HFim):00
-
-                            &nbsp;&nbsp;<a style="color: darkorange;" href="../../Horarios/Edit/@Html.DisplayFor(modelItem => item.HorarioID)">Editar</a>
+                            &nbsp; &nbsp;
+                            @if (User.IsInRole("Admin") || User.IsInRole("ProdutManager"))
+                            {
+                                <a style="color: darkorange;" href="../../Horarios/Edit/@Html.DisplayFor(modelItem => item.HorarioID)">Editar</a>
+                            }
                             <br />
                             @*@gg*@
                         </span>
@@ -480,7 +496,16 @@
             <span>@Html.DisplayFor(model => model.PDescricao)</span>
 
             <br />
+            @if (User.IsInRole("Pessoa"))
+            {
+                <hr />
+                <br />
+                <a class="btn btn-primary" asp-controller="Agendamentos" asp-action="Create">Criar Agendamento</a>
+
             <br />
+            <hr />
+            <br />
+            }
 
             <h3>Horários</h3>
 
@@ -628,7 +653,7 @@
             </dd>
         </dl>
     </div>*@
-<div>
+@*<div>
     <a asp-action="Edit" asp-route-id="@Model.PontoDeInteresseID">Edit</a> |
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@

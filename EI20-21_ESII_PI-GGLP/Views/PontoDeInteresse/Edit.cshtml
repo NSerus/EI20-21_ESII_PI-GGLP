@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    body {
+        background-color: aliceblue;
+    }
+</style>
+
 
 <br />
 <br />
@@ -13,7 +19,7 @@
 <br />
 
 <h2 class="text-center mt-0">Editar Ponto de Interesse</h2>
-<h2 class="text-center mt-0" style="color:gray" >@Model.PNome</h2>
+<h2 class="text-center mt-0" style="color:gray">@Model.PNome</h2>
 <hr />
 
 <br />
@@ -21,116 +27,116 @@
 
 <section class="container" style="width:600px">
 
-            <form asp-action="Edit" method="post" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <input type="hidden" asp-for="PontoDeInteresseID" />
-                <div class="form-group">
-                    <label asp-for="CategoriaID" class="control-label"></label>
-                    <select asp-for="CategoriaID" class="form-control" asp-items="ViewBag.CategoriaID"></select>
-                    <span asp-validation-for="CategoriaID" class="text-danger"></span>
+        <input type="hidden" asp-for="PontoDeInteresseID" />
+        <div class="form-group">
+            <label asp-for="CategoriaID" class="control-label"></label>
+            <select asp-for="CategoriaID" class="form-control" asp-items="ViewBag.CategoriaID"></select>
+            <span asp-validation-for="CategoriaID" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <!--<label asp-for="PImagem" class="control-label"></label>-->
-                    @*<input asp-for="PImagem" class="form-control" />*@
-                    <!--<input type="file" id="files" asp-for="PImagem" />
-    <span asp-validation-for="PImagem" class="text-danger"></span>-->
+            <!--<label asp-for="PImagem" class="control-label"></label>-->
+            @*<input asp-for="PImagem" class="form-control" />*@
+            <!--<input type="file" id="files" asp-for="PImagem" />
+            <span asp-validation-for="PImagem" class="text-danger"></span>-->
 
-                    <label asp-for="PImagem" class="control-label"></label>
-                    @*<input asp-for="PImagem" class="form-control" />*@
-                    <input type="file" id="files" asp-for="PImagem" />
-                    <span asp-validation-for="PImagem" class="text-danger"></span>
+            <label asp-for="PImagem" class="control-label"></label>
+            @*<input asp-for="PImagem" class="form-control" />*@
+            <input type="file" id="files" asp-for="PImagem" />
+            <span asp-validation-for="PImagem" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PNome" class="control-label"></label>
-                    <input asp-for="PNome" class="form-control" />
-                    <span asp-validation-for="PNome" class="text-danger"></span>
+            <label asp-for="PNome" class="control-label"></label>
+            <input asp-for="PNome" class="form-control" />
+            <span asp-validation-for="PNome" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PDescricao" class="control-label"></label>
-                    <input asp-for="PDescricao" class="form-control" />
-                    <span asp-validation-for="PDescricao" class="text-danger"></span>
+            <label asp-for="PDescricao" class="control-label"></label>
+            <input asp-for="PDescricao" class="form-control" />
+            <span asp-validation-for="PDescricao" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PEndereco" class="control-label"></label>
-                    <input asp-for="PEndereco" class="form-control" />
-                    <span asp-validation-for="PEndereco" class="text-danger"></span>
+            <label asp-for="PEndereco" class="control-label"></label>
+            <input asp-for="PEndereco" class="form-control" />
+            <span asp-validation-for="PEndereco" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PCoordenadas" class="control-label"></label>
-                    <input asp-for="PCoordenadas" class="form-control" />
-                    <span asp-validation-for="PCoordenadas" class="text-danger"></span>
+            <label asp-for="PCoordenadas" class="control-label"></label>
+            <input asp-for="PCoordenadas" class="form-control" />
+            <span asp-validation-for="PCoordenadas" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PContacto" class="control-label"></label>
-                    <input asp-for="PContacto" class="form-control" />
-                    <span asp-validation-for="PContacto" class="text-danger"></span>
+            <label asp-for="PContacto" class="control-label"></label>
+            <input asp-for="PContacto" class="form-control" />
+            <span asp-validation-for="PContacto" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PEmail" class="control-label"></label>
-                    <input asp-for="PEmail" class="form-control" />
-                    <span asp-validation-for="PEmail" class="text-danger"></span>
+            <label asp-for="PEmail" class="control-label"></label>
+            <input asp-for="PEmail" class="form-control" />
+            <span asp-validation-for="PEmail" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PNumPessoas" class="control-label"></label>
-                    <input asp-for="PNumPessoas" class="form-control" />
-                    <span asp-validation-for="PNumPessoas" class="text-danger"></span>
+            <label asp-for="PNumPessoas" class="control-label"></label>
+            <input asp-for="PNumPessoas" class="form-control" />
+            <span asp-validation-for="PNumPessoas" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PMaxPessoas" class="control-label"></label>
-                    <input asp-for="PMaxPessoas" class="form-control" />
-                    <span asp-validation-for="PMaxPessoas" class="text-danger"></span>
+            <label asp-for="PMaxPessoas" class="control-label"></label>
+            <input asp-for="PMaxPessoas" class="form-control" />
+            <span asp-validation-for="PMaxPessoas" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="EstadoID" class="control-label"></label>
-                    <select asp-for="EstadoID" class="form-control" asp-items="ViewBag.EstadoID"></select>
-                    <span asp-validation-for="EstadoID" class="text-danger"></span>
+            <label asp-for="EstadoID" class="control-label"></label>
+            <select asp-for="EstadoID" class="form-control" asp-items="ViewBag.EstadoID"></select>
+            <span asp-validation-for="EstadoID" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PDataEstado" class="control-label"></label>
-                    <input asp-for="PDataEstado" class="form-control" />
-                    <span asp-validation-for="PDataEstado" class="text-danger"></span>
+            <label asp-for="PDataEstado" class="control-label"></label>
+            <input asp-for="PDataEstado" class="form-control" />
+            <span asp-validation-for="PDataEstado" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <label asp-for="PComments" class="control-label"></label>
-                    <input asp-for="PComments" class="form-control" />
-                    <span asp-validation-for="PComments" class="text-danger"></span>
+            <label asp-for="PComments" class="control-label"></label>
+            <input asp-for="PComments" class="form-control" />
+            <span asp-validation-for="PComments" class="text-danger"></span>
 
-                    <br />
-                    <br />
+            <br />
+            <br />
 
-                    <a style="float: left" asp-action="Index">Voltar à Lista</a>
-                    <input type="submit" value="Guardar" class="btn btn-primary" style="float: right" />
+            <a style="float: left" asp-action="Index">Voltar à Lista</a>
+            <input type="submit" value="Guardar" class="btn btn-primary" style="float: right" />
 
-                    <br />
-                    <br />
-                    <br />
-                </div>
-            </form>
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
 
 
 </section>

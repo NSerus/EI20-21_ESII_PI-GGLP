@@ -117,7 +117,7 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             }
             _context.PontoDeInteresse.Add(pontosdeinteresse);
             _context.SaveChanges();
-            return View();
+            return View("../Home/PontoSucesso");
         }
 
         [HttpPost]
