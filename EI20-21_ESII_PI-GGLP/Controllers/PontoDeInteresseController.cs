@@ -72,6 +72,7 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
                 .Include(p => p.Horario).ThenInclude(y => y.Dia)
                 .FirstOrDefaultAsync(m => m.PontoDeInteresseID == id);
 
+
             if (pontoDeInteresse == null)
             {
                 return NotFound();
@@ -117,7 +118,8 @@ namespace EI20_21_ESII_PI_GGLP.Controllers
             }
             _context.PontoDeInteresse.Add(pontosdeinteresse);
             _context.SaveChanges();
-            return View("../Home/PontoSucesso");
+            //return View("../Home/PontoSucesso");
+            return RedirectToAction("PontoSucesso", "Home");
         }
 
         [HttpPost]

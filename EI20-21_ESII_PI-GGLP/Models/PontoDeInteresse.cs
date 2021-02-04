@@ -113,5 +113,6 @@ namespace EI20_21_ESII_PI_GGLP.Models
         public ICollection<Agendamento> Agendamentos { get; set; }
 
         //public IEnumerable<Dia> Dia { get; set; }
+
     }
 }

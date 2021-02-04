@@ -102,7 +102,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
             PopulateDia(dbContext);
             PopulatePontoDeInteresse(dbContext);
             PopulatePessoas(dbContext);
-            //PopulateAgendamentos(dbContext);
+            PopulateAgendamentos(dbContext);
             PopulateHorario(dbContext);
         }
 
@@ -387,6 +387,839 @@ namespace EI20_21_ESII_PI_GGLP.Models
                     EstadoID = 1,
                     PDataEstado = DateTime.Today,
                     PComments = "Incluem televisão por cabo e um mini - bar.As casas de banho privativas estão equipadas com produtos de higiene pessoal e algumas casas de banho têm uma banheira de hidromassagem. O Restaurante D. Sancho, no último piso, oferece vistas panorâmicas e comida local num ambiente descontraído. Com vista para as montanhas circundantes, o bar do hotel dispõe de uma lareira acolhedora."
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 11,
+                    PImagem = ReadFile("wwwroot/assets/img/9.jpg"),
+                    PNome = "Mercado Municipal da Guarda",
+                    PDescricao = "Mercado Mensal da Guarda este domingo no centro da cidade.",
+                    PEndereco = "R. Duque de Bragança, 6300-703, Guarda",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.244021604989!2d-7.2642052!3d40.5347176!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb1119cdff8f4f830!2sMercado%20Municipal!5e0!3m2!1sen!2spt!4v1612476645881!5m2!1sen!2spt",
+                    PContacto = 271222706,
+                    PEmail = "geral@mun-guarda.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 150,
+                    EstadoID = 1,
+                    PDataEstado = DateTime.Today,
+                    PComments = "Mercado com diversos postos de venda. Peixaria, Talho, Pronto a servir, etc..."
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 8,
+                    PImagem = ReadFile("wwwroot/assets/img/10.jpg"),
+                    PNome = "Continente (Centro)",
+                    PDescricao = "Hipermercado com produtos alimentares, téxteis, entre outros...",
+                    PEndereco = "Freguesia S. Vicente, R. do Ferrinho, 6300-566 Guarda",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12127.231499683416!2d-7.2647305!3d40.5458336!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x42f27027838f233e!2sContinente%20Modelo%20Guarda!5e0!3m2!1sen!2spt!4v1612476832160!5m2!1sen!2spt",
+                    PContacto = 271100530,
+                    PEmail = "guarda@continente.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 120,
+                    EstadoID = 1,
+                    PDataEstado = DateTime.Today,
+                    PComments = "Inclui estabelecimentos Worten, Alpha Moda, etc..."
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 9,
+                    PImagem = ReadFile("wwwroot/assets/img/11.jpg"),
+                    PNome = "Farmácia Moderna de S. Miguel",
+                    PDescricao = "Loja de produtos médicos em Guarda, Guarda, Portugal",
+                    PEndereco = "Av. de São Miguel, Edificio 2-B, 6300-864 Guarda",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12125.538571182364!2d-7.2453838!3d40.5551824!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x37c753c49215aee4!2sFarm%C3%A1cia%20Moderna%20Guarda!5e0!3m2!1sen!2spt!4v1612477156031!5m2!1sen!2spt",
+                    PContacto = 271239314,
+                    PEmail = "farmácia@moderna.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 40,
+                    EstadoID = 1,
+                    PDataEstado = DateTime.Today,
+                    PComments = "Venda de produtos cósméticos, alimentares, etc..."
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 10,
+                    PImagem = ReadFile("wwwroot/assets/img/12.jpg"),
+                    PNome = "In & Out Club Bistro",
+                    PDescricao = "O In&out Bistro Club define-se por em dois espaços oferecem serviço de cafetaria, restaurante, bar e club a qualquer hora do dia e da noite, enquadrado numa decoração moderna e in.",
+                    PEndereco = "6300 685, R. António Sérgio D, 6300-665 Guarda",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271087842,
+                    PEmail = "in@out.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 30,
+                    EstadoID = 1,
+                    PDataEstado = DateTime.Today,
+                    PComments = "O In&Out Bistro Club aposta num design moderno em tons de rosa e preto, num mobiliário arrojado e confortável, no audiovisual e no serviço personalizado, etc..."
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
+                },
+                new PontoDeInteresse
+                {
+                    //PontoDeInteresseID
+                    CategoriaID = 1,
+                    PImagem = ReadFile("wwwroot/assets/img/test.jpg"),
+                    PNome = "TEST_NOME",
+                    PDescricao = "TEST_DESCRIÇÃO",
+                    PEndereco = "TEST_MORADA",
+                    PCoordenadas = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12129.054864707994!2d-7.2627876!3d40.5357625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e0488785239c347!2sIn%20%26%20Out%20Club%20Bistro!5e0!3m2!1sen!2spt!4v1612477324059!5m2!1sen!2spt",
+                    PContacto = 271000000,
+                    PEmail = "TEST@TEST.pt",
+                    PNumPessoas = 0,
+                    PMaxPessoas = 100,
+                    EstadoID = 2,
+                    PDataEstado = DateTime.Today,
+                    PComments = "TEST_MOREINFO"
                 }
             );
 
@@ -405,7 +1238,7 @@ namespace EI20_21_ESII_PI_GGLP.Models
                 {
                     //HorarioID
                     DiaID = 1,
-                    PontoDeInteresseID = 2,
+                    PontoDeInteresseID = 33,
                     HInicio = 13,
                     HFim = 14
                 },
@@ -413,9 +1246,161 @@ namespace EI20_21_ESII_PI_GGLP.Models
                 {
                     //HorarioID
                     DiaID = 2,
-                    PontoDeInteresseID = 2,
+                    PontoDeInteresseID = 33,
                     HInicio = 9,
                     HFim = 10
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 3,
+                    PontoDeInteresseID = 33,
+                    HInicio = 8,
+                    HFim = 5
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 1,
+                    PontoDeInteresseID = 34,
+                    HInicio = 13,
+                    HFim = 14
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 2,
+                    PontoDeInteresseID = 34,
+                    HInicio = 9,
+                    HFim = 10
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 3,
+                    PontoDeInteresseID = 34,
+                    HInicio = 8,
+                    HFim = 5
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 1,
+                    PontoDeInteresseID = 35,
+                    HInicio = 13,
+                    HFim = 14
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 2,
+                    PontoDeInteresseID = 35,
+                    HInicio = 9,
+                    HFim = 10
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 3,
+                    PontoDeInteresseID = 35,
+                    HInicio = 8,
+                    HFim = 5
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 1,
+                    PontoDeInteresseID = 36,
+                    HInicio = 13,
+                    HFim = 14
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 2,
+                    PontoDeInteresseID = 36,
+                    HInicio = 9,
+                    HFim = 10
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 3,
+                    PontoDeInteresseID = 36,
+                    HInicio = 8,
+                    HFim = 5
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 1,
+                    PontoDeInteresseID = 37,
+                    HInicio = 13,
+                    HFim = 14
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 2,
+                    PontoDeInteresseID = 37,
+                    HInicio = 9,
+                    HFim = 10
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 3,
+                    PontoDeInteresseID = 37,
+                    HInicio = 8,
+                    HFim = 5
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 1,
+                    PontoDeInteresseID = 38,
+                    HInicio = 13,
+                    HFim = 14
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 2,
+                    PontoDeInteresseID = 38,
+                    HInicio = 9,
+                    HFim = 10
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 3,
+                    PontoDeInteresseID = 38,
+                    HInicio = 8,
+                    HFim = 5
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 1,
+                    PontoDeInteresseID = 39,
+                    HInicio = 13,
+                    HFim = 14
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 2,
+                    PontoDeInteresseID = 39,
+                    HInicio = 9,
+                    HFim = 10
+                },
+                new Horario
+                {
+                    //HorarioID
+                    DiaID = 3,
+                    PontoDeInteresseID = 39,
+                    HInicio = 8,
+                    HFim = 5
                 }
             );
 
@@ -425,128 +1410,128 @@ namespace EI20_21_ESII_PI_GGLP.Models
 
 
 
-        //private static void PopulateAgendamentos(GGLPDbContext dbContext)
-        //{
-        //    if (dbContext.Agendamento.Any())
-        //    {
-        //        return;
-        //    }
+        private static void PopulateAgendamentos(GGLPDbContext dbContext)
+        {
+            if (dbContext.Agendamento.Any())
+            {
+                return;
+            }
 
-        //    dbContext.Agendamento.AddRange(
-        //        new Agendamento
-        //        {
-        //            //AgendamentoID
-        //            PessoaID = 1,
-        //            PontoDeInteresseID = 4,
-        //            AData = new DateTime(2021, 02, 12),
-        //            AHoraInicio = "21",
-        //            AHoraFim = "22",
-        //            ANumPessoas = 2
-        //        }
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 2,
-        //        //    PontoDeInteresseID = 3,
-        //        //    AData = new DateTime(2020, 12, 12),
-        //        //    AHoraInicio = "13",
-        //        //    AHoraFim = "17",
-        //        //    ANumPessoas = 1
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2021, 02, 21),
-        //        //    AHoraInicio = "15",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2021, 12, 01),
-        //        //    AHoraInicio = "21",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2020, 12, 20),
-        //        //    AHoraInicio = "21",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2021, 12, 23),
-        //        //    AHoraInicio = "21",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2021, 02, 21),
-        //        //    AHoraInicio = "21",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2021, 02, 21),
-        //        //    AHoraInicio = "21",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2021, 02, 21),
-        //        //    AHoraInicio = "21",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2021, 02, 21),
-        //        //    AHoraInicio = "21",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //},
-        //        //new Agendamento
-        //        //{
-        //        //    //AgendamentoID
-        //        //    PessoaID = 3,
-        //        //    PontoDeInteresseID = 2,
-        //        //    AData = new DateTime(2021,02,21),
-        //        //    AHoraInicio = "21",
-        //        //    AHoraFim = "22",
-        //        //    ANumPessoas = 4
-        //        //}
-        //    );
+            dbContext.Agendamento.AddRange(
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 42,
+                    AData = new DateTime(2021, 02, 12),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 2
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 3,
+                    AData = new DateTime(2020, 12, 12),
+                    AHoraInicio = "13",
+                    AHoraFim = "17",
+                    ANumPessoas = 1
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 2,
+                    AData = new DateTime(2021, 02, 21),
+                    AHoraInicio = "15",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 33,
+                    AData = new DateTime(2021, 12, 01),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 36,
+                    AData = new DateTime(2020, 12, 20),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 39,
+                    AData = new DateTime(2021, 12, 23),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 2,
+                    AData = new DateTime(2021, 02, 21),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 40,
+                    AData = new DateTime(2021, 02, 21),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 9,
+                    AData = new DateTime(2021, 02, 21),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 2,
+                    AData = new DateTime(2021, 02, 21),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                },
+                new Agendamento
+                {
+                    //AgendamentoID
+                    PessoaID = 1,
+                    PontoDeInteresseID = 35,
+                    AData = new DateTime(2021, 02, 21),
+                    AHoraInicio = "21",
+                    AHoraFim = "22",
+                    ANumPessoas = 4
+                }
+            );
 
-        //    dbContext.SaveChanges();
-        //}
+            dbContext.SaveChanges();
+        }
 
 
 

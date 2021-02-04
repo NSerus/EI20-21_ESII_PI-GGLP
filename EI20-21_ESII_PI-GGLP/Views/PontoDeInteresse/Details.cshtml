@@ -167,9 +167,10 @@
             background-color: lightgray;
         }
     }
+
     th, td {
         border: none;
-        text-align:center;
+        text-align: center;
     }
 </style>
 
@@ -230,22 +231,22 @@
                 <br />
                 <br />
                 @*<h3 style="text-align:center">
-            @if (Model.EstadoID == 1)
-            {
-                <font style="color:forestgreen">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
-                <font style="font-size:small;color:forestgreen">@Html.DisplayFor(model => model.PDataEstado)</font>
-            }
-            else if (Model.EstadoID == 2)
-            {
-                <font style="color:red">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
-                <font style="font-size:small;color:red">@Html.DisplayFor(model => model.PDataEstado)</font>
-            }
-            else if (Model.EstadoID == 3)
-            {
-                <font style="color:orange">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
-                <font style="font-size:small;color:orange">@Html.DisplayFor(model => model.PDataEstado)</font>
-            }
-        </h3>*@
+                        @if (Model.EstadoID == 1)
+                        {
+                            <font style="color:forestgreen">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
+                            <font style="font-size:small;color:forestgreen">@Html.DisplayFor(model => model.PDataEstado)</font>
+                        }
+                        else if (Model.EstadoID == 2)
+                        {
+                            <font style="color:red">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
+                            <font style="font-size:small;color:red">@Html.DisplayFor(model => model.PDataEstado)</font>
+                        }
+                        else if (Model.EstadoID == 3)
+                        {
+                            <font style="color:orange">@Html.DisplayFor(model => model.Estado.ENome)</font><br />
+                            <font style="font-size:small;color:orange">@Html.DisplayFor(model => model.PDataEstado)</font>
+                        }
+                    </h3>*@
 
                 <table style="border-collapse: collapse; width: 100%;">
                     <tr>
@@ -307,11 +308,11 @@
 
                 <span>@Html.DisplayFor(model => model.PDescricao)</span>
 
-                <br />
-                <hr />
-                <br />
                 @if (User.IsInRole("Pessoa"))
                 {
+                    <br />
+                    <hr />
+                    <br />
                     <a class="btn btn-primary" asp-controller="Agendamentos" asp-action="Create">Criar Agendamento</a>
                 }
                 <br />
@@ -366,22 +367,23 @@
                 <span>@Html.DisplayFor(model => model.PComments)</span>
 
 
+
                 @*<button asp-controller="Horarios" asp-action="Index">Horários</button>*@
 
                 @*<div class="variant">
-            <h3>SELECT A COLOR</h3>
+                        <h3>SELECT A COLOR</h3>
 
-        </div>
-        <div class="ddescription">
-            <h3>BENEFITS</h3>
-            <ul>
-                <li>Apples are nutricious</li>
-                <li>Apples may be good for weight loss</li>
-                <li>Apples may be good for bone health</li>
-                <li>They're linked to a lowest risk of diabetes</li>
-            </ul>
-        </div>
-        <button class="buy--btn">ADD TO CART</button>*@
+                    </div>
+                    <div class="ddescription">
+                        <h3>BENEFITS</h3>
+                        <ul>
+                            <li>Apples are nutricious</li>
+                            <li>Apples may be good for weight loss</li>
+                            <li>Apples may be good for bone health</li>
+                            <li>They're linked to a lowest risk of diabetes</li>
+                        </ul>
+                    </div>
+                    <button class="buy--btn">ADD TO CART</button>*@
             </div>
 
     </section>
@@ -502,9 +504,9 @@
                 <br />
                 <a class="btn btn-primary" asp-controller="Agendamentos" asp-action="Create">Criar Agendamento</a>
 
-            <br />
-            <hr />
-            <br />
+                <br />
+                <hr />
+                <br />
             }
 
             <h3>Horários</h3>
@@ -541,22 +543,22 @@
             <br />
 
             @*<div class="variant">
-                <h3>SELECT A COLOR</h3>
+                        <h3>SELECT A COLOR</h3>
 
-            </div>
-            <div class="ddescription">
-                <h3>BENEFITS</h3>
-                <ul>
-                    <li>Apples are nutricious</li>
-                    <li>Apples may be good for weight loss</li>
-                    <li>Apples may be good for bone health</li>
-                    <li>They're linked to a lowest risk of diabetes</li>
-                </ul>
-            </div>
-            <button class="buy--btn">ADD TO CART</button>
-        </div>*@
+                    </div>
+                    <div class="ddescription">
+                        <h3>BENEFITS</h3>
+                        <ul>
+                            <li>Apples are nutricious</li>
+                            <li>Apples may be good for weight loss</li>
+                            <li>Apples may be good for bone health</li>
+                            <li>They're linked to a lowest risk of diabetes</li>
+                        </ul>
+                    </div>
+                    <button class="buy--btn">ADD TO CART</button>
+                </div>*@
 
-</section>
+    </section>
 
 </div>
 
@@ -654,6 +656,6 @@
         </dl>
     </div>*@
 @*<div>
-    <a asp-action="Edit" asp-route-id="@Model.PontoDeInteresseID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>*@
+        <a asp-action="Edit" asp-route-id="@Model.PontoDeInteresseID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

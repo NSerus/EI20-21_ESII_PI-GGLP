@@ -237,12 +237,12 @@
 
 
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.PontoDeInteresseID">Ver</a> 
+                        <a asp-action="Details" asp-route-id="@item.PontoDeInteresseID">Ver</a>
                         @if (User.IsInRole("Admin") || User.IsInRole("ProdutManager"))
-                         {
-                        <p>    </p><a asp-action="Edit" asp-route-id="@item.PontoDeInteresseID">Editar</a> 
-                        <p>    </p><a asp-action="Delete" asp-route-id="@item.PontoDeInteresseID">Eliminar</a>
-                         }
+                        {
+                            <p>    </p><a asp-action="Edit" asp-route-id="@item.PontoDeInteresseID">Editar</a>
+                            <p>    </p><a asp-action="Delete" asp-route-id="@item.PontoDeInteresseID">Eliminar</a>
+                        }
                     </td>
                 </tr>
             }
