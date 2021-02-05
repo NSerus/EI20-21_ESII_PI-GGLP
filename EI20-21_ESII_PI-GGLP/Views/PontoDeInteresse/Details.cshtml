@@ -333,16 +333,16 @@
 
                     if (Model != null)
                     {
-                        <span>
-                            @Html.DisplayFor(modelItem => item.Dia.DNome) : @Html.DisplayFor(modelItem => item.HInicio):00 - @Html.DisplayFor(modelItem => item.HFim):00
-                            &nbsp; &nbsp;
-                            @if (User.IsInRole("Admin") || User.IsInRole("ProdutManager"))
-                            {
-                                <a style="color: darkorange;" href="../../Horarios/Edit/@Html.DisplayFor(modelItem => item.HorarioID)">Editar</a>
-                            }
-                            <br />
-                            @*@gg*@
-                        </span>
+            <span>
+                @Html.DisplayFor(modelItem => item.Dia.DNome) : @Html.DisplayFor(modelItem => item.HInicio):00 - @Html.DisplayFor(modelItem => item.HFim):00
+                &nbsp; &nbsp;
+                @if (User.IsInRole("Admin") || User.IsInRole("ProdutManager"))
+                {
+                    <a style="color: darkorange;" href="../../Horarios/Edit/@Html.DisplayFor(modelItem => item.HorarioID)">Editar</a>     <a style="color: darkorange;" href="../../Horarios/Delete/@item.HorarioID">Eliminar</a>
+                }
+                <br />
+                @*@gg*@
+            </span>
 
 
                     }
